@@ -15,7 +15,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Protocol, Sequence, Union, runtime_checkable
 from uuid import uuid4
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 from apps.ingestion.models import DocumentType, LineOfBusiness, SourceType
 
@@ -179,9 +179,12 @@ class ParsedDocument(BaseModel):
             return self.total_pages
         return len(self.pages) if self.pages else 1
 
-    def __init__(self, **data: Any):
-        data = self._sync_fields(data)
-        super().__init__(**data)
+    @model_validator(mode="before")
+    @classmethod
+    def _run_sync_fields(cls, data: Any) -> Any:
+        if isinstance(data, dict):
+            data = cls._sync_fields(data)
+        return data
 
 
 # =====================================================================
