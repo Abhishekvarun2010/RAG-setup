@@ -1,0 +1,426 @@
+================================================================================
+EXTRACTED DOCUMENT ATTRIBUTES & VALUES REPORT
+================================================================================
+Source PDF File: /Users/abhishm/Agentic_AI/RAG-setup/insurance-support-agent/data/raw/docs/policy/HH-0000099-declarations.pdf
+
+================================================================================
+1. PARSED DOCUMENT (from PDFParser)
+================================================================================
+Object Type: apps.ingestion.parsers.base.ParsedDocument
+--------------------------------------------------------------------------------
+document_id         : DOC-HH-0000099-DEC
+document_type       : DocumentType.POLICY_DECLARATIONS
+source_type         : SourceType.PDF
+source_uri          : /Users/abhishm/Agentic_AI/RAG-setup/insurance-support-agent/data/raw/docs/policy/HH-0000099-declarations.pdf
+title               : None
+total_pages         : 1
+has_text            : True
+metadata            : {'total_pages': 1, 'parser': 'PDFParser', 'has_text': True, 'file_size_bytes': 25930, 'file_name': 'HH-0000099-declarations.pdf'}
+policy_id           : HH-0000099
+claim_id            : None
+policyholder_id     : None
+line_of_business    : LineOfBusiness.HOMEOWNERS
+parsed_at           : 2026-09-12 15:30:38.817329+00:00
+
+pages (total 1):
+  [Page 1] metadata={'page_width': 612.0, 'page_height': 792.0}
+  content (937 chars):
+    SYNTHETIC — MERIDIAN MUTUAL (FICTIONAL)
+    Meridian Mutual Insurance SE
+    Household Policy — Declarations
+    Policy Declarations
+    Policy number
+    HH-0000099
+    Line of business
+    Household
+    Named insured
+    Pepe Mesa Pujol
+    Mailing address
+    Plaza Calisto Barral 11, 34695 Asturias, Spain
+    Policy period
+    17/05/2024 to 17/05/2025
+    Producing agent
+    Collin Goyaerts van Waderle-van der Spaendonc —
+    Fredriks Assurances
+    Annual premium
+    €1,530.00
+    Deductible
+    €2,500.00
+    Limits of Insurance
+    Coverage
+    Limit
+    Dwelling (Coverage A)
+    €450,000.00
+    Personal property (Coverage C)
+    €225,000.00
+    Personal liability
+    €500,000.00
+    Endorsements
+    SCHEDULED_PROP
+    The full policy contract, endorsement schedule, and coverage schedule are issued as separate forms
+    under policy HH-0000099.
+    This document is synthetic and generated for retrieval/benchmark testing. No real person, business, or policy is described.
+    SYNTHETIC — Meridian Mutual (fictional) · not a real insurance document
+    Page 1 of 1
+
+================================================================================
+2. STRUCTURED DOCUMENT (from StructureExtractor)
+================================================================================
+Object Type: apps.ingestion.structure.models.StructuredDocument
+--------------------------------------------------------------------------------
+document_id         : DOC-HH-0000099-DEC
+page_count          : 1
+total_blocks        : 19
+headings_count      : 4
+paragraphs_count    : 14
+tables_count        : 1
+lists_count         : 0
+metadata            : {
+  "total_pages": 1,
+  "parser": "PDFParser",
+  "has_text": true,
+  "file_size_bytes": 25930,
+  "file_name": "HH-0000099-declarations.pdf",
+  "source_uri": "/Users/abhishm/Agentic_AI/RAG-setup/insurance-support-agent/data/raw/docs/policy/HH-0000099-declarations.pdf",
+  "total_blocks": 19,
+  "extractor": "StructureExtractor"
+}
+
+--------------------------------------------------------------------------------
+STRUCTURED BLOCKS BREAKDOWN:
+--------------------------------------------------------------------------------
+Block #1  | Type: PARAGRAPH | Page: 1
+  Metadata: {
+    "bbox": [
+        216.05,
+        72.43,
+        395.47,
+        81.17
+    ],
+    "font_name": "Helvetica-Neue",
+    "font_size": 7.5,
+    "is_bold": false,
+    "line_count": 1
+}
+  Content:
+    SYNTHETIC — MERIDIAN MUTUAL (FICTIONAL)
+----------------------------------------
+Block #2  | Type: HEADING   | Page: 1
+  Metadata: {
+    "bbox": [
+        62.69,
+        97.67,
+        277.1,
+        115.55
+    ],
+    "font_name": "Helvetica-Neue-Bold",
+    "font_size": 15.0,
+    "is_bold": true,
+    "line_count": 1
+}
+  Content:
+    Meridian Mutual Insurance SE
+----------------------------------------
+Block #3  | Type: PARAGRAPH | Page: 1
+  Metadata: {
+    "bbox": [
+        62.69,
+        120.55,
+        227.08,
+        133.37
+    ],
+    "font_name": "Helvetica-Neue",
+    "font_size": 11.0,
+    "is_bold": false,
+    "line_count": 1
+}
+  Content:
+    Household Policy — Declarations
+----------------------------------------
+Block #4  | Type: HEADING   | Page: 1
+  Metadata: {
+    "bbox": [
+        62.69,
+        154.36,
+        163.89,
+        167.47
+    ],
+    "font_name": "Helvetica-Neue-Bold",
+    "font_size": 11.0,
+    "is_bold": true,
+    "line_count": 1
+}
+  Content:
+    Policy Declarations
+----------------------------------------
+Block #5  | Type: PARAGRAPH | Page: 1
+  Metadata: {
+    "bbox": [
+        67.19,
+        180.74,
+        312.81,
+        193.26
+    ],
+    "font_name": "Helvetica-Neue",
+    "font_size": 10.5,
+    "is_bold": false,
+    "line_count": 2
+}
+  Content:
+    Policy number
+    HH-0000099
+----------------------------------------
+Block #6  | Type: PARAGRAPH | Page: 1
+  Metadata: {
+    "bbox": [
+        67.19,
+        200.47,
+        305.96,
+        212.98
+    ],
+    "font_name": "Helvetica-Neue",
+    "font_size": 10.5,
+    "is_bold": false,
+    "line_count": 2
+}
+  Content:
+    Line of business
+    Household
+----------------------------------------
+Block #7  | Type: PARAGRAPH | Page: 1
+  Metadata: {
+    "bbox": [
+        67.19,
+        220.19,
+        335.91,
+        232.71
+    ],
+    "font_name": "Helvetica-Neue",
+    "font_size": 10.5,
+    "is_bold": false,
+    "line_count": 2
+}
+  Content:
+    Named insured
+    Pepe Mesa Pujol
+----------------------------------------
+Block #8  | Type: PARAGRAPH | Page: 1
+  Metadata: {
+    "bbox": [
+        67.19,
+        239.92,
+        478.24,
+        252.43
+    ],
+    "font_name": "Helvetica-Neue",
+    "font_size": 10.5,
+    "is_bold": false,
+    "line_count": 2
+}
+  Content:
+    Mailing address
+    Plaza Calisto Barral 11, 34695 Asturias, Spain
+----------------------------------------
+Block #9  | Type: PARAGRAPH | Page: 1
+  Metadata: {
+    "bbox": [
+        67.19,
+        259.64,
+        377.05,
+        272.16
+    ],
+    "font_name": "Helvetica-Neue",
+    "font_size": 10.5,
+    "is_bold": false,
+    "line_count": 2
+}
+  Content:
+    Policy period
+    17/05/2024 to 17/05/2025
+----------------------------------------
+Block #10 | Type: PARAGRAPH | Page: 1
+  Metadata: {
+    "bbox": [
+        67.19,
+        279.37,
+        507.61,
+        307.11
+    ],
+    "font_name": "Helvetica-Neue",
+    "font_size": 10.5,
+    "is_bold": false,
+    "line_count": 3
+}
+  Content:
+    Producing agent
+    Collin Goyaerts van Waderle-van der Spaendonc —
+    Fredriks Assurances
+----------------------------------------
+Block #11 | Type: PARAGRAPH | Page: 1
+  Metadata: {
+    "bbox": [
+        67.19,
+        314.32,
+        298.81,
+        326.83
+    ],
+    "font_name": "Helvetica-Neue",
+    "font_size": 10.5,
+    "is_bold": false,
+    "line_count": 2
+}
+  Content:
+    Annual premium
+    €1,530.00
+----------------------------------------
+Block #12 | Type: PARAGRAPH | Page: 1
+  Metadata: {
+    "bbox": [
+        67.19,
+        334.04,
+        298.81,
+        346.56
+    ],
+    "font_name": "Helvetica-Neue",
+    "font_size": 10.5,
+    "is_bold": false,
+    "line_count": 2
+}
+  Content:
+    Deductible
+    €2,500.00
+----------------------------------------
+Block #13 | Type: HEADING   | Page: 1
+  Metadata: {
+    "bbox": [
+        62.69,
+        363.58,
+        163.07,
+        376.69
+    ],
+    "font_name": "Helvetica-Neue-Bold",
+    "font_size": 11.0,
+    "is_bold": true,
+    "line_count": 1
+}
+  Content:
+    Limits of Insurance
+----------------------------------------
+Block #14 | Type: TABLE     | Page: 1
+  Metadata: {
+    "bbox": [
+        62.84,
+        386.66,
+        549.16,
+        468.96
+    ],
+    "headers": [
+        "Coverage",
+        "Limit"
+    ],
+    "rows": [
+        [
+            "Dwelling (Coverage A)",
+            "\u20ac450,000.00"
+        ],
+        [
+            "Personal property (Coverage C)",
+            "\u20ac225,000.00"
+        ],
+        [
+            "Personal liability",
+            "\u20ac500,000.00"
+        ]
+    ],
+    "row_count": 4,
+    "col_count": 2
+}
+  Content:
+    | Coverage | Limit |
+    | --- | --- |
+    | Dwelling (Coverage A) | €450,000.00 |
+    | Personal property (Coverage C) | €225,000.00 |
+    | Personal liability | €500,000.00 |
+----------------------------------------
+Block #15 | Type: HEADING   | Page: 1
+  Metadata: {
+    "bbox": [
+        62.69,
+        482.63,
+        138.86,
+        495.74
+    ],
+    "font_name": "Helvetica-Neue-Bold",
+    "font_size": 11.0,
+    "is_bold": true,
+    "line_count": 1
+}
+  Content:
+    Endorsements
+----------------------------------------
+Block #16 | Type: PARAGRAPH | Page: 1
+  Metadata: {
+    "bbox": [
+        62.69,
+        506.91,
+        159.72,
+        519.14
+    ],
+    "font_name": "Helvetica-Neue",
+    "font_size": 10.5,
+    "is_bold": false,
+    "line_count": 1
+}
+  Content:
+    SCHEDULED_PROP
+----------------------------------------
+Block #17 | Type: PARAGRAPH | Page: 1
+  Metadata: {
+    "bbox": [
+        62.69,
+        526.63,
+        549.22,
+        554.09
+    ],
+    "font_name": "Helvetica-Neue",
+    "font_size": 10.5,
+    "is_bold": false,
+    "line_count": 2
+}
+  Content:
+    The full policy contract, endorsement schedule, and coverage schedule are issued as separate forms
+    under policy HH-0000099.
+----------------------------------------
+Block #18 | Type: PARAGRAPH | Page: 1
+  Metadata: {
+    "bbox": [
+        62.69,
+        570.16,
+        472.79,
+        578.89
+    ],
+    "font_name": "Helvetica-Neue",
+    "font_size": 7.5,
+    "is_bold": false,
+    "line_count": 1
+}
+  Content:
+    This document is synthetic and generated for retrieval/benchmark testing. No real person, business, or policy is described.
+----------------------------------------
+Block #19 | Type: PARAGRAPH | Page: 1
+  Metadata: {
+    "bbox": [
+        190.81,
+        756.74,
+        555.31,
+        764.9
+    ],
+    "font_name": "Helvetica-Neue",
+    "font_size": 7.0,
+    "is_bold": false,
+    "line_count": 2
+}
+  Content:
+    SYNTHETIC — Meridian Mutual (fictional) · not a real insurance document
+    Page 1 of 1
+----------------------------------------

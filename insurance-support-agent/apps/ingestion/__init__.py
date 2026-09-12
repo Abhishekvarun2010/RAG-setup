@@ -26,19 +26,47 @@ if TYPE_CHECKING:
         StructuredDocument,
         StructureExtractor,
     )
+    from apps.ingestion.chunking import (
+        BaseChunker,
+        Chunker,
+        ChunkingRouter,
+        ClaimsChunker,
+        FAQChunker,
+        PolicyChunker,
+    )
+    from apps.ingestion.embeddings import (
+        BaseEmbeddingProvider,
+        EmbeddingConnectionError,
+        EmbeddingError,
+        EmbeddingModelNotFoundError,
+        EmbeddingProvider,
+        OllamaEmbeddingProvider,
+    )
 
 __all__ = [
     "AccessLevel",
+    "BaseChunker",
+    "BaseEmbeddingProvider",
     "BaseParser",
     "BlockType",
     "Chunk",
+    "Chunker",
+    "ChunkingRouter",
+    "ClaimsChunker",
     "DocumentFormat",
     "DocumentParser",
     "DocumentType",
+    "EmbeddingConnectionError",
+    "EmbeddingError",
+    "EmbeddingModelNotFoundError",
+    "EmbeddingProvider",
+    "FAQChunker",
     "LineOfBusiness",
+    "OllamaEmbeddingProvider",
     "ParsedDocument",
     "ParsedPage",
     "PDFParser",
+    "PolicyChunker",
     "SourceType",
     "Status",
     "StructuredBlock",
@@ -76,4 +104,24 @@ def __getattr__(name: str):
     }:
         import apps.ingestion.structure as structure
         return getattr(structure, name)
+    if name in {
+        "BaseChunker",
+        "Chunker",
+        "ChunkingRouter",
+        "ClaimsChunker",
+        "FAQChunker",
+        "PolicyChunker",
+    }:
+        import apps.ingestion.chunking as chunking
+        return getattr(chunking, name)
+    if name in {
+        "BaseEmbeddingProvider",
+        "EmbeddingConnectionError",
+        "EmbeddingError",
+        "EmbeddingModelNotFoundError",
+        "EmbeddingProvider",
+        "OllamaEmbeddingProvider",
+    }:
+        import apps.ingestion.embeddings as embeddings
+        return getattr(embeddings, name)
     raise AttributeError(f"module '{__name__}' has no attribute '{name}'")

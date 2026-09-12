@@ -81,16 +81,32 @@ class StructureExtractor:
         doc_id = explicit_id or parsed_doc.document_id
         source_path = Path(parsed_doc.source_uri) if parsed_doc.source_uri else None
 
+        domain_metadata = {
+            "document_type": parsed_doc.document_type,
+            "source_type": parsed_doc.source_type,
+            "policy_id": parsed_doc.policy_id,
+            "claim_id": parsed_doc.claim_id,
+            "policyholder_id": parsed_doc.policyholder_id,
+            "line_of_business": parsed_doc.line_of_business,
+        }
+
         # If a real PDF file exists at source_uri, leverage high-fidelity PyMuPDF layout analysis
         if source_path and source_path.exists() and source_path.suffix.lower() == ".pdf":
             doc = self._extract_from_pdf_path(source_path, explicit_id=doc_id, **kwargs)
-            # Merge ParsedDocument metadata
-            merged_metadata = {**parsed_doc.metadata, **doc.metadata, **kwargs.get("metadata", {})}
+            # Merge ParsedDocument metadata and domain fields
+            merged_metadata = {
+                **domain_metadata,
+                **parsed_doc.metadata,
+                **doc.metadata,
+                **kwargs.get("metadata", {}),
+            }
             doc.metadata = merged_metadata
             return doc
 
         # Fallback: extract structure from in-memory ParsedDocument pages / raw text
-        return self._extract_from_text_pages(parsed_doc, explicit_id=doc_id, **kwargs)
+        fallback_doc = self._extract_from_text_pages(parsed_doc, explicit_id=doc_id, **kwargs)
+        fallback_doc.metadata = {**domain_metadata, **fallback_doc.metadata}
+        return fallback_doc
 
     def _extract_from_pdf_path(
         self,
