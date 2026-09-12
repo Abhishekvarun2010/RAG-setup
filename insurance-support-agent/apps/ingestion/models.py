@@ -92,6 +92,20 @@ class SourceType(str, Enum):
     SCAN = "scan"
 
 
+class DocumentFormat(str, Enum):
+    """
+    File format / modality of the original raw document.
+    """
+
+    PDF = "pdf"
+    DOCX = "docx"
+    MARKDOWN = "md"
+    CSV = "csv"
+    XLSX = "xlsx"
+    JPG = "jpg"
+    IMAGE = "image"
+
+
 class LineOfBusiness(str, Enum):
     """
     Line of business categorization for insurance policies and claims.

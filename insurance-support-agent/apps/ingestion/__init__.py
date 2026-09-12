@@ -7,6 +7,7 @@ if TYPE_CHECKING:
     from apps.ingestion.models import (
         AccessLevel,
         Chunk,
+        DocumentFormat,
         DocumentType,
         LineOfBusiness,
         SourceType,
@@ -17,17 +18,20 @@ if TYPE_CHECKING:
         DocumentParser,
         ParsedDocument,
         ParsedPage,
+        PDFParser,
     )
 
 __all__ = [
     "AccessLevel",
     "BaseParser",
     "Chunk",
+    "DocumentFormat",
     "DocumentParser",
     "DocumentType",
     "LineOfBusiness",
     "ParsedDocument",
     "ParsedPage",
+    "PDFParser",
     "SourceType",
     "Status",
 ]
@@ -37,6 +41,7 @@ def __getattr__(name: str):
     if name in {
         "AccessLevel",
         "Chunk",
+        "DocumentFormat",
         "DocumentType",
         "LineOfBusiness",
         "SourceType",
@@ -49,7 +54,8 @@ def __getattr__(name: str):
         "DocumentParser",
         "ParsedDocument",
         "ParsedPage",
+        "PDFParser",
     }:
-        import apps.ingestion.parsers.base as parsers_base
-        return getattr(parsers_base, name)
+        import apps.ingestion.parsers as parsers
+        return getattr(parsers, name)
     raise AttributeError(f"module '{__name__}' has no attribute '{name}'")

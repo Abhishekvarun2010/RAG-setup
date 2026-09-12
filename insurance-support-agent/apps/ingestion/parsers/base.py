@@ -30,7 +30,7 @@ class ParsedPage(BaseModel):
     """
 
     model_config = ConfigDict(
-        str_strip_whitespace=True,
+        str_strip_whitespace=False,  # Preserve structure, line breaks, and column alignment
         validate_assignment=True,
         extra="forbid",
     )
@@ -41,13 +41,12 @@ class ParsedPage(BaseModel):
         description="1-indexed page number in the original document.",
     )
     content: str = Field(
-        ...,
-        min_length=1,
-        description="Textual content extracted from this page.",
+        default="",
+        description="Textual content extracted from this page (can be empty for image/scanned pages).",
     )
     metadata: Dict[str, Any] = Field(
         default_factory=dict,
-        description="Optional page-specific metadata (e.g. headers, footers).",
+        description="Optional page-specific metadata (e.g. dimensions, headers).",
     )
 
 
@@ -59,17 +58,22 @@ class ParsedDocument(BaseModel):
 
     model_config = ConfigDict(
         use_enum_values=False,
-        str_strip_whitespace=True,
+        str_strip_whitespace=False,  # Preserve layout structure
         validate_assignment=True,
         extra="forbid",
     )
 
-    # Core required fields
-    content: str = Field(
-        ...,
-        min_length=1,
-        description="Full extracted textual content of the document.",
+    # Text content fields (synonymous and kept synchronized; empty string for scanned PDFs)
+    raw_text: str = Field(
+        default="",
+        description="Full raw extracted textual content of the document (empty if scanned/unextractable).",
     )
+    content: str = Field(
+        default="",
+        description="Extracted textual content of the document (synchronized with raw_text).",
+    )
+
+    # Core required identifiers
     document_id: str = Field(
         ...,
         min_length=1,
@@ -84,7 +88,7 @@ class ParsedDocument(BaseModel):
         description="Source format or domain category (e.g. pdf, docx, markdown, kb, policy).",
     )
 
-    # Optional source provenance & structural attributes
+    # Source provenance & structural attributes
     source_uri: Optional[str] = Field(
         default=None,
         description="File path or URI where the original document is located.",
@@ -97,9 +101,17 @@ class ParsedDocument(BaseModel):
         default_factory=list,
         description="Optional list of page-by-page extractions (for paged PDF/DOCX documents).",
     )
+    total_pages: int = Field(
+        default=0,
+        description="Total page count of the source document.",
+    )
+    has_text: bool = Field(
+        default=False,
+        description="Whether the document contains extractable text (False for scanned documents).",
+    )
     metadata: Dict[str, Any] = Field(
         default_factory=dict,
-        description="Arbitrary document metadata extracted during parsing.",
+        description="Document metadata extracted during parsing (e.g. total_pages, parser, has_text).",
     )
 
     # Optional insurance domain entity identifiers
@@ -126,10 +138,50 @@ class ParsedDocument(BaseModel):
         description="UTC timestamp when the document was parsed.",
     )
 
+    @classmethod
+    def _sync_fields(cls, data: dict[str, Any]) -> dict[str, Any]:
+        """Synchronize raw_text/content, has_text, and total_pages."""
+        # 1. Sync raw_text and content
+        raw = data.get("raw_text")
+        cnt = data.get("content")
+        if raw is not None and cnt is None:
+            data["content"] = raw
+        elif cnt is not None and raw is None:
+            data["raw_text"] = cnt
+        elif raw is None and cnt is None:
+            data["raw_text"] = ""
+            data["content"] = ""
+
+        # 2. Compute has_text
+        text_val = data.get("raw_text") or data.get("content") or ""
+        computed_has_text = bool(text_val.strip())
+        if "has_text" not in data:
+            data["has_text"] = computed_has_text
+
+        # 3. Compute total_pages
+        pages = data.get("pages") or []
+        if "total_pages" not in data or data["total_pages"] == 0:
+            data["total_pages"] = len(pages)
+
+        # 4. Populate metadata dict
+        meta = data.setdefault("metadata", {})
+        if "has_text" not in meta:
+            meta["has_text"] = data["has_text"]
+        if "total_pages" not in meta:
+            meta["total_pages"] = data["total_pages"]
+
+        return data
+
     @property
     def page_count(self) -> int:
         """Return the number of parsed pages, or 1 if unpaged."""
+        if self.total_pages > 0:
+            return self.total_pages
         return len(self.pages) if self.pages else 1
+
+    def __init__(self, **data: Any):
+        data = self._sync_fields(data)
+        super().__init__(**data)
 
 
 # =====================================================================
