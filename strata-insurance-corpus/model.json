@@ -1,0 +1,4858 @@
+{
+  "adjusters": [
+    {
+      "id": "AD-001",
+      "name": "Albano Llopis Hierro",
+      "specialty": "liability"
+    },
+    {
+      "id": "AD-002",
+      "name": "Alexandrie de la Auger",
+      "specialty": "property"
+    },
+    {
+      "id": "AD-003",
+      "name": "Buenaventura de Bonet",
+      "specialty": "motor physical damage"
+    },
+    {
+      "id": "AD-004",
+      "name": "Karl-Jürgen Gumprich",
+      "specialty": "commercial"
+    },
+    {
+      "id": "AD-005",
+      "name": "Dr. Ingrid Schacht",
+      "specialty": "liability"
+    },
+    {
+      "id": "AD-006",
+      "name": "Ileana Antón-Andrés",
+      "specialty": "liability"
+    },
+    {
+      "id": "AD-007",
+      "name": "Rosalinde Albers",
+      "specialty": "commercial"
+    },
+    {
+      "id": "AD-008",
+      "name": "Floris van de Elzas-Blonk",
+      "specialty": "motor physical damage"
+    },
+    {
+      "id": "AD-009",
+      "name": "Camilla Asmundo-Leone",
+      "specialty": "motor physical damage"
+    },
+    {
+      "id": "AD-010",
+      "name": "Raf van der Spaendonc-van Bernicia",
+      "specialty": "liability"
+    }
+  ],
+  "agents": [
+    {
+      "agency": "Hyman Insurance Group",
+      "id": "AG-001",
+      "name": "Mr. Alister Kinnear",
+      "region": "Ireland"
+    },
+    {
+      "agency": "Höfig Risk Partners",
+      "id": "AG-002",
+      "name": "Aleksandr Weihmann",
+      "region": "Germany"
+    },
+    {
+      "agency": "Paris Assurances",
+      "id": "AG-003",
+      "name": "Alexandre Traore",
+      "region": "France"
+    },
+    {
+      "agency": "Henry Insurance Group",
+      "id": "AG-004",
+      "name": "Frédéric Joly-Gallet",
+      "region": "France"
+    },
+    {
+      "agency": "Tormey Insurance Group",
+      "id": "AG-005",
+      "name": "Colm Davis",
+      "region": "Ireland"
+    },
+    {
+      "agency": "Pieters Versicherung",
+      "id": "AG-006",
+      "name": "Ali Schellekens",
+      "region": "Netherlands"
+    },
+    {
+      "agency": "Stey Insurance Group",
+      "id": "AG-007",
+      "name": "Dr. Christof Walter B.Sc.",
+      "region": "Germany"
+    },
+    {
+      "agency": "Beckmann Assurances",
+      "id": "AG-008",
+      "name": "Klemens Löchel",
+      "region": "Germany"
+    },
+    {
+      "agency": "David Insurance Group",
+      "id": "AG-009",
+      "name": "Aurore Maury-Briand",
+      "region": "France"
+    },
+    {
+      "agency": "Fredriks Assurances",
+      "id": "AG-010",
+      "name": "Collin Goyaerts van Waderle-van der Spaendonc",
+      "region": "Netherlands"
+    },
+    {
+      "agency": "Butler Versicherung",
+      "id": "AG-011",
+      "name": "Stewart Montague",
+      "region": "Ireland"
+    },
+    {
+      "agency": "Rey Versicherung",
+      "id": "AG-012",
+      "name": "Benjamin Carpentier",
+      "region": "France"
+    },
+    {
+      "agency": "Gellemeyer Risk Partners",
+      "id": "AG-013",
+      "name": "Amira Bolkesteijn",
+      "region": "Netherlands"
+    },
+    {
+      "agency": "Heintze Assurances",
+      "id": "AG-014",
+      "name": "Bayram Harloff",
+      "region": "Germany"
+    },
+    {
+      "agency": "Hession Versicherung",
+      "id": "AG-015",
+      "name": "Calvin Hastings",
+      "region": "Ireland"
+    }
+  ],
+  "claims": [
+    {
+      "adjuster_id": "AD-001",
+      "cause": "slip_and_fall",
+      "date_of_loss": "2023-12-05",
+      "holder_id": "PH-00029",
+      "id": "C-1000",
+      "line": "bop",
+      "narrative_seed": "slip and fall affecting bop policy COM-0000077 on 2023-12-05",
+      "paid": 22950.0,
+      "policy_id": "COM-0000077",
+      "reported_date": "2023-12-05",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-009",
+      "cause": "kitchen_fire",
+      "date_of_loss": "2024-04-24",
+      "holder_id": "PH-00077",
+      "id": "C-1001",
+      "line": "homeowners",
+      "narrative_seed": "kitchen fire affecting homeowners policy HH-0000030 on 2024-04-24",
+      "paid": 21280.42,
+      "policy_id": "HH-0000030",
+      "reported_date": "2024-04-24",
+      "reserve": 53550.0,
+      "status": "open"
+    },
+    {
+      "adjuster_id": "AD-010",
+      "cause": "theft",
+      "date_of_loss": "2024-06-15",
+      "holder_id": "PH-00077",
+      "id": "C-1002",
+      "line": "homeowners",
+      "narrative_seed": "theft affecting homeowners policy HH-0000030 on 2024-06-15",
+      "paid": 0.0,
+      "policy_id": "HH-0000030",
+      "reported_date": "2024-06-24",
+      "reserve": 0.0,
+      "status": "denied"
+    },
+    {
+      "adjuster_id": "AD-006",
+      "cause": "liability_slip",
+      "date_of_loss": "2024-09-16",
+      "holder_id": "PH-00034",
+      "id": "C-1003",
+      "line": "homeowners",
+      "narrative_seed": "liability slip affecting homeowners policy HH-0000099 on 2024-09-16",
+      "paid": 4893.89,
+      "policy_id": "HH-0000099",
+      "reported_date": "2024-09-20",
+      "reserve": 55350.0,
+      "status": "open"
+    },
+    {
+      "adjuster_id": "AD-005",
+      "cause": "equipment_breakdown",
+      "date_of_loss": "2023-02-28",
+      "holder_id": "PH-00006",
+      "id": "C-1004",
+      "line": "bop",
+      "narrative_seed": "equipment breakdown affecting bop policy COM-0000039 on 2023-02-28",
+      "paid": 0.0,
+      "policy_id": "COM-0000039",
+      "reported_date": "2023-03-08",
+      "reserve": 0.0,
+      "status": "denied"
+    },
+    {
+      "adjuster_id": "AD-003",
+      "cause": "hail",
+      "date_of_loss": "2024-02-03",
+      "holder_id": "PH-00070",
+      "id": "C-1005",
+      "line": "personal_auto",
+      "narrative_seed": "hail affecting personal_auto policy MOT-0000117 on 2024-02-03",
+      "paid": 2900.0,
+      "policy_id": "MOT-0000117",
+      "reported_date": "2024-02-13",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-007",
+      "cause": "hail",
+      "date_of_loss": "2025-06-03",
+      "holder_id": "PH-00012",
+      "id": "C-1006",
+      "line": "personal_auto",
+      "narrative_seed": "hail affecting personal_auto policy MOT-0000045 on 2025-06-03",
+      "paid": 2069.23,
+      "policy_id": "MOT-0000045",
+      "reported_date": "2025-06-08",
+      "reserve": 17250.0,
+      "status": "open"
+    },
+    {
+      "adjuster_id": "AD-009",
+      "cause": "theft",
+      "date_of_loss": "2024-04-21",
+      "holder_id": "PH-00058",
+      "id": "C-1007",
+      "line": "personal_auto",
+      "narrative_seed": "theft affecting personal_auto policy MOT-0000024 on 2024-04-21",
+      "paid": 5398.7,
+      "policy_id": "MOT-0000024",
+      "reported_date": "2024-04-24",
+      "reserve": 16750.0,
+      "status": "open"
+    },
+    {
+      "adjuster_id": "AD-001",
+      "cause": "business_interruption",
+      "date_of_loss": "2025-08-22",
+      "holder_id": "PH-00070",
+      "id": "C-1008",
+      "line": "bop",
+      "narrative_seed": "business interruption affecting bop policy COM-0000118 on 2025-08-22",
+      "paid": 0.0,
+      "policy_id": "COM-0000118",
+      "reported_date": "2025-08-28",
+      "reserve": 0.0,
+      "status": "denied"
+    },
+    {
+      "adjuster_id": "AD-003",
+      "cause": "theft",
+      "date_of_loss": "2023-11-30",
+      "holder_id": "PH-00043",
+      "id": "C-1009",
+      "line": "personal_auto",
+      "narrative_seed": "theft affecting personal_auto policy MOT-0000068 on 2023-11-30",
+      "paid": 33600.0,
+      "policy_id": "MOT-0000068",
+      "reported_date": "2023-12-03",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-008",
+      "cause": "kitchen_fire",
+      "date_of_loss": "2024-05-14",
+      "holder_id": "PH-00017",
+      "id": "C-1010",
+      "line": "homeowners",
+      "narrative_seed": "kitchen fire affecting homeowners policy HH-0000011 on 2024-05-14",
+      "paid": 3100.0,
+      "policy_id": "HH-0000011",
+      "reported_date": "2024-05-15",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-007",
+      "cause": "rear_end_collision",
+      "date_of_loss": "2025-11-08",
+      "holder_id": "PH-00080",
+      "id": "C-1011",
+      "line": "personal_auto",
+      "narrative_seed": "rear end collision affecting personal_auto policy MOT-0000035 on 2025-11-08",
+      "paid": 6839.53,
+      "policy_id": "MOT-0000035",
+      "reported_date": "2025-11-17",
+      "reserve": 21250.0,
+      "status": "open"
+    },
+    {
+      "adjuster_id": "AD-009",
+      "cause": "theft",
+      "date_of_loss": "2025-03-28",
+      "holder_id": "PH-00057",
+      "id": "C-1012",
+      "line": "personal_auto",
+      "narrative_seed": "theft affecting personal_auto policy MOT-0000076 on 2025-03-28",
+      "paid": 16000.0,
+      "policy_id": "MOT-0000076",
+      "reported_date": "2025-04-04",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-001",
+      "cause": "rear_end_collision",
+      "date_of_loss": "2023-07-06",
+      "holder_id": "PH-00070",
+      "id": "C-1013",
+      "line": "personal_auto",
+      "narrative_seed": "rear end collision affecting personal_auto policy MOT-0000117 on 2023-07-06",
+      "paid": 0.0,
+      "policy_id": "MOT-0000117",
+      "reported_date": "2023-07-09",
+      "reserve": 0.0,
+      "status": "denied"
+    },
+    {
+      "adjuster_id": "AD-008",
+      "cause": "slip_and_fall",
+      "date_of_loss": "2023-07-04",
+      "holder_id": "PH-00030",
+      "id": "C-1014",
+      "line": "bop",
+      "narrative_seed": "slip and fall affecting bop policy COM-0000096 on 2023-07-04",
+      "paid": 5852.04,
+      "policy_id": "COM-0000096",
+      "reported_date": "2023-07-13",
+      "reserve": 26500.0,
+      "status": "open"
+    },
+    {
+      "adjuster_id": "AD-005",
+      "cause": "wind",
+      "date_of_loss": "2024-02-19",
+      "holder_id": "PH-00037",
+      "id": "C-1015",
+      "line": "homeowners",
+      "narrative_seed": "wind affecting homeowners policy HH-0000100 on 2024-02-19",
+      "paid": 16250.0,
+      "policy_id": "HH-0000100",
+      "reported_date": "2024-02-26",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-006",
+      "cause": "animal_strike",
+      "date_of_loss": "2025-03-24",
+      "holder_id": "PH-00004",
+      "id": "C-1016",
+      "line": "personal_auto",
+      "narrative_seed": "animal strike affecting personal_auto policy MOT-0000034 on 2025-03-24",
+      "paid": 24500.0,
+      "policy_id": "MOT-0000034",
+      "reported_date": "2025-03-31",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-006",
+      "cause": "fire",
+      "date_of_loss": "2024-03-20",
+      "holder_id": "PH-00027",
+      "id": "C-1017",
+      "line": "bop",
+      "narrative_seed": "fire affecting bop policy COM-0000098 on 2024-03-20",
+      "paid": 29300.0,
+      "policy_id": "COM-0000098",
+      "reported_date": "2024-03-25",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-004",
+      "cause": "vandalism",
+      "date_of_loss": "2024-02-01",
+      "holder_id": "PH-00016",
+      "id": "C-1018",
+      "line": "personal_auto",
+      "narrative_seed": "vandalism affecting personal_auto policy MOT-0000111 on 2024-02-01",
+      "paid": 30150.0,
+      "policy_id": "MOT-0000111",
+      "reported_date": "2024-02-01",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-007",
+      "cause": "single_vehicle",
+      "date_of_loss": "2024-05-15",
+      "holder_id": "PH-00005",
+      "id": "C-1019",
+      "line": "personal_auto",
+      "narrative_seed": "single vehicle affecting personal_auto policy MOT-0000093 on 2024-05-15",
+      "paid": 19900.0,
+      "policy_id": "MOT-0000093",
+      "reported_date": "2024-05-17",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-004",
+      "cause": "animal_strike",
+      "date_of_loss": "2025-07-12",
+      "holder_id": "PH-00031",
+      "id": "C-1020",
+      "line": "personal_auto",
+      "narrative_seed": "animal strike affecting personal_auto policy MOT-0000073 on 2025-07-12",
+      "paid": 3762.12,
+      "policy_id": "MOT-0000073",
+      "reported_date": "2025-07-20",
+      "reserve": 36550.0,
+      "status": "open"
+    },
+    {
+      "adjuster_id": "AD-008",
+      "cause": "liability_slip",
+      "date_of_loss": "2024-10-03",
+      "holder_id": "PH-00005",
+      "id": "C-1021",
+      "line": "homeowners",
+      "narrative_seed": "liability slip affecting homeowners policy HH-0000106 on 2024-10-03",
+      "paid": 41200.0,
+      "policy_id": "HH-0000106",
+      "reported_date": "2024-10-10",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-003",
+      "cause": "theft",
+      "date_of_loss": "2024-03-06",
+      "holder_id": "PH-00014",
+      "id": "C-1022",
+      "line": "homeowners",
+      "narrative_seed": "theft affecting homeowners policy HH-0000046 on 2024-03-06",
+      "paid": 33350.0,
+      "policy_id": "HH-0000046",
+      "reported_date": "2024-03-14",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-009",
+      "cause": "animal_strike",
+      "date_of_loss": "2024-06-03",
+      "holder_id": "PH-00050",
+      "id": "C-1023",
+      "line": "personal_auto",
+      "narrative_seed": "animal strike affecting personal_auto policy MOT-0000008 on 2024-06-03",
+      "paid": 0.0,
+      "policy_id": "MOT-0000008",
+      "reported_date": "2024-06-04",
+      "reserve": 0.0,
+      "status": "denied"
+    },
+    {
+      "adjuster_id": "AD-001",
+      "cause": "kitchen_fire",
+      "date_of_loss": "2023-10-22",
+      "holder_id": "PH-00070",
+      "id": "C-1024",
+      "line": "homeowners",
+      "narrative_seed": "kitchen fire affecting homeowners policy HH-0000007 on 2023-10-22",
+      "paid": 2531.67,
+      "policy_id": "HH-0000007",
+      "reported_date": "2023-10-24",
+      "reserve": 8950.0,
+      "status": "open"
+    },
+    {
+      "adjuster_id": "AD-004",
+      "cause": "vandalism",
+      "date_of_loss": "2025-07-25",
+      "holder_id": "PH-00019",
+      "id": "C-1025",
+      "line": "personal_auto",
+      "narrative_seed": "vandalism affecting personal_auto policy MOT-0000002 on 2025-07-25",
+      "paid": 33150.0,
+      "policy_id": "MOT-0000002",
+      "reported_date": "2025-08-01",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-010",
+      "cause": "water_damage",
+      "date_of_loss": "2024-01-24",
+      "holder_id": "PH-00045",
+      "id": "C-1026",
+      "line": "homeowners",
+      "narrative_seed": "water damage affecting homeowners policy HH-0000086 on 2024-01-24",
+      "paid": 27700.0,
+      "policy_id": "HH-0000086",
+      "reported_date": "2024-02-03",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-007",
+      "cause": "water_damage",
+      "date_of_loss": "2024-04-16",
+      "holder_id": "PH-00057",
+      "id": "C-1027",
+      "line": "bop",
+      "narrative_seed": "water damage affecting bop policy COM-0000071 on 2024-04-16",
+      "paid": 27900.0,
+      "policy_id": "COM-0000071",
+      "reported_date": "2024-04-16",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-001",
+      "cause": "single_vehicle",
+      "date_of_loss": "2025-05-28",
+      "holder_id": "PH-00029",
+      "id": "C-1028",
+      "line": "personal_auto",
+      "narrative_seed": "single vehicle affecting personal_auto policy MOT-0000037 on 2025-05-28",
+      "paid": 5950.0,
+      "policy_id": "MOT-0000037",
+      "reported_date": "2025-06-07",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-002",
+      "cause": "business_interruption",
+      "date_of_loss": "2025-08-03",
+      "holder_id": "PH-00070",
+      "id": "C-1029",
+      "line": "bop",
+      "narrative_seed": "business interruption affecting bop policy COM-0000118 on 2025-08-03",
+      "paid": 27450.0,
+      "policy_id": "COM-0000118",
+      "reported_date": "2025-08-05",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-006",
+      "cause": "slip_and_fall",
+      "date_of_loss": "2024-05-06",
+      "holder_id": "PH-00040",
+      "id": "C-1030",
+      "line": "bop",
+      "narrative_seed": "slip and fall affecting bop policy COM-0000033 on 2024-05-06",
+      "paid": 24000.0,
+      "policy_id": "COM-0000033",
+      "reported_date": "2024-05-12",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-004",
+      "cause": "rear_end_collision",
+      "date_of_loss": "2025-10-21",
+      "holder_id": "PH-00031",
+      "id": "C-1031",
+      "line": "personal_auto",
+      "narrative_seed": "rear end collision affecting personal_auto policy MOT-0000073 on 2025-10-21",
+      "paid": 33950.0,
+      "policy_id": "MOT-0000073",
+      "reported_date": "2025-10-24",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-001",
+      "cause": "theft",
+      "date_of_loss": "2024-10-13",
+      "holder_id": "PH-00043",
+      "id": "C-1032",
+      "line": "homeowners",
+      "narrative_seed": "theft affecting homeowners policy HH-0000110 on 2024-10-13",
+      "paid": 24850.0,
+      "policy_id": "HH-0000110",
+      "reported_date": "2024-10-19",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-001",
+      "cause": "hail",
+      "date_of_loss": "2025-05-11",
+      "holder_id": "PH-00050",
+      "id": "C-1033",
+      "line": "personal_auto",
+      "narrative_seed": "hail affecting personal_auto policy MOT-0000008 on 2025-05-11",
+      "paid": 33500.0,
+      "policy_id": "MOT-0000008",
+      "reported_date": "2025-05-13",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-006",
+      "cause": "fire",
+      "date_of_loss": "2024-12-02",
+      "holder_id": "PH-00070",
+      "id": "C-1034",
+      "line": "bop",
+      "narrative_seed": "fire affecting bop policy COM-0000101 on 2024-12-02",
+      "paid": 2156.45,
+      "policy_id": "COM-0000101",
+      "reported_date": "2024-12-03",
+      "reserve": 25500.0,
+      "status": "open"
+    },
+    {
+      "adjuster_id": "AD-010",
+      "cause": "water_damage",
+      "date_of_loss": "2025-05-21",
+      "holder_id": "PH-00020",
+      "id": "C-1035",
+      "line": "homeowners",
+      "narrative_seed": "water damage affecting homeowners policy HH-0000112 on 2025-05-21",
+      "paid": 35500.0,
+      "policy_id": "HH-0000112",
+      "reported_date": "2025-05-25",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-005",
+      "cause": "single_vehicle",
+      "date_of_loss": "2025-01-30",
+      "holder_id": "PH-00003",
+      "id": "C-1036",
+      "line": "personal_auto",
+      "narrative_seed": "single vehicle affecting personal_auto policy MOT-0000119 on 2025-01-30",
+      "paid": 214.2,
+      "policy_id": "MOT-0000119",
+      "reported_date": "2025-02-08",
+      "reserve": 34200.0,
+      "status": "open"
+    },
+    {
+      "adjuster_id": "AD-010",
+      "cause": "wind",
+      "date_of_loss": "2024-03-04",
+      "holder_id": "PH-00030",
+      "id": "C-1037",
+      "line": "homeowners",
+      "narrative_seed": "wind affecting homeowners policy HH-0000027 on 2024-03-04",
+      "paid": 0.0,
+      "policy_id": "HH-0000027",
+      "reported_date": "2024-03-10",
+      "reserve": 0.0,
+      "status": "denied"
+    },
+    {
+      "adjuster_id": "AD-010",
+      "cause": "hail",
+      "date_of_loss": "2023-10-10",
+      "holder_id": "PH-00043",
+      "id": "C-1038",
+      "line": "personal_auto",
+      "narrative_seed": "hail affecting personal_auto policy MOT-0000021 on 2023-10-10",
+      "paid": 7609.88,
+      "policy_id": "MOT-0000021",
+      "reported_date": "2023-10-19",
+      "reserve": 57350.0,
+      "status": "open"
+    },
+    {
+      "adjuster_id": "AD-003",
+      "cause": "theft",
+      "date_of_loss": "2025-02-27",
+      "holder_id": "PH-00057",
+      "id": "C-1039",
+      "line": "personal_auto",
+      "narrative_seed": "theft affecting personal_auto policy MOT-0000097 on 2025-02-27",
+      "paid": 3200.0,
+      "policy_id": "MOT-0000097",
+      "reported_date": "2025-02-28",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-007",
+      "cause": "theft",
+      "date_of_loss": "2023-12-24",
+      "holder_id": "PH-00010",
+      "id": "C-1040",
+      "line": "homeowners",
+      "narrative_seed": "theft affecting homeowners policy HH-0000013 on 2023-12-24",
+      "paid": 49350.0,
+      "policy_id": "HH-0000013",
+      "reported_date": "2023-12-25",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-007",
+      "cause": "slip_and_fall",
+      "date_of_loss": "2024-01-16",
+      "holder_id": "PH-00029",
+      "id": "C-1041",
+      "line": "bop",
+      "narrative_seed": "slip and fall affecting bop policy COM-0000077 on 2024-01-16",
+      "paid": 4763.53,
+      "policy_id": "COM-0000077",
+      "reported_date": "2024-01-16",
+      "reserve": 52200.0,
+      "status": "open"
+    },
+    {
+      "adjuster_id": "AD-007",
+      "cause": "equipment_breakdown",
+      "date_of_loss": "2024-11-17",
+      "holder_id": "PH-00057",
+      "id": "C-1042",
+      "line": "bop",
+      "narrative_seed": "equipment breakdown affecting bop policy COM-0000071 on 2024-11-17",
+      "paid": 1401.96,
+      "policy_id": "COM-0000071",
+      "reported_date": "2024-11-19",
+      "reserve": 40900.0,
+      "status": "open"
+    },
+    {
+      "adjuster_id": "AD-005",
+      "cause": "burglary",
+      "date_of_loss": "2023-09-23",
+      "holder_id": "PH-00067",
+      "id": "C-1043",
+      "line": "bop",
+      "narrative_seed": "burglary affecting bop policy COM-0000080 on 2023-09-23",
+      "paid": 19950.0,
+      "policy_id": "COM-0000080",
+      "reported_date": "2023-09-24",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-003",
+      "cause": "water_damage",
+      "date_of_loss": "2024-07-08",
+      "holder_id": "PH-00048",
+      "id": "C-1044",
+      "line": "homeowners",
+      "narrative_seed": "water damage affecting homeowners policy HH-0000092 on 2024-07-08",
+      "paid": 750.0,
+      "policy_id": "HH-0000092",
+      "reported_date": "2024-07-13",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-008",
+      "cause": "rear_end_collision",
+      "date_of_loss": "2024-06-08",
+      "holder_id": "PH-00052",
+      "id": "C-1045",
+      "line": "personal_auto",
+      "narrative_seed": "rear end collision affecting personal_auto policy MOT-0000040 on 2024-06-08",
+      "paid": 10050.0,
+      "policy_id": "MOT-0000040",
+      "reported_date": "2024-06-12",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-008",
+      "cause": "water_damage",
+      "date_of_loss": "2024-08-04",
+      "holder_id": "PH-00060",
+      "id": "C-1046",
+      "line": "homeowners",
+      "narrative_seed": "water damage affecting homeowners policy HH-0000056 on 2024-08-04",
+      "paid": 1800.0,
+      "policy_id": "HH-0000056",
+      "reported_date": "2024-08-12",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-006",
+      "cause": "water_damage",
+      "date_of_loss": "2024-07-24",
+      "holder_id": "PH-00065",
+      "id": "C-1047",
+      "line": "bop",
+      "narrative_seed": "water damage affecting bop policy COM-0000012 on 2024-07-24",
+      "paid": 44700.0,
+      "policy_id": "COM-0000012",
+      "reported_date": "2024-07-25",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-001",
+      "cause": "fire",
+      "date_of_loss": "2024-12-30",
+      "holder_id": "PH-00011",
+      "id": "C-1048",
+      "line": "bop",
+      "narrative_seed": "fire affecting bop policy COM-0000050 on 2024-12-30",
+      "paid": 37600.0,
+      "policy_id": "COM-0000050",
+      "reported_date": "2025-01-05",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-009",
+      "cause": "liability_slip",
+      "date_of_loss": "2023-12-22",
+      "holder_id": "PH-00001",
+      "id": "C-1049",
+      "line": "homeowners",
+      "narrative_seed": "liability slip affecting homeowners policy HH-0000116 on 2023-12-22",
+      "paid": 19950.0,
+      "policy_id": "HH-0000116",
+      "reported_date": "2023-12-31",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-003",
+      "cause": "kitchen_fire",
+      "date_of_loss": "2024-04-21",
+      "holder_id": "PH-00031",
+      "id": "C-1050",
+      "line": "homeowners",
+      "narrative_seed": "kitchen fire affecting homeowners policy HH-0000022 on 2024-04-21",
+      "paid": 3700.0,
+      "policy_id": "HH-0000022",
+      "reported_date": "2024-04-25",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-007",
+      "cause": "water_damage",
+      "date_of_loss": "2024-04-25",
+      "holder_id": "PH-00031",
+      "id": "C-1051",
+      "line": "homeowners",
+      "narrative_seed": "water damage affecting homeowners policy HH-0000022 on 2024-04-25",
+      "paid": 18950.0,
+      "policy_id": "HH-0000022",
+      "reported_date": "2024-05-01",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-004",
+      "cause": "burglary",
+      "date_of_loss": "2024-11-06",
+      "holder_id": "PH-00040",
+      "id": "C-1052",
+      "line": "bop",
+      "narrative_seed": "burglary affecting bop policy COM-0000033 on 2024-11-06",
+      "paid": 23900.0,
+      "policy_id": "COM-0000033",
+      "reported_date": "2024-11-13",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-003",
+      "cause": "theft",
+      "date_of_loss": "2025-05-01",
+      "holder_id": "PH-00059",
+      "id": "C-1053",
+      "line": "personal_auto",
+      "narrative_seed": "theft affecting personal_auto policy MOT-0000014 on 2025-05-01",
+      "paid": 0.0,
+      "policy_id": "MOT-0000014",
+      "reported_date": "2025-05-01",
+      "reserve": 0.0,
+      "status": "denied"
+    },
+    {
+      "adjuster_id": "AD-010",
+      "cause": "hail",
+      "date_of_loss": "2024-07-01",
+      "holder_id": "PH-00002",
+      "id": "C-1054",
+      "line": "personal_auto",
+      "narrative_seed": "hail affecting personal_auto policy MOT-0000108 on 2024-07-01",
+      "paid": 42250.0,
+      "policy_id": "MOT-0000108",
+      "reported_date": "2024-07-06",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-010",
+      "cause": "liability_slip",
+      "date_of_loss": "2024-01-18",
+      "holder_id": "PH-00005",
+      "id": "C-1055",
+      "line": "homeowners",
+      "narrative_seed": "liability slip affecting homeowners policy HH-0000106 on 2024-01-18",
+      "paid": 10750.0,
+      "policy_id": "HH-0000106",
+      "reported_date": "2024-01-22",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-006",
+      "cause": "theft",
+      "date_of_loss": "2025-01-22",
+      "holder_id": "PH-00031",
+      "id": "C-1056",
+      "line": "personal_auto",
+      "narrative_seed": "theft affecting personal_auto policy MOT-0000062 on 2025-01-22",
+      "paid": 0.0,
+      "policy_id": "MOT-0000062",
+      "reported_date": "2025-01-28",
+      "reserve": 0.0,
+      "status": "denied"
+    },
+    {
+      "adjuster_id": "AD-008",
+      "cause": "water_damage",
+      "date_of_loss": "2025-10-03",
+      "holder_id": "PH-00040",
+      "id": "C-1057",
+      "line": "bop",
+      "narrative_seed": "water damage affecting bop policy COM-0000095 on 2025-10-03",
+      "paid": 42300.0,
+      "policy_id": "COM-0000095",
+      "reported_date": "2025-10-06",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-007",
+      "cause": "burglary",
+      "date_of_loss": "2024-08-21",
+      "holder_id": "PH-00070",
+      "id": "C-1058",
+      "line": "bop",
+      "narrative_seed": "burglary affecting bop policy COM-0000101 on 2024-08-21",
+      "paid": 0.0,
+      "policy_id": "COM-0000101",
+      "reported_date": "2024-08-22",
+      "reserve": 0.0,
+      "status": "denied"
+    },
+    {
+      "adjuster_id": "AD-009",
+      "cause": "rear_end_collision",
+      "date_of_loss": "2025-03-09",
+      "holder_id": "PH-00057",
+      "id": "C-1059",
+      "line": "personal_auto",
+      "narrative_seed": "rear end collision affecting personal_auto policy MOT-0000076 on 2025-03-09",
+      "paid": 18576.61,
+      "policy_id": "MOT-0000076",
+      "reported_date": "2025-03-19",
+      "reserve": 49250.0,
+      "status": "open"
+    },
+    {
+      "adjuster_id": "AD-008",
+      "cause": "hail",
+      "date_of_loss": "2024-05-19",
+      "holder_id": "PH-00030",
+      "id": "C-1060",
+      "line": "homeowners",
+      "narrative_seed": "hail affecting homeowners policy HH-0000027 on 2024-05-19",
+      "paid": 2956.16,
+      "policy_id": "HH-0000027",
+      "reported_date": "2024-05-20",
+      "reserve": 53100.0,
+      "status": "open"
+    },
+    {
+      "adjuster_id": "AD-004",
+      "cause": "slip_and_fall",
+      "date_of_loss": "2023-06-06",
+      "holder_id": "PH-00006",
+      "id": "C-1061",
+      "line": "bop",
+      "narrative_seed": "slip and fall affecting bop policy COM-0000039 on 2023-06-06",
+      "paid": 40900.0,
+      "policy_id": "COM-0000039",
+      "reported_date": "2023-06-16",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-002",
+      "cause": "hail",
+      "date_of_loss": "2024-01-26",
+      "holder_id": "PH-00078",
+      "id": "C-1062",
+      "line": "homeowners",
+      "narrative_seed": "hail affecting homeowners policy HH-0000049 on 2024-01-26",
+      "paid": 27850.0,
+      "policy_id": "HH-0000049",
+      "reported_date": "2024-02-04",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-007",
+      "cause": "wind",
+      "date_of_loss": "2023-10-30",
+      "holder_id": "PH-00033",
+      "id": "C-1063",
+      "line": "homeowners",
+      "narrative_seed": "wind affecting homeowners policy HH-0000065 on 2023-10-30",
+      "paid": 13527.22,
+      "policy_id": "HH-0000065",
+      "reported_date": "2023-10-30",
+      "reserve": 56950.0,
+      "status": "open"
+    },
+    {
+      "adjuster_id": "AD-002",
+      "cause": "water_damage",
+      "date_of_loss": "2025-01-02",
+      "holder_id": "PH-00070",
+      "id": "C-1064",
+      "line": "bop",
+      "narrative_seed": "water damage affecting bop policy COM-0000118 on 2025-01-02",
+      "paid": 4917.2,
+      "policy_id": "COM-0000118",
+      "reported_date": "2025-01-05",
+      "reserve": 19000.0,
+      "status": "open"
+    },
+    {
+      "adjuster_id": "AD-010",
+      "cause": "theft",
+      "date_of_loss": "2025-08-20",
+      "holder_id": "PH-00023",
+      "id": "C-1065",
+      "line": "personal_auto",
+      "narrative_seed": "theft affecting personal_auto policy MOT-0000006 on 2025-08-20",
+      "paid": 1951.5,
+      "policy_id": "MOT-0000006",
+      "reported_date": "2025-08-30",
+      "reserve": 46050.0,
+      "status": "open"
+    },
+    {
+      "adjuster_id": "AD-005",
+      "cause": "theft",
+      "date_of_loss": "2023-12-19",
+      "holder_id": "PH-00010",
+      "id": "C-1066",
+      "line": "homeowners",
+      "narrative_seed": "theft affecting homeowners policy HH-0000013 on 2023-12-19",
+      "paid": 4386.46,
+      "policy_id": "HH-0000013",
+      "reported_date": "2023-12-27",
+      "reserve": 24600.0,
+      "status": "open"
+    },
+    {
+      "adjuster_id": "AD-008",
+      "cause": "burglary",
+      "date_of_loss": "2024-12-26",
+      "holder_id": "PH-00055",
+      "id": "C-1067",
+      "line": "bop",
+      "narrative_seed": "burglary affecting bop policy COM-0000051 on 2024-12-26",
+      "paid": 14885.72,
+      "policy_id": "COM-0000051",
+      "reported_date": "2025-01-04",
+      "reserve": 37300.0,
+      "status": "open"
+    },
+    {
+      "adjuster_id": "AD-002",
+      "cause": "rear_end_collision",
+      "date_of_loss": "2025-03-24",
+      "holder_id": "PH-00031",
+      "id": "C-1068",
+      "line": "personal_auto",
+      "narrative_seed": "rear end collision affecting personal_auto policy MOT-0000062 on 2025-03-24",
+      "paid": 0.0,
+      "policy_id": "MOT-0000062",
+      "reported_date": "2025-03-30",
+      "reserve": 0.0,
+      "status": "denied"
+    },
+    {
+      "adjuster_id": "AD-003",
+      "cause": "burglary",
+      "date_of_loss": "2025-06-22",
+      "holder_id": "PH-00060",
+      "id": "C-1069",
+      "line": "bop",
+      "narrative_seed": "burglary affecting bop policy COM-0000015 on 2025-06-22",
+      "paid": 27150.0,
+      "policy_id": "COM-0000015",
+      "reported_date": "2025-06-26",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-006",
+      "cause": "animal_strike",
+      "date_of_loss": "2025-06-24",
+      "holder_id": "PH-00031",
+      "id": "C-1070",
+      "line": "personal_auto",
+      "narrative_seed": "animal strike affecting personal_auto policy MOT-0000062 on 2025-06-24",
+      "paid": 23650.0,
+      "policy_id": "MOT-0000062",
+      "reported_date": "2025-06-25",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-002",
+      "cause": "water_damage",
+      "date_of_loss": "2024-05-23",
+      "holder_id": "PH-00040",
+      "id": "C-1071",
+      "line": "homeowners",
+      "narrative_seed": "water damage affecting homeowners policy HH-0000041 on 2024-05-23",
+      "paid": 1460.59,
+      "policy_id": "HH-0000041",
+      "reported_date": "2024-05-23",
+      "reserve": 4300.0,
+      "status": "open"
+    },
+    {
+      "adjuster_id": "AD-002",
+      "cause": "equipment_breakdown",
+      "date_of_loss": "2024-06-13",
+      "holder_id": "PH-00075",
+      "id": "C-1072",
+      "line": "bop",
+      "narrative_seed": "equipment breakdown affecting bop policy COM-0000083 on 2024-06-13",
+      "paid": 0.0,
+      "policy_id": "COM-0000083",
+      "reported_date": "2024-06-15",
+      "reserve": 0.0,
+      "status": "denied"
+    },
+    {
+      "adjuster_id": "AD-009",
+      "cause": "business_interruption",
+      "date_of_loss": "2025-02-27",
+      "holder_id": "PH-00080",
+      "id": "C-1073",
+      "line": "bop",
+      "narrative_seed": "business interruption affecting bop policy COM-0000032 on 2025-02-27",
+      "paid": 22300.0,
+      "policy_id": "COM-0000032",
+      "reported_date": "2025-03-07",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-004",
+      "cause": "equipment_breakdown",
+      "date_of_loss": "2025-04-25",
+      "holder_id": "PH-00061",
+      "id": "C-1074",
+      "line": "bop",
+      "narrative_seed": "equipment breakdown affecting bop policy COM-0000060 on 2025-04-25",
+      "paid": 34150.0,
+      "policy_id": "COM-0000060",
+      "reported_date": "2025-05-05",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-007",
+      "cause": "hail",
+      "date_of_loss": "2023-11-07",
+      "holder_id": "PH-00060",
+      "id": "C-1075",
+      "line": "homeowners",
+      "narrative_seed": "hail affecting homeowners policy HH-0000056 on 2023-11-07",
+      "paid": 7146.8,
+      "policy_id": "HH-0000056",
+      "reported_date": "2023-11-16",
+      "reserve": 45950.0,
+      "status": "open"
+    },
+    {
+      "adjuster_id": "AD-004",
+      "cause": "fire",
+      "date_of_loss": "2024-05-23",
+      "holder_id": "PH-00037",
+      "id": "C-1076",
+      "line": "bop",
+      "narrative_seed": "fire affecting bop policy COM-0000091 on 2024-05-23",
+      "paid": 3965.53,
+      "policy_id": "COM-0000091",
+      "reported_date": "2024-05-27",
+      "reserve": 12400.0,
+      "status": "open"
+    },
+    {
+      "adjuster_id": "AD-003",
+      "cause": "water_damage",
+      "date_of_loss": "2024-09-21",
+      "holder_id": "PH-00011",
+      "id": "C-1077",
+      "line": "homeowners",
+      "narrative_seed": "water damage affecting homeowners policy HH-0000069 on 2024-09-21",
+      "paid": 13900.0,
+      "policy_id": "HH-0000069",
+      "reported_date": "2024-09-26",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-008",
+      "cause": "hail",
+      "date_of_loss": "2024-02-16",
+      "holder_id": "PH-00045",
+      "id": "C-1078",
+      "line": "homeowners",
+      "narrative_seed": "hail affecting homeowners policy HH-0000086 on 2024-02-16",
+      "paid": 31750.0,
+      "policy_id": "HH-0000086",
+      "reported_date": "2024-02-26",
+      "reserve": 0.0,
+      "status": "closed"
+    },
+    {
+      "adjuster_id": "AD-010",
+      "cause": "slip_and_fall",
+      "date_of_loss": "2024-03-12",
+      "holder_id": "PH-00055",
+      "id": "C-1079",
+      "line": "bop",
+      "narrative_seed": "slip and fall affecting bop policy COM-0000051 on 2024-03-12",
+      "paid": 32100.0,
+      "policy_id": "COM-0000051",
+      "reported_date": "2024-03-17",
+      "reserve": 0.0,
+      "status": "closed"
+    }
+  ],
+  "meta": {
+    "anchor_date": "2024-07-01",
+    "company": "Meridian Mutual Insurance SE",
+    "counts": {
+      "adjusters": 10,
+      "agents": 15,
+      "claims": 80,
+      "policies": 120,
+      "policyholders": 80
+    },
+    "currency": "EUR",
+    "generator_version": "0.0.1",
+    "marker": "SYNTHETIC — Meridian Mutual (fictional)",
+    "profile": "full",
+    "region": "Europe",
+    "seed": 42,
+    "synthetic": true
+  },
+  "policies": [
+    {
+      "agent_id": "AG-001",
+      "annual_premium": 1775.0,
+      "deductible": 1000.0,
+      "effective_date": "2023-11-29",
+      "endorsements": [
+        "NEW_CAR_REPL",
+        "RENTAL_REIMB",
+        "ROADSIDE"
+      ],
+      "expiry_date": "2024-11-28",
+      "holder_id": "PH-00053",
+      "id": "MOT-0000001",
+      "limits": {
+        "bodily_injury_per_accident": 300000,
+        "bodily_injury_per_person": 100000,
+        "property_damage": 100000
+      },
+      "line": "personal_auto",
+      "vehicle": {
+        "colour": "green",
+        "make": "Peugeot",
+        "model": "208",
+        "registration": "DO-2633-QO",
+        "year": 2018
+      }
+    },
+    {
+      "agent_id": "AG-007",
+      "annual_premium": 990.0,
+      "deductible": 500.0,
+      "effective_date": "2024-11-08",
+      "endorsements": [
+        "GAP"
+      ],
+      "expiry_date": "2025-11-08",
+      "holder_id": "PH-00019",
+      "id": "MOT-0000002",
+      "limits": {
+        "bodily_injury_per_accident": 300000,
+        "bodily_injury_per_person": 100000,
+        "property_damage": 100000
+      },
+      "line": "personal_auto",
+      "vehicle": {
+        "colour": "red",
+        "make": "Citroën",
+        "model": "C3",
+        "registration": "CK-9742-MK",
+        "year": 2020
+      }
+    },
+    {
+      "agent_id": "AG-014",
+      "annual_premium": 4660.0,
+      "deductible": 5000.0,
+      "effective_date": "2024-07-15",
+      "endorsements": [],
+      "expiry_date": "2025-07-15",
+      "holder_id": "PH-00063",
+      "id": "COM-0000003",
+      "limits": {
+        "building": 500000,
+        "business_personal_property": 200000,
+        "general_liability": 2000000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-012",
+      "annual_premium": 1150.0,
+      "deductible": 1000.0,
+      "effective_date": "2023-04-10",
+      "endorsements": [
+        "ORD_OR_LAW",
+        "SERVICE_LINE",
+        "WATER_BACKUP"
+      ],
+      "expiry_date": "2024-04-09",
+      "holder_id": "PH-00030",
+      "id": "HH-0000004",
+      "limits": {
+        "dwelling": 300000,
+        "personal_liability": 300000,
+        "personal_property": 150000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-005",
+      "annual_premium": 2000.0,
+      "deductible": 5000.0,
+      "effective_date": "2024-01-10",
+      "endorsements": [
+        "SCHEDULED_PROP",
+        "SERVICE_LINE"
+      ],
+      "expiry_date": "2025-01-09",
+      "holder_id": "PH-00008",
+      "id": "HH-0000005",
+      "limits": {
+        "dwelling": 350000,
+        "personal_liability": 100000,
+        "personal_property": 175000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-002",
+      "annual_premium": 1415.0,
+      "deductible": 1000.0,
+      "effective_date": "2024-09-23",
+      "endorsements": [
+        "NEW_CAR_REPL",
+        "ROADSIDE",
+        "UM_UIM"
+      ],
+      "expiry_date": "2025-09-23",
+      "holder_id": "PH-00023",
+      "id": "MOT-0000006",
+      "limits": {
+        "bodily_injury_per_accident": 300000,
+        "bodily_injury_per_person": 100000,
+        "property_damage": 100000
+      },
+      "line": "personal_auto",
+      "vehicle": {
+        "colour": "grey",
+        "make": "BMW",
+        "model": "3 Series",
+        "registration": "IV-1153-ZO",
+        "year": 2016
+      }
+    },
+    {
+      "agent_id": "AG-003",
+      "annual_premium": 1780.0,
+      "deductible": 2500.0,
+      "effective_date": "2023-03-24",
+      "endorsements": [
+        "ORD_OR_LAW",
+        "SCHEDULED_PROP",
+        "SERVICE_LINE"
+      ],
+      "expiry_date": "2024-03-23",
+      "holder_id": "PH-00070",
+      "id": "HH-0000007",
+      "limits": {
+        "dwelling": 450000,
+        "personal_liability": 500000,
+        "personal_property": 225000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-014",
+      "annual_premium": 1405.0,
+      "deductible": 1000.0,
+      "effective_date": "2024-05-16",
+      "endorsements": [],
+      "expiry_date": "2025-05-16",
+      "holder_id": "PH-00050",
+      "id": "MOT-0000008",
+      "limits": {
+        "bodily_injury_per_accident": 300000,
+        "bodily_injury_per_person": 100000,
+        "property_damage": 100000
+      },
+      "line": "personal_auto",
+      "vehicle": {
+        "colour": "red",
+        "make": "Fiat",
+        "model": "500",
+        "registration": "JA-7484-IA",
+        "year": 2017
+      }
+    },
+    {
+      "agent_id": "AG-015",
+      "annual_premium": 5760.0,
+      "deductible": 2500.0,
+      "effective_date": "2024-09-19",
+      "endorsements": [
+        "CYBER",
+        "EPLI",
+        "HIRED_NONOWNED_AUTO"
+      ],
+      "expiry_date": "2025-09-19",
+      "holder_id": "PH-00007",
+      "id": "COM-0000009",
+      "limits": {
+        "building": 1250000,
+        "business_personal_property": 200000,
+        "general_liability": 2000000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-011",
+      "annual_premium": 1690.0,
+      "deductible": 5000.0,
+      "effective_date": "2023-04-17",
+      "endorsements": [],
+      "expiry_date": "2024-04-16",
+      "holder_id": "PH-00018",
+      "id": "HH-0000010",
+      "limits": {
+        "dwelling": 600000,
+        "personal_liability": 100000,
+        "personal_property": 300000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-002",
+      "annual_premium": 1960.0,
+      "deductible": 1000.0,
+      "effective_date": "2023-11-06",
+      "endorsements": [
+        "ID_THEFT",
+        "ORD_OR_LAW"
+      ],
+      "expiry_date": "2024-11-05",
+      "holder_id": "PH-00017",
+      "id": "HH-0000011",
+      "limits": {
+        "dwelling": 350000,
+        "personal_liability": 100000,
+        "personal_property": 175000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-015",
+      "annual_premium": 2815.0,
+      "deductible": 2500.0,
+      "effective_date": "2023-10-14",
+      "endorsements": [
+        "EQUIP_BREAKDOWN"
+      ],
+      "expiry_date": "2024-10-13",
+      "holder_id": "PH-00065",
+      "id": "COM-0000012",
+      "limits": {
+        "building": 2000000,
+        "business_personal_property": 250000,
+        "general_liability": 2000000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-003",
+      "annual_premium": 2325.0,
+      "deductible": 2500.0,
+      "effective_date": "2023-08-27",
+      "endorsements": [
+        "ORD_OR_LAW",
+        "SERVICE_LINE",
+        "WATER_BACKUP"
+      ],
+      "expiry_date": "2024-08-26",
+      "holder_id": "PH-00010",
+      "id": "HH-0000013",
+      "limits": {
+        "dwelling": 500000,
+        "personal_liability": 100000,
+        "personal_property": 250000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-006",
+      "annual_premium": 1775.0,
+      "deductible": 500.0,
+      "effective_date": "2024-11-26",
+      "endorsements": [
+        "RENTAL_REIMB",
+        "ROADSIDE"
+      ],
+      "expiry_date": "2025-11-26",
+      "holder_id": "PH-00059",
+      "id": "MOT-0000014",
+      "limits": {
+        "bodily_injury_per_accident": 500000,
+        "bodily_injury_per_person": 250000,
+        "property_damage": 100000
+      },
+      "line": "personal_auto",
+      "vehicle": {
+        "colour": "blue",
+        "make": "SEAT",
+        "model": "León",
+        "registration": "RK-4626-UC",
+        "year": 2008
+      }
+    },
+    {
+      "agent_id": "AG-015",
+      "annual_premium": 4820.0,
+      "deductible": 1000.0,
+      "effective_date": "2024-12-25",
+      "endorsements": [
+        "EQUIP_BREAKDOWN",
+        "HIRED_NONOWNED_AUTO"
+      ],
+      "expiry_date": "2025-12-25",
+      "holder_id": "PH-00060",
+      "id": "COM-0000015",
+      "limits": {
+        "building": 1750000,
+        "business_personal_property": 100000,
+        "general_liability": 500000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-002",
+      "annual_premium": 1890.0,
+      "deductible": 5000.0,
+      "effective_date": "2023-09-05",
+      "endorsements": [
+        "ID_THEFT"
+      ],
+      "expiry_date": "2024-09-04",
+      "holder_id": "PH-00015",
+      "id": "HH-0000016",
+      "limits": {
+        "dwelling": 600000,
+        "personal_liability": 300000,
+        "personal_property": 300000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-012",
+      "annual_premium": 2575.0,
+      "deductible": 5000.0,
+      "effective_date": "2023-06-15",
+      "endorsements": [
+        "ORD_OR_LAW",
+        "SERVICE_LINE",
+        "WATER_BACKUP"
+      ],
+      "expiry_date": "2024-06-14",
+      "holder_id": "PH-00076",
+      "id": "HH-0000017",
+      "limits": {
+        "dwelling": 300000,
+        "personal_liability": 300000,
+        "personal_property": 150000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-004",
+      "annual_premium": 2705.0,
+      "deductible": 2500.0,
+      "effective_date": "2024-04-06",
+      "endorsements": [
+        "EPLI",
+        "EQUIP_BREAKDOWN",
+        "HIRED_NONOWNED_AUTO"
+      ],
+      "expiry_date": "2025-04-06",
+      "holder_id": "PH-00048",
+      "id": "COM-0000018",
+      "limits": {
+        "building": 1500000,
+        "business_personal_property": 100000,
+        "general_liability": 2000000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-004",
+      "annual_premium": 1130.0,
+      "deductible": 5000.0,
+      "effective_date": "2023-05-13",
+      "endorsements": [
+        "ID_THEFT",
+        "SERVICE_LINE",
+        "WATER_BACKUP"
+      ],
+      "expiry_date": "2024-05-12",
+      "holder_id": "PH-00036",
+      "id": "HH-0000019",
+      "limits": {
+        "dwelling": 400000,
+        "personal_liability": 500000,
+        "personal_property": 200000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-003",
+      "annual_premium": 1075.0,
+      "deductible": 5000.0,
+      "effective_date": "2024-08-08",
+      "endorsements": [
+        "SCHEDULED_PROP"
+      ],
+      "expiry_date": "2025-08-08",
+      "holder_id": "PH-00032",
+      "id": "HH-0000020",
+      "limits": {
+        "dwelling": 650000,
+        "personal_liability": 100000,
+        "personal_property": 325000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-013",
+      "annual_premium": 1505.0,
+      "deductible": 250.0,
+      "effective_date": "2023-06-08",
+      "endorsements": [],
+      "expiry_date": "2024-06-07",
+      "holder_id": "PH-00043",
+      "id": "MOT-0000021",
+      "limits": {
+        "bodily_injury_per_accident": 100000,
+        "bodily_injury_per_person": 50000,
+        "property_damage": 50000
+      },
+      "line": "personal_auto",
+      "vehicle": {
+        "colour": "green",
+        "make": "Škoda",
+        "model": "Octavia",
+        "registration": "FD-1422-EA",
+        "year": 2016
+      }
+    },
+    {
+      "agent_id": "AG-010",
+      "annual_premium": 1345.0,
+      "deductible": 1000.0,
+      "effective_date": "2023-12-05",
+      "endorsements": [],
+      "expiry_date": "2024-12-04",
+      "holder_id": "PH-00031",
+      "id": "HH-0000022",
+      "limits": {
+        "dwelling": 450000,
+        "personal_liability": 100000,
+        "personal_property": 225000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-009",
+      "annual_premium": 3935.0,
+      "deductible": 5000.0,
+      "effective_date": "2023-05-04",
+      "endorsements": [],
+      "expiry_date": "2024-05-03",
+      "holder_id": "PH-00054",
+      "id": "COM-0000023",
+      "limits": {
+        "building": 2000000,
+        "business_personal_property": 300000,
+        "general_liability": 2000000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-009",
+      "annual_premium": 2130.0,
+      "deductible": 500.0,
+      "effective_date": "2023-08-22",
+      "endorsements": [],
+      "expiry_date": "2024-08-21",
+      "holder_id": "PH-00058",
+      "id": "MOT-0000024",
+      "limits": {
+        "bodily_injury_per_accident": 300000,
+        "bodily_injury_per_person": 100000,
+        "property_damage": 100000
+      },
+      "line": "personal_auto",
+      "vehicle": {
+        "colour": "white",
+        "make": "BMW",
+        "model": "3 Series",
+        "registration": "PM-7984-VD",
+        "year": 2008
+      }
+    },
+    {
+      "agent_id": "AG-002",
+      "annual_premium": 2455.0,
+      "deductible": 1000.0,
+      "effective_date": "2023-03-31",
+      "endorsements": [
+        "ID_THEFT",
+        "ORD_OR_LAW"
+      ],
+      "expiry_date": "2024-03-30",
+      "holder_id": "PH-00057",
+      "id": "HH-0000025",
+      "limits": {
+        "dwelling": 350000,
+        "personal_liability": 100000,
+        "personal_property": 175000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-009",
+      "annual_premium": 2190.0,
+      "deductible": 5000.0,
+      "effective_date": "2023-11-05",
+      "endorsements": [
+        "SCHEDULED_PROP",
+        "SERVICE_LINE",
+        "WATER_BACKUP"
+      ],
+      "expiry_date": "2024-11-04",
+      "holder_id": "PH-00077",
+      "id": "HH-0000026",
+      "limits": {
+        "dwelling": 550000,
+        "personal_liability": 100000,
+        "personal_property": 275000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-007",
+      "annual_premium": 1920.0,
+      "deductible": 1000.0,
+      "effective_date": "2023-12-21",
+      "endorsements": [
+        "ORD_OR_LAW",
+        "SCHEDULED_PROP",
+        "SERVICE_LINE"
+      ],
+      "expiry_date": "2024-12-20",
+      "holder_id": "PH-00030",
+      "id": "HH-0000027",
+      "limits": {
+        "dwelling": 550000,
+        "personal_liability": 500000,
+        "personal_property": 275000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-006",
+      "annual_premium": 1840.0,
+      "deductible": 2500.0,
+      "effective_date": "2023-06-13",
+      "endorsements": [
+        "EPLI",
+        "EQUIP_BREAKDOWN",
+        "HIRED_NONOWNED_AUTO"
+      ],
+      "expiry_date": "2024-06-12",
+      "holder_id": "PH-00033",
+      "id": "COM-0000028",
+      "limits": {
+        "building": 500000,
+        "business_personal_property": 100000,
+        "general_liability": 500000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-010",
+      "annual_premium": 4930.0,
+      "deductible": 5000.0,
+      "effective_date": "2024-08-05",
+      "endorsements": [
+        "EQUIP_BREAKDOWN",
+        "SPOILAGE"
+      ],
+      "expiry_date": "2025-08-05",
+      "holder_id": "PH-00008",
+      "id": "COM-0000029",
+      "limits": {
+        "building": 500000,
+        "business_personal_property": 350000,
+        "general_liability": 1000000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-005",
+      "annual_premium": 2375.0,
+      "deductible": 1000.0,
+      "effective_date": "2024-01-03",
+      "endorsements": [],
+      "expiry_date": "2025-01-02",
+      "holder_id": "PH-00077",
+      "id": "HH-0000030",
+      "limits": {
+        "dwelling": 650000,
+        "personal_liability": 100000,
+        "personal_property": 325000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-004",
+      "annual_premium": 5825.0,
+      "deductible": 5000.0,
+      "effective_date": "2023-04-28",
+      "endorsements": [
+        "CYBER",
+        "SPOILAGE"
+      ],
+      "expiry_date": "2024-04-27",
+      "holder_id": "PH-00062",
+      "id": "COM-0000031",
+      "limits": {
+        "building": 1500000,
+        "business_personal_property": 100000,
+        "general_liability": 1000000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-010",
+      "annual_premium": 4615.0,
+      "deductible": 2500.0,
+      "effective_date": "2024-11-29",
+      "endorsements": [],
+      "expiry_date": "2025-11-29",
+      "holder_id": "PH-00080",
+      "id": "COM-0000032",
+      "limits": {
+        "building": 1250000,
+        "business_personal_property": 50000,
+        "general_liability": 500000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-015",
+      "annual_premium": 1530.0,
+      "deductible": 5000.0,
+      "effective_date": "2023-12-21",
+      "endorsements": [
+        "EQUIP_BREAKDOWN",
+        "SPOILAGE"
+      ],
+      "expiry_date": "2024-12-20",
+      "holder_id": "PH-00040",
+      "id": "COM-0000033",
+      "limits": {
+        "building": 750000,
+        "business_personal_property": 150000,
+        "general_liability": 2000000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-002",
+      "annual_premium": 1760.0,
+      "deductible": 500.0,
+      "effective_date": "2024-07-04",
+      "endorsements": [
+        "GAP"
+      ],
+      "expiry_date": "2025-07-04",
+      "holder_id": "PH-00004",
+      "id": "MOT-0000034",
+      "limits": {
+        "bodily_injury_per_accident": 300000,
+        "bodily_injury_per_person": 100000,
+        "property_damage": 100000
+      },
+      "line": "personal_auto",
+      "vehicle": {
+        "colour": "silver",
+        "make": "Peugeot",
+        "model": "208",
+        "registration": "XK-2391-BE",
+        "year": 2019
+      }
+    },
+    {
+      "agent_id": "AG-001",
+      "annual_premium": 1495.0,
+      "deductible": 1000.0,
+      "effective_date": "2024-11-28",
+      "endorsements": [],
+      "expiry_date": "2025-11-28",
+      "holder_id": "PH-00080",
+      "id": "MOT-0000035",
+      "limits": {
+        "bodily_injury_per_accident": 300000,
+        "bodily_injury_per_person": 100000,
+        "property_damage": 100000
+      },
+      "line": "personal_auto",
+      "vehicle": {
+        "colour": "blue",
+        "make": "Toyota",
+        "model": "Yaris",
+        "registration": "ON-5475-GY",
+        "year": 2023
+      }
+    },
+    {
+      "agent_id": "AG-006",
+      "annual_premium": 2950.0,
+      "deductible": 2500.0,
+      "effective_date": "2024-03-23",
+      "endorsements": [],
+      "expiry_date": "2025-03-23",
+      "holder_id": "PH-00015",
+      "id": "COM-0000036",
+      "limits": {
+        "building": 2000000,
+        "business_personal_property": 450000,
+        "general_liability": 2000000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-007",
+      "annual_premium": 815.0,
+      "deductible": 500.0,
+      "effective_date": "2024-09-12",
+      "endorsements": [],
+      "expiry_date": "2025-09-12",
+      "holder_id": "PH-00029",
+      "id": "MOT-0000037",
+      "limits": {
+        "bodily_injury_per_accident": 100000,
+        "bodily_injury_per_person": 50000,
+        "property_damage": 50000
+      },
+      "line": "personal_auto",
+      "vehicle": {
+        "colour": "green",
+        "make": "Ford",
+        "model": "Focus",
+        "registration": "IJ-6375-DA",
+        "year": 2012
+      }
+    },
+    {
+      "agent_id": "AG-003",
+      "annual_premium": 2260.0,
+      "deductible": 5000.0,
+      "effective_date": "2023-05-20",
+      "endorsements": [
+        "ORD_OR_LAW",
+        "SCHEDULED_PROP",
+        "WATER_BACKUP"
+      ],
+      "expiry_date": "2024-05-19",
+      "holder_id": "PH-00056",
+      "id": "HH-0000038",
+      "limits": {
+        "dwelling": 400000,
+        "personal_liability": 500000,
+        "personal_property": 200000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-007",
+      "annual_premium": 1895.0,
+      "deductible": 5000.0,
+      "effective_date": "2023-01-27",
+      "endorsements": [
+        "CYBER",
+        "EPLI",
+        "SPOILAGE"
+      ],
+      "expiry_date": "2024-01-27",
+      "holder_id": "PH-00006",
+      "id": "COM-0000039",
+      "limits": {
+        "building": 1500000,
+        "business_personal_property": 500000,
+        "general_liability": 1000000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-001",
+      "annual_premium": 1975.0,
+      "deductible": 500.0,
+      "effective_date": "2023-12-06",
+      "endorsements": [
+        "RENTAL_REIMB"
+      ],
+      "expiry_date": "2024-12-05",
+      "holder_id": "PH-00052",
+      "id": "MOT-0000040",
+      "limits": {
+        "bodily_injury_per_accident": 500000,
+        "bodily_injury_per_person": 250000,
+        "property_damage": 100000
+      },
+      "line": "personal_auto",
+      "vehicle": {
+        "colour": "black",
+        "make": "Toyota",
+        "model": "Yaris",
+        "registration": "NS-7560-QC",
+        "year": 2011
+      }
+    },
+    {
+      "agent_id": "AG-012",
+      "annual_premium": 1750.0,
+      "deductible": 5000.0,
+      "effective_date": "2023-12-21",
+      "endorsements": [
+        "WATER_BACKUP"
+      ],
+      "expiry_date": "2024-12-20",
+      "holder_id": "PH-00040",
+      "id": "HH-0000041",
+      "limits": {
+        "dwelling": 350000,
+        "personal_liability": 100000,
+        "personal_property": 175000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-004",
+      "annual_premium": 5220.0,
+      "deductible": 1000.0,
+      "effective_date": "2023-12-31",
+      "endorsements": [
+        "CYBER",
+        "HIRED_NONOWNED_AUTO"
+      ],
+      "expiry_date": "2024-12-30",
+      "holder_id": "PH-00066",
+      "id": "COM-0000042",
+      "limits": {
+        "building": 750000,
+        "business_personal_property": 200000,
+        "general_liability": 500000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-003",
+      "annual_premium": 1250.0,
+      "deductible": 500.0,
+      "effective_date": "2024-11-09",
+      "endorsements": [],
+      "expiry_date": "2025-11-09",
+      "holder_id": "PH-00078",
+      "id": "MOT-0000043",
+      "limits": {
+        "bodily_injury_per_accident": 500000,
+        "bodily_injury_per_person": 250000,
+        "property_damage": 100000
+      },
+      "line": "personal_auto",
+      "vehicle": {
+        "colour": "red",
+        "make": "SEAT",
+        "model": "León",
+        "registration": "SU-6295-UK",
+        "year": 2022
+      }
+    },
+    {
+      "agent_id": "AG-002",
+      "annual_premium": 1575.0,
+      "deductible": 1000.0,
+      "effective_date": "2024-05-02",
+      "endorsements": [
+        "GAP",
+        "NEW_CAR_REPL",
+        "RENTAL_REIMB"
+      ],
+      "expiry_date": "2025-05-02",
+      "holder_id": "PH-00057",
+      "id": "MOT-0000044",
+      "limits": {
+        "bodily_injury_per_accident": 300000,
+        "bodily_injury_per_person": 100000,
+        "property_damage": 100000
+      },
+      "line": "personal_auto",
+      "vehicle": {
+        "colour": "grey",
+        "make": "Renault",
+        "model": "Clio",
+        "registration": "OB-1932-LJ",
+        "year": 2017
+      }
+    },
+    {
+      "agent_id": "AG-010",
+      "annual_premium": 1980.0,
+      "deductible": 1000.0,
+      "effective_date": "2024-09-07",
+      "endorsements": [
+        "GAP",
+        "NEW_CAR_REPL",
+        "RENTAL_REIMB"
+      ],
+      "expiry_date": "2025-09-07",
+      "holder_id": "PH-00012",
+      "id": "MOT-0000045",
+      "limits": {
+        "bodily_injury_per_accident": 500000,
+        "bodily_injury_per_person": 250000,
+        "property_damage": 100000
+      },
+      "line": "personal_auto",
+      "vehicle": {
+        "colour": "silver",
+        "make": "BMW",
+        "model": "3 Series",
+        "registration": "TP-9214-EB",
+        "year": 2014
+      }
+    },
+    {
+      "agent_id": "AG-013",
+      "annual_premium": 2190.0,
+      "deductible": 1000.0,
+      "effective_date": "2023-12-25",
+      "endorsements": [],
+      "expiry_date": "2024-12-24",
+      "holder_id": "PH-00014",
+      "id": "HH-0000046",
+      "limits": {
+        "dwelling": 350000,
+        "personal_liability": 100000,
+        "personal_property": 175000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-008",
+      "annual_premium": 3360.0,
+      "deductible": 2500.0,
+      "effective_date": "2024-06-27",
+      "endorsements": [
+        "HIRED_NONOWNED_AUTO"
+      ],
+      "expiry_date": "2025-06-27",
+      "holder_id": "PH-00057",
+      "id": "COM-0000047",
+      "limits": {
+        "building": 1500000,
+        "business_personal_property": 250000,
+        "general_liability": 1000000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-001",
+      "annual_premium": 1835.0,
+      "deductible": 5000.0,
+      "effective_date": "2024-10-15",
+      "endorsements": [
+        "HIRED_NONOWNED_AUTO",
+        "SPOILAGE"
+      ],
+      "expiry_date": "2025-10-15",
+      "holder_id": "PH-00077",
+      "id": "COM-0000048",
+      "limits": {
+        "building": 1500000,
+        "business_personal_property": 100000,
+        "general_liability": 2000000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-014",
+      "annual_premium": 1105.0,
+      "deductible": 2500.0,
+      "effective_date": "2023-06-10",
+      "endorsements": [
+        "SCHEDULED_PROP",
+        "SERVICE_LINE"
+      ],
+      "expiry_date": "2024-06-09",
+      "holder_id": "PH-00078",
+      "id": "HH-0000049",
+      "limits": {
+        "dwelling": 350000,
+        "personal_liability": 300000,
+        "personal_property": 175000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-005",
+      "annual_premium": 4790.0,
+      "deductible": 5000.0,
+      "effective_date": "2024-08-02",
+      "endorsements": [
+        "EPLI",
+        "EQUIP_BREAKDOWN",
+        "HIRED_NONOWNED_AUTO"
+      ],
+      "expiry_date": "2025-08-02",
+      "holder_id": "PH-00011",
+      "id": "COM-0000050",
+      "limits": {
+        "building": 1500000,
+        "business_personal_property": 150000,
+        "general_liability": 2000000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-009",
+      "annual_premium": 3355.0,
+      "deductible": 2500.0,
+      "effective_date": "2024-01-13",
+      "endorsements": [],
+      "expiry_date": "2025-01-12",
+      "holder_id": "PH-00055",
+      "id": "COM-0000051",
+      "limits": {
+        "building": 1250000,
+        "business_personal_property": 150000,
+        "general_liability": 500000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-004",
+      "annual_premium": 1095.0,
+      "deductible": 5000.0,
+      "effective_date": "2023-05-28",
+      "endorsements": [
+        "ID_THEFT"
+      ],
+      "expiry_date": "2024-05-27",
+      "holder_id": "PH-00025",
+      "id": "HH-0000052",
+      "limits": {
+        "dwelling": 450000,
+        "personal_liability": 100000,
+        "personal_property": 225000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-001",
+      "annual_premium": 5985.0,
+      "deductible": 1000.0,
+      "effective_date": "2024-11-15",
+      "endorsements": [
+        "CYBER",
+        "EPLI"
+      ],
+      "expiry_date": "2025-11-15",
+      "holder_id": "PH-00068",
+      "id": "COM-0000053",
+      "limits": {
+        "building": 750000,
+        "business_personal_property": 500000,
+        "general_liability": 1000000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-013",
+      "annual_premium": 1720.0,
+      "deductible": 5000.0,
+      "effective_date": "2023-06-26",
+      "endorsements": [
+        "CYBER",
+        "HIRED_NONOWNED_AUTO",
+        "SPOILAGE"
+      ],
+      "expiry_date": "2024-06-25",
+      "holder_id": "PH-00080",
+      "id": "COM-0000054",
+      "limits": {
+        "building": 1750000,
+        "business_personal_property": 300000,
+        "general_liability": 2000000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-004",
+      "annual_premium": 1690.0,
+      "deductible": 2500.0,
+      "effective_date": "2024-07-07",
+      "endorsements": [
+        "ID_THEFT"
+      ],
+      "expiry_date": "2025-07-07",
+      "holder_id": "PH-00058",
+      "id": "HH-0000055",
+      "limits": {
+        "dwelling": 600000,
+        "personal_liability": 100000,
+        "personal_property": 300000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-013",
+      "annual_premium": 2185.0,
+      "deductible": 1000.0,
+      "effective_date": "2023-10-23",
+      "endorsements": [
+        "ID_THEFT",
+        "SCHEDULED_PROP",
+        "SERVICE_LINE"
+      ],
+      "expiry_date": "2024-10-22",
+      "holder_id": "PH-00060",
+      "id": "HH-0000056",
+      "limits": {
+        "dwelling": 650000,
+        "personal_liability": 300000,
+        "personal_property": 325000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-014",
+      "annual_premium": 2120.0,
+      "deductible": 500.0,
+      "effective_date": "2024-01-23",
+      "endorsements": [],
+      "expiry_date": "2025-01-22",
+      "holder_id": "PH-00062",
+      "id": "MOT-0000057",
+      "limits": {
+        "bodily_injury_per_accident": 100000,
+        "bodily_injury_per_person": 50000,
+        "property_damage": 50000
+      },
+      "line": "personal_auto",
+      "vehicle": {
+        "colour": "silver",
+        "make": "Renault",
+        "model": "Clio",
+        "registration": "OQ-3414-NC",
+        "year": 2013
+      }
+    },
+    {
+      "agent_id": "AG-015",
+      "annual_premium": 1860.0,
+      "deductible": 500.0,
+      "effective_date": "2023-12-31",
+      "endorsements": [],
+      "expiry_date": "2024-12-30",
+      "holder_id": "PH-00058",
+      "id": "MOT-0000058",
+      "limits": {
+        "bodily_injury_per_accident": 100000,
+        "bodily_injury_per_person": 50000,
+        "property_damage": 50000
+      },
+      "line": "personal_auto",
+      "vehicle": {
+        "colour": "black",
+        "make": "Škoda",
+        "model": "Octavia",
+        "registration": "MC-7142-HA",
+        "year": 2019
+      }
+    },
+    {
+      "agent_id": "AG-014",
+      "annual_premium": 1270.0,
+      "deductible": 2500.0,
+      "effective_date": "2024-11-03",
+      "endorsements": [
+        "SCHEDULED_PROP",
+        "SERVICE_LINE"
+      ],
+      "expiry_date": "2025-11-03",
+      "holder_id": "PH-00013",
+      "id": "HH-0000059",
+      "limits": {
+        "dwelling": 350000,
+        "personal_liability": 100000,
+        "personal_property": 175000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-008",
+      "annual_premium": 1905.0,
+      "deductible": 1000.0,
+      "effective_date": "2024-09-29",
+      "endorsements": [],
+      "expiry_date": "2025-09-29",
+      "holder_id": "PH-00061",
+      "id": "COM-0000060",
+      "limits": {
+        "building": 250000,
+        "business_personal_property": 250000,
+        "general_liability": 500000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-009",
+      "annual_premium": 5470.0,
+      "deductible": 1000.0,
+      "effective_date": "2024-03-16",
+      "endorsements": [],
+      "expiry_date": "2025-03-16",
+      "holder_id": "PH-00078",
+      "id": "COM-0000061",
+      "limits": {
+        "building": 1250000,
+        "business_personal_property": 200000,
+        "general_liability": 1000000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-007",
+      "annual_premium": 960.0,
+      "deductible": 500.0,
+      "effective_date": "2024-10-23",
+      "endorsements": [
+        "GAP",
+        "RENTAL_REIMB",
+        "UM_UIM"
+      ],
+      "expiry_date": "2025-10-23",
+      "holder_id": "PH-00031",
+      "id": "MOT-0000062",
+      "limits": {
+        "bodily_injury_per_accident": 100000,
+        "bodily_injury_per_person": 50000,
+        "property_damage": 50000
+      },
+      "line": "personal_auto",
+      "vehicle": {
+        "colour": "red",
+        "make": "Škoda",
+        "model": "Octavia",
+        "registration": "EJ-8032-AT",
+        "year": 2015
+      }
+    },
+    {
+      "agent_id": "AG-010",
+      "annual_premium": 2600.0,
+      "deductible": 2500.0,
+      "effective_date": "2024-03-09",
+      "endorsements": [
+        "WATER_BACKUP"
+      ],
+      "expiry_date": "2025-03-09",
+      "holder_id": "PH-00031",
+      "id": "HH-0000063",
+      "limits": {
+        "dwelling": 300000,
+        "personal_liability": 500000,
+        "personal_property": 150000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-009",
+      "annual_premium": 3495.0,
+      "deductible": 2500.0,
+      "effective_date": "2024-06-10",
+      "endorsements": [],
+      "expiry_date": "2025-06-10",
+      "holder_id": "PH-00070",
+      "id": "COM-0000064",
+      "limits": {
+        "building": 2000000,
+        "business_personal_property": 50000,
+        "general_liability": 2000000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-012",
+      "annual_premium": 1070.0,
+      "deductible": 5000.0,
+      "effective_date": "2023-01-24",
+      "endorsements": [
+        "ORD_OR_LAW",
+        "WATER_BACKUP"
+      ],
+      "expiry_date": "2024-01-24",
+      "holder_id": "PH-00033",
+      "id": "HH-0000065",
+      "limits": {
+        "dwelling": 500000,
+        "personal_liability": 100000,
+        "personal_property": 250000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-006",
+      "annual_premium": 1245.0,
+      "deductible": 500.0,
+      "effective_date": "2024-07-20",
+      "endorsements": [
+        "NEW_CAR_REPL",
+        "ROADSIDE"
+      ],
+      "expiry_date": "2025-07-20",
+      "holder_id": "PH-00006",
+      "id": "MOT-0000066",
+      "limits": {
+        "bodily_injury_per_accident": 500000,
+        "bodily_injury_per_person": 250000,
+        "property_damage": 100000
+      },
+      "line": "personal_auto",
+      "vehicle": {
+        "colour": "white",
+        "make": "Mercedes-Benz",
+        "model": "A-Class",
+        "registration": "WY-8498-BJ",
+        "year": 2012
+      }
+    },
+    {
+      "agent_id": "AG-013",
+      "annual_premium": 1605.0,
+      "deductible": 1000.0,
+      "effective_date": "2023-07-31",
+      "endorsements": [],
+      "expiry_date": "2024-07-30",
+      "holder_id": "PH-00006",
+      "id": "MOT-0000067",
+      "limits": {
+        "bodily_injury_per_accident": 300000,
+        "bodily_injury_per_person": 100000,
+        "property_damage": 100000
+      },
+      "line": "personal_auto",
+      "vehicle": {
+        "colour": "silver",
+        "make": "Toyota",
+        "model": "Yaris",
+        "registration": "BY-4131-JL",
+        "year": 2023
+      }
+    },
+    {
+      "agent_id": "AG-005",
+      "annual_premium": 1915.0,
+      "deductible": 1000.0,
+      "effective_date": "2023-05-15",
+      "endorsements": [
+        "NEW_CAR_REPL",
+        "UM_UIM"
+      ],
+      "expiry_date": "2024-05-14",
+      "holder_id": "PH-00043",
+      "id": "MOT-0000068",
+      "limits": {
+        "bodily_injury_per_accident": 300000,
+        "bodily_injury_per_person": 100000,
+        "property_damage": 100000
+      },
+      "line": "personal_auto",
+      "vehicle": {
+        "colour": "grey",
+        "make": "Fiat",
+        "model": "500",
+        "registration": "WP-7018-ZQ",
+        "year": 2013
+      }
+    },
+    {
+      "agent_id": "AG-012",
+      "annual_premium": 2000.0,
+      "deductible": 2500.0,
+      "effective_date": "2024-03-17",
+      "endorsements": [],
+      "expiry_date": "2025-03-17",
+      "holder_id": "PH-00011",
+      "id": "HH-0000069",
+      "limits": {
+        "dwelling": 350000,
+        "personal_liability": 500000,
+        "personal_property": 175000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-002",
+      "annual_premium": 1680.0,
+      "deductible": 5000.0,
+      "effective_date": "2023-12-09",
+      "endorsements": [
+        "SCHEDULED_PROP",
+        "SERVICE_LINE"
+      ],
+      "expiry_date": "2024-12-08",
+      "holder_id": "PH-00014",
+      "id": "HH-0000070",
+      "limits": {
+        "dwelling": 600000,
+        "personal_liability": 500000,
+        "personal_property": 300000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-006",
+      "annual_premium": 5220.0,
+      "deductible": 2500.0,
+      "effective_date": "2024-04-09",
+      "endorsements": [],
+      "expiry_date": "2025-04-09",
+      "holder_id": "PH-00057",
+      "id": "COM-0000071",
+      "limits": {
+        "building": 1500000,
+        "business_personal_property": 500000,
+        "general_liability": 1000000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-002",
+      "annual_premium": 3360.0,
+      "deductible": 5000.0,
+      "effective_date": "2024-11-25",
+      "endorsements": [
+        "EPLI",
+        "EQUIP_BREAKDOWN",
+        "SPOILAGE"
+      ],
+      "expiry_date": "2025-11-25",
+      "holder_id": "PH-00008",
+      "id": "COM-0000072",
+      "limits": {
+        "building": 750000,
+        "business_personal_property": 50000,
+        "general_liability": 500000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-013",
+      "annual_premium": 1725.0,
+      "deductible": 1000.0,
+      "effective_date": "2024-10-29",
+      "endorsements": [
+        "RENTAL_REIMB",
+        "ROADSIDE"
+      ],
+      "expiry_date": "2025-10-29",
+      "holder_id": "PH-00031",
+      "id": "MOT-0000073",
+      "limits": {
+        "bodily_injury_per_accident": 300000,
+        "bodily_injury_per_person": 100000,
+        "property_damage": 100000
+      },
+      "line": "personal_auto",
+      "vehicle": {
+        "colour": "silver",
+        "make": "BMW",
+        "model": "3 Series",
+        "registration": "LO-2259-SE",
+        "year": 2022
+      }
+    },
+    {
+      "agent_id": "AG-007",
+      "annual_premium": 2775.0,
+      "deductible": 1000.0,
+      "effective_date": "2023-11-25",
+      "endorsements": [
+        "EPLI",
+        "SPOILAGE"
+      ],
+      "expiry_date": "2024-11-24",
+      "holder_id": "PH-00047",
+      "id": "COM-0000074",
+      "limits": {
+        "building": 500000,
+        "business_personal_property": 50000,
+        "general_liability": 2000000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-005",
+      "annual_premium": 2595.0,
+      "deductible": 1000.0,
+      "effective_date": "2023-10-01",
+      "endorsements": [
+        "CYBER",
+        "EPLI",
+        "EQUIP_BREAKDOWN"
+      ],
+      "expiry_date": "2024-09-30",
+      "holder_id": "PH-00016",
+      "id": "COM-0000075",
+      "limits": {
+        "building": 1250000,
+        "business_personal_property": 400000,
+        "general_liability": 500000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-002",
+      "annual_premium": 1685.0,
+      "deductible": 250.0,
+      "effective_date": "2024-12-06",
+      "endorsements": [
+        "GAP",
+        "UM_UIM"
+      ],
+      "expiry_date": "2025-12-06",
+      "holder_id": "PH-00057",
+      "id": "MOT-0000076",
+      "limits": {
+        "bodily_injury_per_accident": 500000,
+        "bodily_injury_per_person": 250000,
+        "property_damage": 100000
+      },
+      "line": "personal_auto",
+      "vehicle": {
+        "colour": "green",
+        "make": "Nissan",
+        "model": "Qashqai",
+        "registration": "FW-3852-ZL",
+        "year": 2017
+      }
+    },
+    {
+      "agent_id": "AG-002",
+      "annual_premium": 2710.0,
+      "deductible": 5000.0,
+      "effective_date": "2023-08-01",
+      "endorsements": [
+        "EPLI"
+      ],
+      "expiry_date": "2024-07-31",
+      "holder_id": "PH-00029",
+      "id": "COM-0000077",
+      "limits": {
+        "building": 2000000,
+        "business_personal_property": 50000,
+        "general_liability": 1000000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-013",
+      "annual_premium": 2465.0,
+      "deductible": 2500.0,
+      "effective_date": "2024-07-25",
+      "endorsements": [
+        "SERVICE_LINE"
+      ],
+      "expiry_date": "2025-07-25",
+      "holder_id": "PH-00060",
+      "id": "HH-0000078",
+      "limits": {
+        "dwelling": 300000,
+        "personal_liability": 100000,
+        "personal_property": 150000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-009",
+      "annual_premium": 5715.0,
+      "deductible": 5000.0,
+      "effective_date": "2024-03-03",
+      "endorsements": [
+        "CYBER",
+        "EQUIP_BREAKDOWN",
+        "SPOILAGE"
+      ],
+      "expiry_date": "2025-03-03",
+      "holder_id": "PH-00062",
+      "id": "COM-0000079",
+      "limits": {
+        "building": 500000,
+        "business_personal_property": 150000,
+        "general_liability": 1000000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-006",
+      "annual_premium": 5430.0,
+      "deductible": 1000.0,
+      "effective_date": "2023-05-19",
+      "endorsements": [
+        "EQUIP_BREAKDOWN"
+      ],
+      "expiry_date": "2024-05-18",
+      "holder_id": "PH-00067",
+      "id": "COM-0000080",
+      "limits": {
+        "building": 750000,
+        "business_personal_property": 350000,
+        "general_liability": 2000000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-005",
+      "annual_premium": 3150.0,
+      "deductible": 2500.0,
+      "effective_date": "2023-06-25",
+      "endorsements": [
+        "EQUIP_BREAKDOWN"
+      ],
+      "expiry_date": "2024-06-24",
+      "holder_id": "PH-00020",
+      "id": "COM-0000081",
+      "limits": {
+        "building": 1000000,
+        "business_personal_property": 300000,
+        "general_liability": 2000000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-011",
+      "annual_premium": 1220.0,
+      "deductible": 5000.0,
+      "effective_date": "2024-07-25",
+      "endorsements": [
+        "SCHEDULED_PROP",
+        "WATER_BACKUP"
+      ],
+      "expiry_date": "2025-07-25",
+      "holder_id": "PH-00026",
+      "id": "HH-0000082",
+      "limits": {
+        "dwelling": 450000,
+        "personal_liability": 500000,
+        "personal_property": 225000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-003",
+      "annual_premium": 5810.0,
+      "deductible": 1000.0,
+      "effective_date": "2023-07-02",
+      "endorsements": [
+        "EPLI",
+        "HIRED_NONOWNED_AUTO"
+      ],
+      "expiry_date": "2024-07-01",
+      "holder_id": "PH-00075",
+      "id": "COM-0000083",
+      "limits": {
+        "building": 250000,
+        "business_personal_property": 50000,
+        "general_liability": 500000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-013",
+      "annual_premium": 4660.0,
+      "deductible": 5000.0,
+      "effective_date": "2024-08-15",
+      "endorsements": [
+        "CYBER",
+        "EPLI",
+        "HIRED_NONOWNED_AUTO"
+      ],
+      "expiry_date": "2025-08-15",
+      "holder_id": "PH-00027",
+      "id": "COM-0000084",
+      "limits": {
+        "building": 250000,
+        "business_personal_property": 400000,
+        "general_liability": 2000000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-005",
+      "annual_premium": 950.0,
+      "deductible": 500.0,
+      "effective_date": "2024-04-16",
+      "endorsements": [],
+      "expiry_date": "2025-04-16",
+      "holder_id": "PH-00052",
+      "id": "MOT-0000085",
+      "limits": {
+        "bodily_injury_per_accident": 100000,
+        "bodily_injury_per_person": 50000,
+        "property_damage": 50000
+      },
+      "line": "personal_auto",
+      "vehicle": {
+        "colour": "grey",
+        "make": "Toyota",
+        "model": "Yaris",
+        "registration": "GK-3353-KW",
+        "year": 2023
+      }
+    },
+    {
+      "agent_id": "AG-007",
+      "annual_premium": 2215.0,
+      "deductible": 2500.0,
+      "effective_date": "2023-05-21",
+      "endorsements": [
+        "SCHEDULED_PROP",
+        "SERVICE_LINE"
+      ],
+      "expiry_date": "2024-05-20",
+      "holder_id": "PH-00045",
+      "id": "HH-0000086",
+      "limits": {
+        "dwelling": 650000,
+        "personal_liability": 100000,
+        "personal_property": 325000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-008",
+      "annual_premium": 1045.0,
+      "deductible": 500.0,
+      "effective_date": "2023-09-18",
+      "endorsements": [
+        "NEW_CAR_REPL"
+      ],
+      "expiry_date": "2024-09-17",
+      "holder_id": "PH-00035",
+      "id": "MOT-0000087",
+      "limits": {
+        "bodily_injury_per_accident": 100000,
+        "bodily_injury_per_person": 50000,
+        "property_damage": 50000
+      },
+      "line": "personal_auto",
+      "vehicle": {
+        "colour": "black",
+        "make": "Volvo",
+        "model": "V40",
+        "registration": "FK-6123-GY",
+        "year": 2021
+      }
+    },
+    {
+      "agent_id": "AG-009",
+      "annual_premium": 1585.0,
+      "deductible": 250.0,
+      "effective_date": "2024-04-30",
+      "endorsements": [
+        "GAP",
+        "NEW_CAR_REPL",
+        "RENTAL_REIMB"
+      ],
+      "expiry_date": "2025-04-30",
+      "holder_id": "PH-00064",
+      "id": "MOT-0000088",
+      "limits": {
+        "bodily_injury_per_accident": 300000,
+        "bodily_injury_per_person": 100000,
+        "property_damage": 100000
+      },
+      "line": "personal_auto",
+      "vehicle": {
+        "colour": "black",
+        "make": "SEAT",
+        "model": "León",
+        "registration": "SL-1797-BJ",
+        "year": 2015
+      }
+    },
+    {
+      "agent_id": "AG-015",
+      "annual_premium": 1630.0,
+      "deductible": 1000.0,
+      "effective_date": "2024-11-07",
+      "endorsements": [
+        "ID_THEFT",
+        "SCHEDULED_PROP",
+        "SERVICE_LINE"
+      ],
+      "expiry_date": "2025-11-07",
+      "holder_id": "PH-00077",
+      "id": "HH-0000089",
+      "limits": {
+        "dwelling": 650000,
+        "personal_liability": 100000,
+        "personal_property": 325000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-013",
+      "annual_premium": 1730.0,
+      "deductible": 5000.0,
+      "effective_date": "2024-02-24",
+      "endorsements": [
+        "CYBER",
+        "HIRED_NONOWNED_AUTO"
+      ],
+      "expiry_date": "2025-02-23",
+      "holder_id": "PH-00047",
+      "id": "COM-0000090",
+      "limits": {
+        "building": 1750000,
+        "business_personal_property": 50000,
+        "general_liability": 2000000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-002",
+      "annual_premium": 5410.0,
+      "deductible": 5000.0,
+      "effective_date": "2024-02-07",
+      "endorsements": [
+        "CYBER",
+        "EPLI",
+        "EQUIP_BREAKDOWN"
+      ],
+      "expiry_date": "2025-02-06",
+      "holder_id": "PH-00037",
+      "id": "COM-0000091",
+      "limits": {
+        "building": 1250000,
+        "business_personal_property": 500000,
+        "general_liability": 2000000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-013",
+      "annual_premium": 1265.0,
+      "deductible": 5000.0,
+      "effective_date": "2023-12-21",
+      "endorsements": [
+        "SERVICE_LINE",
+        "WATER_BACKUP"
+      ],
+      "expiry_date": "2024-12-20",
+      "holder_id": "PH-00048",
+      "id": "HH-0000092",
+      "limits": {
+        "dwelling": 400000,
+        "personal_liability": 500000,
+        "personal_property": 200000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-003",
+      "annual_premium": 2125.0,
+      "deductible": 250.0,
+      "effective_date": "2023-12-15",
+      "endorsements": [
+        "NEW_CAR_REPL",
+        "ROADSIDE",
+        "UM_UIM"
+      ],
+      "expiry_date": "2024-12-14",
+      "holder_id": "PH-00005",
+      "id": "MOT-0000093",
+      "limits": {
+        "bodily_injury_per_accident": 300000,
+        "bodily_injury_per_person": 100000,
+        "property_damage": 100000
+      },
+      "line": "personal_auto",
+      "vehicle": {
+        "colour": "black",
+        "make": "Nissan",
+        "model": "Qashqai",
+        "registration": "MT-5902-SK",
+        "year": 2018
+      }
+    },
+    {
+      "agent_id": "AG-009",
+      "annual_premium": 3930.0,
+      "deductible": 5000.0,
+      "effective_date": "2024-05-23",
+      "endorsements": [
+        "EQUIP_BREAKDOWN",
+        "SPOILAGE"
+      ],
+      "expiry_date": "2025-05-23",
+      "holder_id": "PH-00066",
+      "id": "COM-0000094",
+      "limits": {
+        "building": 250000,
+        "business_personal_property": 300000,
+        "general_liability": 1000000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-013",
+      "annual_premium": 4555.0,
+      "deductible": 5000.0,
+      "effective_date": "2024-12-12",
+      "endorsements": [],
+      "expiry_date": "2025-12-12",
+      "holder_id": "PH-00040",
+      "id": "COM-0000095",
+      "limits": {
+        "building": 2000000,
+        "business_personal_property": 250000,
+        "general_liability": 2000000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-012",
+      "annual_premium": 2370.0,
+      "deductible": 1000.0,
+      "effective_date": "2023-03-01",
+      "endorsements": [
+        "EPLI",
+        "EQUIP_BREAKDOWN",
+        "SPOILAGE"
+      ],
+      "expiry_date": "2024-02-29",
+      "holder_id": "PH-00030",
+      "id": "COM-0000096",
+      "limits": {
+        "building": 1750000,
+        "business_personal_property": 150000,
+        "general_liability": 2000000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-006",
+      "annual_premium": 1855.0,
+      "deductible": 250.0,
+      "effective_date": "2024-03-11",
+      "endorsements": [
+        "NEW_CAR_REPL"
+      ],
+      "expiry_date": "2025-03-11",
+      "holder_id": "PH-00057",
+      "id": "MOT-0000097",
+      "limits": {
+        "bodily_injury_per_accident": 500000,
+        "bodily_injury_per_person": 250000,
+        "property_damage": 100000
+      },
+      "line": "personal_auto",
+      "vehicle": {
+        "colour": "green",
+        "make": "Škoda",
+        "model": "Octavia",
+        "registration": "XX-2020-WE",
+        "year": 2023
+      }
+    },
+    {
+      "agent_id": "AG-009",
+      "annual_premium": 4190.0,
+      "deductible": 2500.0,
+      "effective_date": "2023-12-06",
+      "endorsements": [
+        "EPLI",
+        "HIRED_NONOWNED_AUTO",
+        "SPOILAGE"
+      ],
+      "expiry_date": "2024-12-05",
+      "holder_id": "PH-00027",
+      "id": "COM-0000098",
+      "limits": {
+        "building": 1750000,
+        "business_personal_property": 300000,
+        "general_liability": 500000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-010",
+      "annual_premium": 1530.0,
+      "deductible": 2500.0,
+      "effective_date": "2024-05-17",
+      "endorsements": [
+        "SCHEDULED_PROP"
+      ],
+      "expiry_date": "2025-05-17",
+      "holder_id": "PH-00034",
+      "id": "HH-0000099",
+      "limits": {
+        "dwelling": 450000,
+        "personal_liability": 500000,
+        "personal_property": 225000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-012",
+      "annual_premium": 1710.0,
+      "deductible": 5000.0,
+      "effective_date": "2023-08-08",
+      "endorsements": [
+        "ID_THEFT",
+        "ORD_OR_LAW",
+        "WATER_BACKUP"
+      ],
+      "expiry_date": "2024-08-07",
+      "holder_id": "PH-00037",
+      "id": "HH-0000100",
+      "limits": {
+        "dwelling": 600000,
+        "personal_liability": 300000,
+        "personal_property": 300000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-007",
+      "annual_premium": 5455.0,
+      "deductible": 2500.0,
+      "effective_date": "2024-02-16",
+      "endorsements": [
+        "EQUIP_BREAKDOWN",
+        "HIRED_NONOWNED_AUTO"
+      ],
+      "expiry_date": "2025-02-15",
+      "holder_id": "PH-00070",
+      "id": "COM-0000101",
+      "limits": {
+        "building": 750000,
+        "business_personal_property": 250000,
+        "general_liability": 500000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-012",
+      "annual_premium": 1415.0,
+      "deductible": 5000.0,
+      "effective_date": "2024-05-12",
+      "endorsements": [
+        "ORD_OR_LAW"
+      ],
+      "expiry_date": "2025-05-12",
+      "holder_id": "PH-00033",
+      "id": "HH-0000102",
+      "limits": {
+        "dwelling": 650000,
+        "personal_liability": 300000,
+        "personal_property": 325000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-010",
+      "annual_premium": 1420.0,
+      "deductible": 1000.0,
+      "effective_date": "2024-08-30",
+      "endorsements": [
+        "UM_UIM"
+      ],
+      "expiry_date": "2025-08-30",
+      "holder_id": "PH-00014",
+      "id": "MOT-0000103",
+      "limits": {
+        "bodily_injury_per_accident": 100000,
+        "bodily_injury_per_person": 50000,
+        "property_damage": 50000
+      },
+      "line": "personal_auto",
+      "vehicle": {
+        "colour": "white",
+        "make": "Ford",
+        "model": "Focus",
+        "registration": "DN-6411-WP",
+        "year": 2015
+      }
+    },
+    {
+      "agent_id": "AG-001",
+      "annual_premium": 1840.0,
+      "deductible": 500.0,
+      "effective_date": "2024-07-24",
+      "endorsements": [
+        "NEW_CAR_REPL"
+      ],
+      "expiry_date": "2025-07-24",
+      "holder_id": "PH-00018",
+      "id": "MOT-0000104",
+      "limits": {
+        "bodily_injury_per_accident": 500000,
+        "bodily_injury_per_person": 250000,
+        "property_damage": 100000
+      },
+      "line": "personal_auto",
+      "vehicle": {
+        "colour": "green",
+        "make": "BMW",
+        "model": "3 Series",
+        "registration": "JK-5676-UB",
+        "year": 2014
+      }
+    },
+    {
+      "agent_id": "AG-004",
+      "annual_premium": 1245.0,
+      "deductible": 250.0,
+      "effective_date": "2024-07-08",
+      "endorsements": [],
+      "expiry_date": "2025-07-08",
+      "holder_id": "PH-00074",
+      "id": "MOT-0000105",
+      "limits": {
+        "bodily_injury_per_accident": 300000,
+        "bodily_injury_per_person": 100000,
+        "property_damage": 100000
+      },
+      "line": "personal_auto",
+      "vehicle": {
+        "colour": "green",
+        "make": "Nissan",
+        "model": "Qashqai",
+        "registration": "MZ-9116-FX",
+        "year": 2009
+      }
+    },
+    {
+      "agent_id": "AG-001",
+      "annual_premium": 1755.0,
+      "deductible": 5000.0,
+      "effective_date": "2023-11-09",
+      "endorsements": [],
+      "expiry_date": "2024-11-08",
+      "holder_id": "PH-00005",
+      "id": "HH-0000106",
+      "limits": {
+        "dwelling": 450000,
+        "personal_liability": 300000,
+        "personal_property": 225000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-008",
+      "annual_premium": 2895.0,
+      "deductible": 1000.0,
+      "effective_date": "2023-05-25",
+      "endorsements": [
+        "EPLI",
+        "HIRED_NONOWNED_AUTO",
+        "SPOILAGE"
+      ],
+      "expiry_date": "2024-05-24",
+      "holder_id": "PH-00068",
+      "id": "COM-0000107",
+      "limits": {
+        "building": 1000000,
+        "business_personal_property": 100000,
+        "general_liability": 1000000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-012",
+      "annual_premium": 1290.0,
+      "deductible": 1000.0,
+      "effective_date": "2023-12-19",
+      "endorsements": [
+        "NEW_CAR_REPL",
+        "UM_UIM"
+      ],
+      "expiry_date": "2024-12-18",
+      "holder_id": "PH-00002",
+      "id": "MOT-0000108",
+      "limits": {
+        "bodily_injury_per_accident": 100000,
+        "bodily_injury_per_person": 50000,
+        "property_damage": 50000
+      },
+      "line": "personal_auto",
+      "vehicle": {
+        "colour": "white",
+        "make": "Škoda",
+        "model": "Octavia",
+        "registration": "MV-2562-FE",
+        "year": 2018
+      }
+    },
+    {
+      "agent_id": "AG-015",
+      "annual_premium": 1565.0,
+      "deductible": 2500.0,
+      "effective_date": "2023-09-19",
+      "endorsements": [],
+      "expiry_date": "2024-09-18",
+      "holder_id": "PH-00042",
+      "id": "HH-0000109",
+      "limits": {
+        "dwelling": 550000,
+        "personal_liability": 100000,
+        "personal_property": 275000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-005",
+      "annual_premium": 1565.0,
+      "deductible": 1000.0,
+      "effective_date": "2024-08-26",
+      "endorsements": [],
+      "expiry_date": "2025-08-26",
+      "holder_id": "PH-00043",
+      "id": "HH-0000110",
+      "limits": {
+        "dwelling": 500000,
+        "personal_liability": 500000,
+        "personal_property": 250000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-008",
+      "annual_premium": 1835.0,
+      "deductible": 1000.0,
+      "effective_date": "2023-11-18",
+      "endorsements": [
+        "GAP"
+      ],
+      "expiry_date": "2024-11-17",
+      "holder_id": "PH-00016",
+      "id": "MOT-0000111",
+      "limits": {
+        "bodily_injury_per_accident": 500000,
+        "bodily_injury_per_person": 250000,
+        "property_damage": 100000
+      },
+      "line": "personal_auto",
+      "vehicle": {
+        "colour": "red",
+        "make": "Audi",
+        "model": "A3",
+        "registration": "JL-4618-HE",
+        "year": 2011
+      }
+    },
+    {
+      "agent_id": "AG-008",
+      "annual_premium": 1960.0,
+      "deductible": 5000.0,
+      "effective_date": "2024-09-19",
+      "endorsements": [
+        "ID_THEFT",
+        "SCHEDULED_PROP"
+      ],
+      "expiry_date": "2025-09-19",
+      "holder_id": "PH-00020",
+      "id": "HH-0000112",
+      "limits": {
+        "dwelling": 650000,
+        "personal_liability": 300000,
+        "personal_property": 325000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-014",
+      "annual_premium": 4200.0,
+      "deductible": 1000.0,
+      "effective_date": "2023-04-01",
+      "endorsements": [
+        "CYBER",
+        "EQUIP_BREAKDOWN",
+        "HIRED_NONOWNED_AUTO"
+      ],
+      "expiry_date": "2024-03-31",
+      "holder_id": "PH-00077",
+      "id": "COM-0000113",
+      "limits": {
+        "building": 1500000,
+        "business_personal_property": 100000,
+        "general_liability": 2000000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-003",
+      "annual_premium": 2095.0,
+      "deductible": 1000.0,
+      "effective_date": "2023-12-09",
+      "endorsements": [
+        "EPLI",
+        "EQUIP_BREAKDOWN",
+        "SPOILAGE"
+      ],
+      "expiry_date": "2024-12-08",
+      "holder_id": "PH-00020",
+      "id": "COM-0000114",
+      "limits": {
+        "building": 1000000,
+        "business_personal_property": 500000,
+        "general_liability": 1000000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-009",
+      "annual_premium": 2340.0,
+      "deductible": 2500.0,
+      "effective_date": "2024-03-08",
+      "endorsements": [
+        "ORD_OR_LAW",
+        "SCHEDULED_PROP",
+        "WATER_BACKUP"
+      ],
+      "expiry_date": "2025-03-08",
+      "holder_id": "PH-00017",
+      "id": "HH-0000115",
+      "limits": {
+        "dwelling": 250000,
+        "personal_liability": 500000,
+        "personal_property": 125000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-012",
+      "annual_premium": 1015.0,
+      "deductible": 5000.0,
+      "effective_date": "2023-08-19",
+      "endorsements": [],
+      "expiry_date": "2024-08-18",
+      "holder_id": "PH-00001",
+      "id": "HH-0000116",
+      "limits": {
+        "dwelling": 550000,
+        "personal_liability": 300000,
+        "personal_property": 275000
+      },
+      "line": "homeowners",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-001",
+      "annual_premium": 880.0,
+      "deductible": 500.0,
+      "effective_date": "2023-03-19",
+      "endorsements": [
+        "GAP",
+        "ROADSIDE",
+        "UM_UIM"
+      ],
+      "expiry_date": "2024-03-18",
+      "holder_id": "PH-00070",
+      "id": "MOT-0000117",
+      "limits": {
+        "bodily_injury_per_accident": 300000,
+        "bodily_injury_per_person": 100000,
+        "property_damage": 100000
+      },
+      "line": "personal_auto",
+      "vehicle": {
+        "colour": "silver",
+        "make": "Audi",
+        "model": "A3",
+        "registration": "MO-7184-MC",
+        "year": 2021
+      }
+    },
+    {
+      "agent_id": "AG-003",
+      "annual_premium": 2105.0,
+      "deductible": 5000.0,
+      "effective_date": "2024-11-07",
+      "endorsements": [
+        "CYBER",
+        "EPLI"
+      ],
+      "expiry_date": "2025-11-07",
+      "holder_id": "PH-00070",
+      "id": "COM-0000118",
+      "limits": {
+        "building": 750000,
+        "business_personal_property": 450000,
+        "general_liability": 1000000
+      },
+      "line": "bop",
+      "vehicle": null
+    },
+    {
+      "agent_id": "AG-005",
+      "annual_premium": 2160.0,
+      "deductible": 250.0,
+      "effective_date": "2024-04-26",
+      "endorsements": [
+        "NEW_CAR_REPL",
+        "ROADSIDE",
+        "UM_UIM"
+      ],
+      "expiry_date": "2025-04-26",
+      "holder_id": "PH-00003",
+      "id": "MOT-0000119",
+      "limits": {
+        "bodily_injury_per_accident": 300000,
+        "bodily_injury_per_person": 100000,
+        "property_damage": 100000
+      },
+      "line": "personal_auto",
+      "vehicle": {
+        "colour": "black",
+        "make": "Peugeot",
+        "model": "208",
+        "registration": "XY-2848-BZ",
+        "year": 2016
+      }
+    },
+    {
+      "agent_id": "AG-010",
+      "annual_premium": 2555.0,
+      "deductible": 1000.0,
+      "effective_date": "2023-01-24",
+      "endorsements": [
+        "SPOILAGE"
+      ],
+      "expiry_date": "2024-01-24",
+      "holder_id": "PH-00054",
+      "id": "COM-0000120",
+      "limits": {
+        "building": 500000,
+        "business_personal_property": 100000,
+        "general_liability": 2000000
+      },
+      "line": "bop",
+      "vehicle": null
+    }
+  ],
+  "policyholders": [
+    {
+      "city": "Callan Ville",
+      "country": "IE",
+      "dob": "1965-04-23",
+      "email": "seannatormay@example.com",
+      "gender": "female",
+      "id": "PH-00001",
+      "name": "Lyndsey Bridge",
+      "national_id": "1166941NA",
+      "phone": "479.540.2654",
+      "postcode": "P16 2R54",
+      "street": "16 McCullagh Street"
+    },
+    {
+      "city": "Bad Mergentheim",
+      "country": "DE",
+      "dob": "1952-05-03",
+      "email": "karl-hans23@example.com",
+      "gender": "male",
+      "id": "PH-00002",
+      "name": "Nicolas Löchel",
+      "national_id": "03164752553",
+      "phone": "+49(0)1615 594078",
+      "postcode": "41316",
+      "street": "Budigstr. 6/4"
+    },
+    {
+      "city": "Una Ville",
+      "country": "IE",
+      "dob": "1957-11-21",
+      "email": "cartynichole@example.org",
+      "gender": "female",
+      "id": "PH-00003",
+      "name": "Miss Lesley Goff",
+      "national_id": "1197935DA",
+      "phone": "001-341-431-6475x25534",
+      "postcode": "E05PDK3",
+      "street": "76 Whelan Street"
+    },
+    {
+      "city": "Buinerveen",
+      "country": "NL",
+      "dob": "1967-12-08",
+      "email": "jetvan-breugel@example.com",
+      "gender": "male",
+      "id": "PH-00004",
+      "name": "Kian Schilt-Amalrada",
+      "national_id": "276483500",
+      "phone": "0235-116155",
+      "postcode": "4959 TE",
+      "street": "Kayleighsingel 16"
+    },
+    {
+      "city": "RegnierBourg",
+      "country": "FR",
+      "dob": "1950-06-13",
+      "email": "suzanne02@example.net",
+      "gender": "male",
+      "id": "PH-00005",
+      "name": "Marc-Frédéric Pons",
+      "national_id": "041395376724238",
+      "phone": "04 83 42 35 11",
+      "postcode": "48180",
+      "street": "6, boulevard Rémy Bertrand"
+    },
+    {
+      "city": "Winschoten",
+      "country": "NL",
+      "dob": "1954-10-14",
+      "email": "daniel31@example.com",
+      "gender": "female",
+      "id": "PH-00006",
+      "name": "Niels Oda",
+      "national_id": "965328716",
+      "phone": "0752-553419",
+      "postcode": "1503ZU",
+      "street": "Jaydensingel 4"
+    },
+    {
+      "city": "Freudenstadt",
+      "country": "DE",
+      "dob": "1992-11-06",
+      "email": "pavelklapp@example.org",
+      "gender": "male",
+      "id": "PH-00007",
+      "name": "Henrik Schuster-Knappe",
+      "national_id": "06916697848",
+      "phone": "(04192) 83276",
+      "postcode": "37672",
+      "street": "Hedy-Junk-Gasse 5056"
+    },
+    {
+      "city": "Rastatt",
+      "country": "DE",
+      "dob": "1958-09-25",
+      "email": "justine96@example.net",
+      "gender": "male",
+      "id": "PH-00008",
+      "name": "Christof Hentschel-Weinhage",
+      "national_id": "04514627048",
+      "phone": "0532871012",
+      "postcode": "18451",
+      "street": "Schenkgasse 7-8"
+    },
+    {
+      "city": "Saint Élisabeth-sur-Mer",
+      "country": "FR",
+      "dob": "1946-11-10",
+      "email": "hortense31@example.org",
+      "gender": "male",
+      "id": "PH-00009",
+      "name": "William-Thomas Maurice",
+      "national_id": "089325288095701",
+      "phone": "+33 4 43 13 16 47",
+      "postcode": "20573",
+      "street": "62, rue Marguerite Da Costa"
+    },
+    {
+      "city": "Huelva",
+      "country": "ES",
+      "dob": "1986-01-08",
+      "email": "florlilia@example.net",
+      "gender": "female",
+      "id": "PH-00010",
+      "name": "Concha Guerrero Vazquez",
+      "national_id": "76149359-V",
+      "phone": "+34948 379 402",
+      "postcode": "40565",
+      "street": "Callejón de Fabricio Garrido 21 Piso 1"
+    },
+    {
+      "city": "Neustadtner Waldnaab",
+      "country": "DE",
+      "dob": "1955-08-27",
+      "email": "ullmannpauline@example.net",
+      "gender": "male",
+      "id": "PH-00011",
+      "name": "Heinz-Joachim Franke-Metz",
+      "national_id": "01822782489",
+      "phone": "+49(0)8281 48932",
+      "postcode": "15430",
+      "street": "Auguste-Wulff-Weg 9"
+    },
+    {
+      "city": "Mezzolara",
+      "country": "IT",
+      "dob": "1942-09-25",
+      "email": "verdonecalogero@example.net",
+      "gender": "male",
+      "id": "PH-00012",
+      "name": "Gianfranco Cilea",
+      "national_id": "XWGWJM57Z87D331K",
+      "phone": "015013389",
+      "postcode": "13825",
+      "street": "Viale Bianca, 60 Piano 2"
+    },
+    {
+      "city": "Garmisch-Partenkirchen",
+      "country": "DE",
+      "dob": "1964-04-01",
+      "email": "casparjanina@example.com",
+      "gender": "male",
+      "id": "PH-00013",
+      "name": "Theobald Rosenow",
+      "national_id": "01031051834",
+      "phone": "+49(0)8227 824896",
+      "postcode": "50983",
+      "street": "Ingried-Jockel-Straße 87/28"
+    },
+    {
+      "city": "Kori Ville",
+      "country": "IE",
+      "dob": "1988-09-05",
+      "email": "jodwyer@example.com",
+      "gender": "female",
+      "id": "PH-00014",
+      "name": "Miss Cliodhna Richie",
+      "national_id": "9580513BA",
+      "phone": "(738)584-9696",
+      "postcode": "K691P2A",
+      "street": "10 Fehan Street"
+    },
+    {
+      "city": "De Bult",
+      "country": "NL",
+      "dob": "1986-08-26",
+      "email": "sannetins@example.org",
+      "gender": "female",
+      "id": "PH-00015",
+      "name": "Fem Dijkstra",
+      "national_id": "631165667",
+      "phone": "(067)-2423884",
+      "postcode": "7122ME",
+      "street": "Ravihof 87"
+    },
+    {
+      "city": "Trepunti",
+      "country": "IT",
+      "dob": "1958-11-21",
+      "email": "olibonirossana@example.com",
+      "gender": "male",
+      "id": "PH-00016",
+      "name": "Carmelo Parmitano",
+      "national_id": "DBMXKZ13Z33R726F",
+      "phone": "39107816199",
+      "postcode": "13021",
+      "street": "Piazza Fortunata, 4"
+    },
+    {
+      "city": "Lleida",
+      "country": "ES",
+      "dob": "1986-02-15",
+      "email": "pinedocayetano@example.net",
+      "gender": "female",
+      "id": "PH-00017",
+      "name": "Roxana Aroca Segovia",
+      "national_id": "73863413-H",
+      "phone": "+34 900 959 310",
+      "postcode": "42660",
+      "street": "Avenida de Rita Guerrero 7"
+    },
+    {
+      "city": "Lörrach",
+      "country": "DE",
+      "dob": "1960-09-27",
+      "email": "heincengiz@example.org",
+      "gender": "male",
+      "id": "PH-00018",
+      "name": "Adalbert Boucsein",
+      "national_id": "00132677360",
+      "phone": "01834738299",
+      "postcode": "01065",
+      "street": "Lilian-Mühle-Straße 6116"
+    },
+    {
+      "city": "Vallet",
+      "country": "FR",
+      "dob": "2001-07-09",
+      "email": "zoe03@example.org",
+      "gender": "female",
+      "id": "PH-00019",
+      "name": "Laetitia de la Pottier",
+      "national_id": "074687234309805",
+      "phone": "0547413953",
+      "postcode": "71651",
+      "street": "86, chemin Joly"
+    },
+    {
+      "city": "Lobenstein",
+      "country": "DE",
+      "dob": "1964-08-17",
+      "email": "apolloniameister@example.org",
+      "gender": "male",
+      "id": "PH-00020",
+      "name": "Falko Gröttner",
+      "national_id": "08208121913",
+      "phone": "0247317810",
+      "postcode": "26064",
+      "street": "Susan-Weller-Platz 867"
+    },
+    {
+      "city": "Briga",
+      "country": "IT",
+      "dob": "1945-10-08",
+      "email": "napoleonenorbiato@example.org",
+      "gender": "male",
+      "id": "PH-00021",
+      "name": "Rodolfo Ossani",
+      "national_id": "STBTCN99Z85I353I",
+      "phone": "36619283268",
+      "postcode": "37052",
+      "street": "Piazza Giacconi, 55"
+    },
+    {
+      "city": "Tigliole",
+      "country": "IT",
+      "dob": "1959-11-10",
+      "email": "jsauli@example.com",
+      "gender": "male",
+      "id": "PH-00022",
+      "name": "Sig. Giacomo Tarchetti",
+      "national_id": "OKYCAO99Z11R384E",
+      "phone": "+39 0498849695",
+      "postcode": "13035",
+      "street": "Strada Bellini, 22"
+    },
+    {
+      "city": "Asturias",
+      "country": "ES",
+      "dob": "1945-04-12",
+      "email": "herminialasa@example.net",
+      "gender": "male",
+      "id": "PH-00023",
+      "name": "Ceferino Pellicer Padilla",
+      "national_id": "38250360-G",
+      "phone": "+34 821928327",
+      "postcode": "14826",
+      "street": "Paseo de Isidoro Morata 4 Apt. 56"
+    },
+    {
+      "city": "DeschampsVille",
+      "country": "FR",
+      "dob": "1948-09-23",
+      "email": "oetienne@example.org",
+      "gender": "female",
+      "id": "PH-00024",
+      "name": "Pénélope Guillon",
+      "national_id": "049808412411824",
+      "phone": "02 34 01 22 69",
+      "postcode": "87838",
+      "street": "avenue Jeannine Bigot"
+    },
+    {
+      "city": "Pontevedra",
+      "country": "ES",
+      "dob": "1956-06-07",
+      "email": "ppriego@example.com",
+      "gender": "male",
+      "id": "PH-00025",
+      "name": "Urbano Plinio Miranda Garcia",
+      "national_id": "92274302-M",
+      "phone": "+34 844 42 38 84",
+      "postcode": "05163",
+      "street": "Acceso de Isidoro Chacón 171 Apt. 22"
+    },
+    {
+      "city": "Chris Ville",
+      "country": "IE",
+      "dob": "1969-08-09",
+      "email": "eamon46@example.org",
+      "gender": "female",
+      "id": "PH-00026",
+      "name": "Mr. Robert Kiely",
+      "national_id": "0852264WA",
+      "phone": "704.482.8148x932",
+      "postcode": "Y91 80D9",
+      "street": "70 McDougald Street"
+    },
+    {
+      "city": "Luckau",
+      "country": "DE",
+      "dob": "1948-05-02",
+      "email": "hans-herberthuebel@example.org",
+      "gender": "female",
+      "id": "PH-00027",
+      "name": "Ing. Hildegart Textor MBA.",
+      "national_id": "00524278680",
+      "phone": "+49(0)9805009788",
+      "postcode": "93990",
+      "street": "Victoria-Pechel-Gasse 219"
+    },
+    {
+      "city": "Goslar",
+      "country": "DE",
+      "dob": "1945-12-05",
+      "email": "sylvia43@example.net",
+      "gender": "male",
+      "id": "PH-00028",
+      "name": "Hassan Sontag",
+      "national_id": "08059826204",
+      "phone": "03462475107",
+      "postcode": "42784",
+      "street": "Asta-Hamann-Weg 3/6"
+    },
+    {
+      "city": "Huesca",
+      "country": "ES",
+      "dob": "1944-06-07",
+      "email": "carolina01@example.net",
+      "gender": "male",
+      "id": "PH-00029",
+      "name": "Graciano Solé",
+      "national_id": "91545441-Z",
+      "phone": "+34987 451 462",
+      "postcode": "50971",
+      "street": "Callejón Angelita Escalona 914 Puerta 3"
+    },
+    {
+      "city": "Raynaud-sur-Mer",
+      "country": "FR",
+      "dob": "1979-09-28",
+      "email": "pauline51@example.com",
+      "gender": "male",
+      "id": "PH-00030",
+      "name": "Zacharie Regnier",
+      "national_id": "069232260256342",
+      "phone": "02 97 70 48 28",
+      "postcode": "20482",
+      "street": "chemin de Riou"
+    },
+    {
+      "city": "Kiera Ville",
+      "country": "IE",
+      "dob": "1977-01-28",
+      "email": "niamhosharkey@example.net",
+      "gender": "male",
+      "id": "PH-00031",
+      "name": "Sandra Dooey",
+      "national_id": "7896868CA",
+      "phone": "(848)796-3834",
+      "postcode": "R30 75CN",
+      "street": "13 Commins Street"
+    },
+    {
+      "city": "Gosselin-les-Bains",
+      "country": "FR",
+      "dob": "1949-08-12",
+      "email": "josephtristan@example.com",
+      "gender": "male",
+      "id": "PH-00032",
+      "name": "Richard Merle",
+      "national_id": "043303654145868",
+      "phone": "+33 (0)2 47 54 30 39",
+      "postcode": "17775",
+      "street": "avenue Muller"
+    },
+    {
+      "city": "Castellón",
+      "country": "ES",
+      "dob": "1994-05-06",
+      "email": "haliaga@example.com",
+      "gender": "male",
+      "id": "PH-00033",
+      "name": "Julián Abascal Morante",
+      "national_id": "77925434-D",
+      "phone": "+34 902 30 39 11",
+      "postcode": "36343",
+      "street": "Paseo María Dolores Casas 97 Apt. 48"
+    },
+    {
+      "city": "Asturias",
+      "country": "ES",
+      "dob": "1995-10-14",
+      "email": "urbano87@example.org",
+      "gender": "male",
+      "id": "PH-00034",
+      "name": "Pepe Mesa Pujol",
+      "national_id": "46397338-Z",
+      "phone": "+34 881315098",
+      "postcode": "34695",
+      "street": "Plaza Calisto Barral 11"
+    },
+    {
+      "city": "Donal Ville",
+      "country": "IE",
+      "dob": "1974-10-17",
+      "email": "seallyneil@example.com",
+      "gender": "female",
+      "id": "PH-00035",
+      "name": "Antoin Mageean",
+      "national_id": "1940214DA",
+      "phone": "+1-873-782-9973x76311",
+      "postcode": "E38FXHP",
+      "street": "70 Colleran Street"
+    },
+    {
+      "city": "Piazza Brembana",
+      "country": "IT",
+      "dob": "1985-01-23",
+      "email": "caroccigiuliana@example.net",
+      "gender": "male",
+      "id": "PH-00036",
+      "name": "Ruggero Trupiano-Gregorio",
+      "national_id": "NAQZRV35Z61V595V",
+      "phone": "3235146278",
+      "postcode": "56022",
+      "street": "Canale Lazzaro, 32"
+    },
+    {
+      "city": "Holzminden",
+      "country": "DE",
+      "dob": "1969-05-22",
+      "email": "swantje12@example.com",
+      "gender": "female",
+      "id": "PH-00037",
+      "name": "Marie Röhrdanz",
+      "national_id": "06564823662",
+      "phone": "+49(0)1824 493534",
+      "postcode": "42786",
+      "street": "Birnbaumgasse 5-1"
+    },
+    {
+      "city": "Heesch",
+      "country": "NL",
+      "dob": "1976-09-27",
+      "email": "yinthe80@example.net",
+      "gender": "female",
+      "id": "PH-00038",
+      "name": "Jade van Mare",
+      "national_id": "044369956",
+      "phone": "+3184 5146270",
+      "postcode": "9528AM",
+      "street": "Amiraboulevard 489"
+    },
+    {
+      "city": "Ossimo Inferiore",
+      "country": "IT",
+      "dob": "1973-11-07",
+      "email": "gino03@example.net",
+      "gender": "female",
+      "id": "PH-00039",
+      "name": "Camilla Orsini",
+      "national_id": "QPZZXF14Z89K134H",
+      "phone": "+39 0317182278",
+      "postcode": "22071",
+      "street": "Stretto Margherita, 694 Piano 1"
+    },
+    {
+      "city": "Pruvost",
+      "country": "FR",
+      "dob": "2000-01-08",
+      "email": "ilecomte@example.net",
+      "gender": "male",
+      "id": "PH-00040",
+      "name": "Robert Gaillard-Aubry",
+      "national_id": "079176936763201",
+      "phone": "+33 4 68 65 78 71",
+      "postcode": "28107",
+      "street": "61, boulevard Lenoir"
+    },
+    {
+      "city": "Pallagorio",
+      "country": "IT",
+      "dob": "1990-12-17",
+      "email": "biancagaluppi@example.org",
+      "gender": "male",
+      "id": "PH-00041",
+      "name": "Martino Argentero",
+      "national_id": "OBRHDO27Z88T579X",
+      "phone": "+39 3810310517",
+      "postcode": "40127",
+      "street": "Vicolo Aurora, 73"
+    },
+    {
+      "city": "Roggel",
+      "country": "NL",
+      "dob": "1948-09-15",
+      "email": "woutersnoelle@example.com",
+      "gender": "female",
+      "id": "PH-00042",
+      "name": "Kyara Berendse",
+      "national_id": "277434878",
+      "phone": "(003) 9117182",
+      "postcode": "7834QP",
+      "street": "Tarasteeg 48"
+    },
+    {
+      "city": "Kane Ville",
+      "country": "IE",
+      "dob": "1984-08-03",
+      "email": "gtwomey@example.org",
+      "gender": "male",
+      "id": "PH-00043",
+      "name": "Darcy Corley",
+      "national_id": "4793722QA",
+      "phone": "+1-880-213-2677x3602",
+      "postcode": "E09 8TCC",
+      "street": "74 Weaver Street"
+    },
+    {
+      "city": "Monniernec",
+      "country": "FR",
+      "dob": "1980-06-18",
+      "email": "davidvincent@example.org",
+      "gender": "female",
+      "id": "PH-00044",
+      "name": "Anne Rolland",
+      "national_id": "012236231665876",
+      "phone": "+33 4 30 73 82 99",
+      "postcode": "52578",
+      "street": "77, rue Pereira"
+    },
+    {
+      "city": "Eisenberg",
+      "country": "DE",
+      "dob": "1948-07-13",
+      "email": "belindabeier@example.com",
+      "gender": "male",
+      "id": "PH-00045",
+      "name": "Bertram Bruder",
+      "national_id": "09096705466",
+      "phone": "(08262) 045053",
+      "postcode": "02563",
+      "street": "Nikolaus-Zahn-Weg 3-4"
+    },
+    {
+      "city": "Leimuiden",
+      "country": "NL",
+      "dob": "1970-04-09",
+      "email": "phermans@example.org",
+      "gender": "male",
+      "id": "PH-00046",
+      "name": "Josephine van den Brink",
+      "national_id": "670656277",
+      "phone": "+31509 839301",
+      "postcode": "8382 PY",
+      "street": "Colinbaan 183"
+    },
+    {
+      "city": "PerrinVille",
+      "country": "FR",
+      "dob": "1943-07-19",
+      "email": "bonnetanne@example.net",
+      "gender": "male",
+      "id": "PH-00047",
+      "name": "Yves Guibert",
+      "national_id": "090162720465375",
+      "phone": "0245333872",
+      "postcode": "83653",
+      "street": "84, rue Pichon"
+    },
+    {
+      "city": "Ciudad",
+      "country": "ES",
+      "dob": "1984-07-09",
+      "email": "loretosuarez@example.org",
+      "gender": "female",
+      "id": "PH-00048",
+      "name": "Eligia Torralba Gargallo",
+      "national_id": "10993268-M",
+      "phone": "+34976631165",
+      "postcode": "13556",
+      "street": "Pasaje de Rosario Balaguer 1 Piso 5"
+    },
+    {
+      "city": "Pontelangorino",
+      "country": "IT",
+      "dob": "1954-09-02",
+      "email": "uschiavone@example.org",
+      "gender": "male",
+      "id": "PH-00049",
+      "name": "Sig. Michelangelo Randazzo",
+      "national_id": "LHUCYU00Z33A923E",
+      "phone": "+39 0184651332",
+      "postcode": "23857",
+      "street": "Contrada Romolo, 91 Appartamento 8"
+    },
+    {
+      "city": "Petrignano",
+      "country": "IT",
+      "dob": "1965-04-15",
+      "email": "zfuseli@example.org",
+      "gender": "male",
+      "id": "PH-00050",
+      "name": "Pier Spanevello",
+      "national_id": "WIYLFT91Z24D904S",
+      "phone": "+39 0700647462",
+      "postcode": "83043",
+      "street": "Piazza Barbara, 5 Piano 8"
+    },
+    {
+      "city": "Finbar Ville",
+      "country": "IE",
+      "dob": "1976-12-07",
+      "email": "cherudden@example.org",
+      "gender": "female",
+      "id": "PH-00051",
+      "name": "Kaitlin Roche-Stanton",
+      "national_id": "1275009EA",
+      "phone": "(219)313-6193",
+      "postcode": "N51 Y43E",
+      "street": "43 Horan Street"
+    },
+    {
+      "city": "Roderesch",
+      "country": "NL",
+      "dob": "1995-12-25",
+      "email": "gerritseninaya@example.com",
+      "gender": "male",
+      "id": "PH-00052",
+      "name": "Puk le Guellec-Lips",
+      "national_id": "491905866",
+      "phone": "+3166-7010651",
+      "postcode": "2473CZ",
+      "street": "Jonathansteeg 2"
+    },
+    {
+      "city": "Kurtis Ville",
+      "country": "IE",
+      "dob": "1997-09-21",
+      "email": "finn51@example.org",
+      "gender": "female",
+      "id": "PH-00053",
+      "name": "Robin Hardy",
+      "national_id": "5724909CA",
+      "phone": "(442)678-4980x841",
+      "postcode": "P74 D5XP",
+      "street": "82 Landa Street"
+    },
+    {
+      "city": "Sömmerda",
+      "country": "DE",
+      "dob": "1949-08-04",
+      "email": "kranzpamela@example.org",
+      "gender": "female",
+      "id": "PH-00054",
+      "name": "Catharina Zirme-Tintzmann",
+      "national_id": "06572628498",
+      "phone": "03375 433036",
+      "postcode": "01429",
+      "street": "Bohnbachallee 6/9"
+    },
+    {
+      "city": "Castelbello",
+      "country": "IT",
+      "dob": "1974-12-19",
+      "email": "gibiliscopatrizio@example.org",
+      "gender": "female",
+      "id": "PH-00055",
+      "name": "Aria Fantoni-Bombieri",
+      "national_id": "IKHCIO37Z99V650P",
+      "phone": "+39 0942909164",
+      "postcode": "35040",
+      "street": "Contrada Paolo, 64 Appartamento 7"
+    },
+    {
+      "city": "Almería",
+      "country": "ES",
+      "dob": "1970-04-12",
+      "email": "respanol@example.com",
+      "gender": "male",
+      "id": "PH-00056",
+      "name": "Julio Sanabria Checa",
+      "national_id": "34675473-F",
+      "phone": "+34881 178 108",
+      "postcode": "11789",
+      "street": "Urbanización Flavio Ramos 47"
+    },
+    {
+      "city": "Cádiz",
+      "country": "ES",
+      "dob": "1945-10-23",
+      "email": "angeles74@example.com",
+      "gender": "female",
+      "id": "PH-00057",
+      "name": "Abril Portero",
+      "national_id": "37080140-R",
+      "phone": "+34 979 234 309",
+      "postcode": "05490",
+      "street": "Calle de Aureliano Tapia 182"
+    },
+    {
+      "city": "Gaanderen",
+      "country": "NL",
+      "dob": "1968-04-03",
+      "email": "gellemeyersilke@example.org",
+      "gender": "male",
+      "id": "PH-00058",
+      "name": "Ayden van der Plas",
+      "national_id": "367837779",
+      "phone": "+31(0)67 7360260",
+      "postcode": "9430DV",
+      "street": "Silkesingel 687"
+    },
+    {
+      "city": "Strasburg",
+      "country": "DE",
+      "dob": "1983-04-13",
+      "email": "ukaul@example.com",
+      "gender": "male",
+      "id": "PH-00059",
+      "name": "Ali Dörr-Schenk",
+      "national_id": "03495788568",
+      "phone": "0981693406",
+      "postcode": "56482",
+      "street": "Otto-Losekann-Gasse 29/55"
+    },
+    {
+      "city": "Valladolid",
+      "country": "ES",
+      "dob": "1957-08-09",
+      "email": "hozcristina@example.net",
+      "gender": "female",
+      "id": "PH-00060",
+      "name": "Anabel Nereida Gutierrez Quintanilla",
+      "national_id": "41154241-C",
+      "phone": "+34800916998",
+      "postcode": "05754",
+      "street": "Glorieta de Haydée Miralles 74 Apt. 47"
+    },
+    {
+      "city": "Girona",
+      "country": "ES",
+      "dob": "1994-12-07",
+      "email": "antonialara@example.org",
+      "gender": "male",
+      "id": "PH-00061",
+      "name": "Jenaro Cabo Beltrán",
+      "national_id": "42352128-K",
+      "phone": "+34925 135 427",
+      "postcode": "40638",
+      "street": "Paseo Marcelino Calleja 24 Apt. 82"
+    },
+    {
+      "city": "Osterburg",
+      "country": "DE",
+      "dob": "1989-04-24",
+      "email": "vstey@example.org",
+      "gender": "male",
+      "id": "PH-00062",
+      "name": "Hasso Stadelmann",
+      "national_id": "07498941343",
+      "phone": "(09468) 044369",
+      "postcode": "13433",
+      "street": "Margrafstraße 2872"
+    },
+    {
+      "city": "Huesca",
+      "country": "ES",
+      "dob": "1982-01-23",
+      "email": "anselma74@example.org",
+      "gender": "male",
+      "id": "PH-00063",
+      "name": "Plinio Novoa Frutos",
+      "national_id": "71690398-C",
+      "phone": "+34824640052",
+      "postcode": "39175",
+      "street": "Pasaje Carmen Roma 201 Puerta 2"
+    },
+    {
+      "city": "Meyer-sur-Mer",
+      "country": "FR",
+      "dob": "1999-01-18",
+      "email": "jacquescordier@example.com",
+      "gender": "female",
+      "id": "PH-00064",
+      "name": "Bernadette Chrétien",
+      "national_id": "042710947775204",
+      "phone": "03 63 60 26 06",
+      "postcode": "37322",
+      "street": "74, boulevard de Peltier"
+    },
+    {
+      "city": "Loreo",
+      "country": "IT",
+      "dob": "1949-02-13",
+      "email": "mauriliobombieri@example.org",
+      "gender": "male",
+      "id": "PH-00065",
+      "name": "Tonino Impastato",
+      "national_id": "PCSUVB22Z94C318Y",
+      "phone": "0541278491",
+      "postcode": "39054",
+      "street": "Strada Canevascini, 444"
+    },
+    {
+      "city": "Olmi Di Treviso",
+      "country": "IT",
+      "dob": "1952-09-13",
+      "email": "randazzorenata@example.com",
+      "gender": "male",
+      "id": "PH-00066",
+      "name": "Giorgio Berengario",
+      "national_id": "OOJSNJ99Z09X133I",
+      "phone": "+39 0105242788",
+      "postcode": "62100",
+      "street": "Via Alina, 35"
+    },
+    {
+      "city": "Nina Ville",
+      "country": "IE",
+      "dob": "1991-04-06",
+      "email": "meaghankeoghane@example.org",
+      "gender": "male",
+      "id": "PH-00067",
+      "name": "Adam Mallon",
+      "national_id": "9260893MA",
+      "phone": "001-478-868-0112x8059",
+      "postcode": "H86 NHHX",
+      "street": "45 McCready Street"
+    },
+    {
+      "city": "Delitzsch",
+      "country": "DE",
+      "dob": "2001-07-15",
+      "email": "willibaldschmidt@example.org",
+      "gender": "male",
+      "id": "PH-00068",
+      "name": "Aleksandr Bien",
+      "national_id": "09740344713",
+      "phone": "06936 763201",
+      "postcode": "88957",
+      "street": "Hanns-Textor-Weg 40-28"
+    },
+    {
+      "city": "Zamora",
+      "country": "ES",
+      "dob": "1974-02-18",
+      "email": "mendezpanfilo@example.org",
+      "gender": "male",
+      "id": "PH-00069",
+      "name": "Candelario Ropero-Castell",
+      "national_id": "30173413-J",
+      "phone": "+34 927 331 586",
+      "postcode": "27982",
+      "street": "Rambla Nereida Elorza 30"
+    },
+    {
+      "city": "Bernard Ville",
+      "country": "IE",
+      "dob": "1943-05-27",
+      "email": "rjennings@example.org",
+      "gender": "male",
+      "id": "PH-00070",
+      "name": "Danny Mahedy",
+      "national_id": "2386328JA",
+      "phone": "001-216-507-3375x433",
+      "postcode": "Y42CE4X",
+      "street": "41 McCaul Street"
+    },
+    {
+      "city": "Kulmbach",
+      "country": "DE",
+      "dob": "1991-05-20",
+      "email": "judithmuelichen@example.com",
+      "gender": "male",
+      "id": "PH-00071",
+      "name": "Selim Rogge MBA.",
+      "national_id": "09471746488",
+      "phone": "+49(0)3487 34714",
+      "postcode": "31665",
+      "street": "Kästerring 32"
+    },
+    {
+      "city": "Muraglione",
+      "country": "IT",
+      "dob": "1996-10-02",
+      "email": "giulianagreco@example.net",
+      "gender": "female",
+      "id": "PH-00072",
+      "name": "Angelina Nugnes",
+      "national_id": "NXKTIA13Z99A490Y",
+      "phone": "+39 058486923",
+      "postcode": "22034",
+      "street": "Via Loredana, 36 Appartamento 6"
+    },
+    {
+      "city": "Fournier-sur-Legendre",
+      "country": "FR",
+      "dob": "1968-11-15",
+      "email": "bertrand09@example.com",
+      "gender": "female",
+      "id": "PH-00073",
+      "name": "Anne Letellier",
+      "national_id": "042967175655125",
+      "phone": "+33 1 80 81 21 91",
+      "postcode": "11529",
+      "street": "26, rue de Delorme"
+    },
+    {
+      "city": "Torchiaro",
+      "country": "IT",
+      "dob": "1983-11-13",
+      "email": "pina33@example.org",
+      "gender": "female",
+      "id": "PH-00074",
+      "name": "Marina Nibali",
+      "national_id": "YRBOCK45Z16Q087N",
+      "phone": "+39 07335414580",
+      "postcode": "70024",
+      "street": "Via Impastato, 671"
+    },
+    {
+      "city": "Husum",
+      "country": "DE",
+      "dob": "1968-06-20",
+      "email": "lwinkler@example.net",
+      "gender": "male",
+      "id": "PH-00075",
+      "name": "Dipl.-Ing. Anthony Haering MBA.",
+      "national_id": "07703482477",
+      "phone": "+49(0)9670546688",
+      "postcode": "27298",
+      "street": "Hartmannring 8-1"
+    },
+    {
+      "city": "Arnstadt",
+      "country": "DE",
+      "dob": "1961-10-26",
+      "email": "carstenfrancesca@example.com",
+      "gender": "male",
+      "id": "PH-00076",
+      "name": "Traugott Kreusel",
+      "national_id": "03248086131",
+      "phone": "+49 (0) 7204 653755",
+      "postcode": "53100",
+      "street": "Wellerallee 5-2"
+    },
+    {
+      "city": "Ovindoli",
+      "country": "IT",
+      "dob": "1960-03-16",
+      "email": "habbagnale@example.net",
+      "gender": "male",
+      "id": "PH-00077",
+      "name": "Franco Gualandi-Battisti",
+      "national_id": "WJQWIN77Z37R263T",
+      "phone": "+39 0587615958",
+      "postcode": "37100",
+      "street": "Rotonda Pinamonte, 8 Piano 6"
+    },
+    {
+      "city": "Wolvega",
+      "country": "NL",
+      "dob": "1946-02-09",
+      "email": "hvan-de-biezenbos@example.org",
+      "gender": "male",
+      "id": "PH-00078",
+      "name": "Anne Cadefau",
+      "national_id": "658404491",
+      "phone": "081 2191361",
+      "postcode": "4435 QZ",
+      "street": "Fayeboulevard 9"
+    },
+    {
+      "city": "Garyp",
+      "country": "NL",
+      "dob": "1946-03-15",
+      "email": "wtuithof@example.org",
+      "gender": "female",
+      "id": "PH-00079",
+      "name": "Noud Steenbakkers",
+      "national_id": "875588671",
+      "phone": "0799 118384",
+      "postcode": "9849 AQ",
+      "street": "Oliviaboulevard 54"
+    },
+    {
+      "city": "Soria",
+      "country": "ES",
+      "dob": "1957-04-19",
+      "email": "earias@example.org",
+      "gender": "male",
+      "id": "PH-00080",
+      "name": "Eliseo Cuervo Campoy",
+      "national_id": "51401477-C",
+      "phone": "+34 873 754 330",
+      "postcode": "36141",
+      "street": "Alameda de León Baños 95"
+    }
+  ]
+}

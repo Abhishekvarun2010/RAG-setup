@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "column_docs": {
+    "detail": "Free-text supplementary attributes.",
+    "id": "Primary key (PH-/AG-/AD-/policy/claim id).",
+    "line": "Line of business for policy/claim rows; empty otherwise.",
+    "name": "Human-readable label for the entity.",
+    "parent_id": "Join key to the owning entity (policy.holder_id, claim.policy_id).",
+    "status": "Claim status (open/closed/denied); empty for other types.",
+    "type": "One of policyholder | agent | adjuster | policy | claim."
+  },
+  "columns": [
+    "id",
+    "type",
+    "name",
+    "line",
+    "parent_id",
+    "status",
+    "detail"
+  ],
+  "description": "Flat id-keyed master-data index. One header row + one row per entity. Tab-separated, UTF-8, columns in fixed order.",
+  "title": "Meridian Mutual roster (TSV)"
+}

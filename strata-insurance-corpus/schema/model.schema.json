@@ -1,0 +1,299 @@
+{
+  "$id": "https://github.com/NikolaiSachok/strata-insurance-corpus/schema/model.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "adjusters": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "pattern": "^AD-[0-9]{3}$",
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "specialty": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "agents": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "agency": {
+            "type": "string"
+          },
+          "id": {
+            "pattern": "^AG-[0-9]{3}$",
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "region": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "claims": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "adjuster_id": {
+            "pattern": "^AD-[0-9]{3}$",
+            "type": "string"
+          },
+          "cause": {
+            "type": "string"
+          },
+          "date_of_loss": {
+            "format": "date",
+            "type": "string"
+          },
+          "holder_id": {
+            "pattern": "^PH-[0-9]{5}$",
+            "type": "string"
+          },
+          "id": {
+            "pattern": "^C-[0-9]+$",
+            "type": "string"
+          },
+          "line": {
+            "enum": [
+              "personal_auto",
+              "homeowners",
+              "bop"
+            ]
+          },
+          "narrative_seed": {
+            "type": "string"
+          },
+          "paid": {
+            "type": "number"
+          },
+          "policy_id": {
+            "type": "string"
+          },
+          "reported_date": {
+            "format": "date",
+            "type": "string"
+          },
+          "reserve": {
+            "type": "number"
+          },
+          "status": {
+            "enum": [
+              "closed",
+              "open",
+              "denied"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "policy_id",
+          "holder_id",
+          "adjuster_id",
+          "line",
+          "date_of_loss",
+          "status",
+          "cause"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "meta": {
+      "additionalProperties": false,
+      "properties": {
+        "anchor_date": {
+          "format": "date",
+          "type": "string"
+        },
+        "company": {
+          "type": "string"
+        },
+        "counts": {
+          "type": "object"
+        },
+        "generator_version": {
+          "type": "string"
+        },
+        "marker": {
+          "type": "string"
+        },
+        "profile": {
+          "type": "string"
+        },
+        "seed": {
+          "type": "integer"
+        },
+        "synthetic": {
+          "const": true
+        }
+      },
+      "required": [
+        "company",
+        "marker",
+        "synthetic",
+        "seed",
+        "profile"
+      ],
+      "type": "object"
+    },
+    "policies": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "agent_id": {
+            "pattern": "^AG-[0-9]{3}$",
+            "type": "string"
+          },
+          "annual_premium": {
+            "type": "number"
+          },
+          "deductible": {
+            "type": "number"
+          },
+          "effective_date": {
+            "format": "date",
+            "type": "string"
+          },
+          "endorsements": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "expiry_date": {
+            "format": "date",
+            "type": "string"
+          },
+          "holder_id": {
+            "pattern": "^PH-[0-9]{5}$",
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "limits": {
+            "type": "object"
+          },
+          "line": {
+            "enum": [
+              "personal_auto",
+              "homeowners",
+              "bop"
+            ]
+          },
+          "vehicle": {
+            "type": [
+              "object",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "holder_id",
+          "agent_id",
+          "line",
+          "effective_date",
+          "expiry_date",
+          "annual_premium"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "policyholders": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "city": {
+            "type": "string"
+          },
+          "country": {
+            "enum": [
+              "DE",
+              "FR",
+              "ES",
+              "IT",
+              "NL",
+              "IE"
+            ]
+          },
+          "dob": {
+            "format": "date",
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "gender": {
+            "enum": [
+              "male",
+              "female"
+            ]
+          },
+          "id": {
+            "pattern": "^PH-[0-9]{5}$",
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "national_id": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "postcode": {
+            "type": "string"
+          },
+          "street": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "gender",
+          "dob",
+          "country",
+          "national_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "meta",
+    "policyholders",
+    "agents",
+    "adjusters",
+    "policies",
+    "claims"
+  ],
+  "title": "Meridian Mutual entity model",
+  "type": "object"
+}
