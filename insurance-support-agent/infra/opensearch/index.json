@@ -1,0 +1,83 @@
+{
+  "settings": {
+    "index": {
+      "knn": true,
+      "number_of_shards": 1,
+      "number_of_replicas": 0
+    }
+  },
+  "mappings": {
+    "properties": {
+      "content": {
+        "type": "text"
+      },
+      "embedding": {
+        "type": "knn_vector",
+        "dimension": 1024,
+        "method": {
+          "name": "hnsw",
+          "space_type": "cosinesimil",
+          "engine": "nmslib",
+          "parameters": {
+            "ef_construction": 128,
+            "m": 16
+          }
+        }
+      },
+      "chunk_id": {
+        "type": "keyword"
+      },
+      "document_id": {
+        "type": "keyword"
+      },
+      "document_type": {
+        "type": "keyword"
+      },
+      "source_type": {
+        "type": "keyword"
+      },
+      "policy_id": {
+        "type": "keyword"
+      },
+      "claim_id": {
+        "type": "keyword"
+      },
+      "policyholder_id": {
+        "type": "keyword"
+      },
+      "line_of_business": {
+        "type": "keyword"
+      },
+      "product": {
+        "type": "keyword"
+      },
+      "version": {
+        "type": "keyword"
+      },
+      "status": {
+        "type": "keyword"
+      },
+      "effective_from": {
+        "type": "date"
+      },
+      "effective_to": {
+        "type": "date"
+      },
+      "section": {
+        "type": "keyword"
+      },
+      "page_number": {
+        "type": "integer"
+      },
+      "access_control": {
+        "type": "keyword"
+      },
+      "source_uri": {
+        "type": "keyword"
+      },
+      "ingested_at": {
+        "type": "date"
+      }
+    }
+  }
+}
