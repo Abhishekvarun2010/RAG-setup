@@ -6,8 +6,9 @@ search payloads (e.g. OpenSearch hit dictionaries).
 """
 from __future__ import annotations
 
+from datetime import date
 from enum import Enum
-from typing import Any, Dict, Optional
+from typing import Any, Dict, List, Optional, Union
 from pydantic import BaseModel, ConfigDict, Field
 
 
@@ -16,6 +17,67 @@ class RetrievalMethod(str, Enum):
     BM25 = "bm25"
     VECTOR = "vector"
     HYBRID_RRF = "hybrid_rrf"
+
+
+class RetrievalFilters(BaseModel):
+    """
+    Structured metadata filters applied natively inside OpenSearch queries.
+    """
+    model_config = ConfigDict(
+        use_enum_values=True,
+        str_strip_whitespace=True,
+        extra="forbid",
+    )
+
+    policy_id: Optional[str] = Field(default=None, description="Filter by policy ID (e.g. 'COM-0000077')")
+    claim_id: Optional[str] = Field(default=None, description="Filter by claim ID (e.g. 'C-1000')")
+    policyholder_id: Optional[str] = Field(default=None, description="Filter by policyholder ID (e.g. 'PH-00029')")
+    document_type: Optional[str] = Field(default=None, description="Filter by document type (e.g. 'estimate')")
+    line_of_business: Optional[str] = Field(default=None, description="Filter by line of business (e.g. 'commercial')")
+    product: Optional[str] = Field(default=None, description="Filter by product name")
+    status: Optional[str] = Field(default=None, description="Filter by status (e.g. 'closed', 'active')")
+    section: Optional[str] = Field(default=None, description="Filter by section title (e.g. 'Line Items')")
+    access_control: Optional[List[str]] = Field(default=None, description="Filter by permitted access levels")
+    effective_from: Optional[date] = Field(default=None, description="Effective date range lower bound")
+    effective_to: Optional[date] = Field(default=None, description="Effective date range upper bound")
+
+    def to_opensearch_filter(self) -> Optional[Dict[str, Any]]:
+        """
+        Build an OpenSearch bool filter clause.
+        Returns None if no filters are active.
+        """
+        clauses: List[Dict[str, Any]] = []
+
+        keyword_fields = [
+            ("policy_id", self.policy_id),
+            ("claim_id", self.claim_id),
+            ("policyholder_id", self.policyholder_id),
+            ("document_type", self.document_type),
+            ("line_of_business", self.line_of_business),
+            ("product", self.product),
+            ("status", self.status),
+            ("section", self.section),
+        ]
+        for field_name, value in keyword_fields:
+            if value is not None:
+                str_val = value.value if isinstance(value, Enum) else str(value)
+                clauses.append({"term": {field_name: str_val}})
+
+        if self.access_control:
+            clauses.append({"terms": {"access_control": self.access_control}})
+
+        if self.effective_from or self.effective_to:
+            range_clause: Dict[str, Any] = {}
+            if self.effective_from:
+                range_clause["gte"] = self.effective_from.isoformat()
+            if self.effective_to:
+                range_clause["lte"] = self.effective_to.isoformat()
+            clauses.append({"range": {"effective_from": range_clause}})
+
+        if not clauses:
+            return None
+
+        return {"bool": {"filter": clauses}}
 
 
 class RetrievalResult(BaseModel):

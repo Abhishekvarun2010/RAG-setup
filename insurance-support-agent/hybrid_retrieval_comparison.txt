@@ -1,0 +1,222 @@
+================================================================================
+HYBRID RETRIEVAL & METADATA FILTERING COMPARISON REPORT
+Corpus: Strata Insurance Corpus (Claim C-1000: Estimate, Adjuster Report, FNOL)
+Search Infrastructure: OpenSearch 2.11 (BM25 + k-NN nmslib cosinesimil)
+Embedding Model: Ollama BGE-M3 (1024 dimensions)
+Fusion Algorithm: Reciprocal Rank Fusion (RRF, k=60)
+================================================================================
+
+################################################################################
+QUERY 1: "What is the net amount payable after the deductible?"
+################################################################################
+
+--------------------------------------------------------------------------------
+1. BM25 KEYWORD RETRIEVAL (Unfiltered)
+--------------------------------------------------------------------------------
+Rank #1 | Score: 7.1762 | Chunk ID: DOC-C-1000-ADJ#c4
+  Document: DOC-C-1000-ADJ | Type: adjuster_report | Section: Recommendation
+  Snippet: ### Recommendation  Coverage applies. Claim resolved; payment of €22,950.00 issued to the insured, net of the €5,000.00 deductible.  This do...
+Rank #2 | Score: 7.1238 | Chunk ID: DOC-C-1000-ESTIMATE#c3
+  Document: DOC-C-1000-ESTIMATE | Type: estimate | Section: Line Items
+  Snippet: ### Line Items  | Item | Amount | | --- | --- | | Property repair | €13,975.00 | | Equipment & fixtures | €9,782.50 | | Restoration labor | ...
+Rank #3 | Score: 4.6567 | Chunk ID: DOC-C-1000-FNOL#c4
+  Document: DOC-C-1000-FNOL | Type: fnol | Section: Description of Loss
+  Snippet: ### Description of Loss  The insured contacted us regarding slip-and-fall that occurred on 05/12/2023, associated with Commercial policy COM...
+Rank #4 | Score: 4.0904 | Chunk ID: DOC-C-1000-ADJ#c3
+  Document: DOC-C-1000-ADJ | Type: adjuster_report | Section: Findings
+  Snippet: ### Findings  Inspection of the business premises confirms a loss consistent with the reported slip-and-fall. The impact on operations has b...
+
+--------------------------------------------------------------------------------
+2. DENSE VECTOR RETRIEVAL (BGE-M3 1024-dim, Unfiltered)
+--------------------------------------------------------------------------------
+Rank #1 | Score: 0.6975 | Chunk ID: DOC-C-1000-ADJ#c4
+  Document: DOC-C-1000-ADJ | Type: adjuster_report | Section: Recommendation
+  Snippet: ### Recommendation  Coverage applies. Claim resolved; payment of €22,950.00 issued to the insured, net of the €5,000.00 deductible.  This do...
+Rank #2 | Score: 0.6815 | Chunk ID: DOC-C-1000-ESTIMATE#c3
+  Document: DOC-C-1000-ESTIMATE | Type: estimate | Section: Line Items
+  Snippet: ### Line Items  | Item | Amount | | --- | --- | | Property repair | €13,975.00 | | Equipment & fixtures | €9,782.50 | | Restoration labor | ...
+Rank #3 | Score: 0.6316 | Chunk ID: DOC-C-1000-ADJ#c2
+  Document: DOC-C-1000-ADJ | Type: adjuster_report | Section: Claim & Assignment
+  Snippet: ### Claim & Assignment  Claim number C-1000  Policy number COM-0000077  Line of business Commercial  Insured Graciano Solé  Adjuster Albano ...
+Rank #4 | Score: 0.6268 | Chunk ID: DOC-C-1000-FNOL#c2
+  Document: DOC-C-1000-FNOL | Type: fnol | Section: Claim Summary
+  Snippet: ### Claim Summary  Claim number C-1000  Policy number COM-0000077  Line of business Commercial  Date of loss 05/12/2023  Date reported 05/12...
+Rank #5 | Score: 0.6258 | Chunk ID: DOC-C-1000-FNOL#c4
+  Document: DOC-C-1000-FNOL | Type: fnol | Section: Description of Loss
+  Snippet: ### Description of Loss  The insured contacted us regarding slip-and-fall that occurred on 05/12/2023, associated with Commercial policy COM...
+
+--------------------------------------------------------------------------------
+3. HYBRID RRF FUSION (Parallel BM25 + Vector, Unfiltered)
+--------------------------------------------------------------------------------
+Rank #1 | RRF Score: 0.032787 | Chunk ID: DOC-C-1000-ADJ#c4
+  Stream Ranks: {'bm25': 1, 'vector': 1} | Component Scores: {'bm25': 7.1761737, 'vector': 0.6975026}
+  Document: DOC-C-1000-ADJ | Type: adjuster_report | Section: Recommendation
+  Snippet: ### Recommendation  Coverage applies. Claim resolved; payment of €22,950.00 issued to the insured, net of the €5,000.00 deductible.  This do...
+Rank #2 | RRF Score: 0.032258 | Chunk ID: DOC-C-1000-ESTIMATE#c3
+  Stream Ranks: {'bm25': 2, 'vector': 2} | Component Scores: {'bm25': 7.123788, 'vector': 0.6815038}
+  Document: DOC-C-1000-ESTIMATE | Type: estimate | Section: Line Items
+  Snippet: ### Line Items  | Item | Amount | | --- | --- | | Property repair | €13,975.00 | | Equipment & fixtures | €9,782.50 | | Restoration labor | ...
+Rank #3 | RRF Score: 0.031258 | Chunk ID: DOC-C-1000-FNOL#c4
+  Stream Ranks: {'bm25': 3, 'vector': 5} | Component Scores: {'bm25': 4.6566567, 'vector': 0.62579507}
+  Document: DOC-C-1000-FNOL | Type: fnol | Section: Description of Loss
+  Snippet: ### Description of Loss  The insured contacted us regarding slip-and-fall that occurred on 05/12/2023, associated with Commercial policy COM...
+Rank #4 | RRF Score: 0.030118 | Chunk ID: DOC-C-1000-ADJ#c3
+  Stream Ranks: {'bm25': 4, 'vector': 9} | Component Scores: {'bm25': 4.0903816, 'vector': 0.60528934}
+  Document: DOC-C-1000-ADJ | Type: adjuster_report | Section: Findings
+  Snippet: ### Findings  Inspection of the business premises confirms a loss consistent with the reported slip-and-fall. The impact on operations has b...
+Rank #5 | RRF Score: 0.015873 | Chunk ID: DOC-C-1000-ADJ#c2
+  Stream Ranks: {'vector': 3} | Component Scores: {'vector': 0.631552}
+  Document: DOC-C-1000-ADJ | Type: adjuster_report | Section: Claim & Assignment
+  Snippet: ### Claim & Assignment  Claim number C-1000  Policy number COM-0000077  Line of business Commercial  Insured Graciano Solé  Adjuster Albano ...
+
+--------------------------------------------------------------------------------
+4. FILTERED HYBRID RRF FUSION (Filter: claim_id="C-1000" AND document_type="estimate")
+--------------------------------------------------------------------------------
+Applied OpenSearch Filter Clause:
+{
+  "bool": {
+    "filter": [
+      {
+        "term": {
+          "claim_id": "C-1000"
+        }
+      },
+      {
+        "term": {
+          "document_type": "estimate"
+        }
+      }
+    ]
+  }
+}
+
+Rank #1 | RRF Score: 0.032787 | Chunk ID: DOC-C-1000-ESTIMATE#c3
+  Stream Ranks: {'bm25': 1, 'vector': 1} | Component Scores: {'bm25': 7.123788, 'vector': 0.6815038}
+  Document: DOC-C-1000-ESTIMATE | Type: estimate | Section: Line Items
+  Snippet: ### Line Items  | Item | Amount | | --- | --- | | Property repair | €13,975.00 | | Equipment & fixtures | €9,782.50 | | Restoration labor | ...
+Rank #2 | RRF Score: 0.016129 | Chunk ID: DOC-C-1000-ESTIMATE#c1
+  Stream Ranks: {'vector': 2} | Component Scores: {'vector': 0.62204}
+  Document: DOC-C-1000-ESTIMATE | Type: estimate | Section: Claim Details
+  Snippet: SYNTHETIC — MERIDIAN MUTUAL (FICTIONAL)  ### Meridian Mutual Insurance SE  Damage / Repair Estimate...
+Rank #3 | RRF Score: 0.015873 | Chunk ID: DOC-C-1000-ESTIMATE#c2
+  Stream Ranks: {'vector': 3} | Component Scores: {'vector': 0.6105429}
+  Document: DOC-C-1000-ESTIMATE | Type: estimate | Section: Estimate — Claim C-1000
+  Snippet: ### Estimate — Claim C-1000  Policy number COM-0000077  Line of business Commercial  Insured Graciano Solé  Date of loss 05/12/2023  Cause o...
+
+--------------------------------------------------------------------------------
+ANALYSIS & COMPARISON FOR QUERY 1:
+--------------------------------------------------------------------------------
+- BM25: Successfully identified the exact table row in DOC-C-1000-ESTIMATE#c3 because keywords "net", "amount", "payable", and "deductible" appear verbatim in the table headers and values.
+- Vector (BGE-M3): Semantically matched both the Recommendation in the Adjuster Report (DOC-C-1000-ADJ#c4) and the Line Items table in the Estimate (DOC-C-1000-ESTIMATE#c3), capturing the conceptual meaning of settlement after deductible.
+- RRF Fusion: Merged both signals, placing the comprehensive Line Items table at #1 because it was top-ranked in BM25 and strong in Vector.
+- Metadata Filtering: By scoping to document_type="estimate", non-estimate documents were excluded inside OpenSearch engine, isolating the exact financial estimate table.
+
+
+################################################################################
+QUERY 2: "What was the cause of loss for claim C-1000?"
+################################################################################
+
+--------------------------------------------------------------------------------
+1. BM25 KEYWORD RETRIEVAL (Unfiltered)
+--------------------------------------------------------------------------------
+Rank #1 | Score: 6.1246 | Chunk ID: DOC-C-1000-ESTIMATE#c2
+  Document: DOC-C-1000-ESTIMATE | Type: estimate | Section: Estimate — Claim C-1000
+  Snippet: ### Estimate — Claim C-1000  Policy number COM-0000077  Line of business Commercial  Insured Graciano Solé  Date of loss 05/12/2023  Cause o...
+Rank #2 | Score: 5.8218 | Chunk ID: DOC-C-1000-FNOL#c2
+  Document: DOC-C-1000-FNOL | Type: fnol | Section: Claim Summary
+  Snippet: ### Claim Summary  Claim number C-1000  Policy number COM-0000077  Line of business Commercial  Date of loss 05/12/2023  Date reported 05/12...
+Rank #3 | Score: 5.4215 | Chunk ID: DOC-C-1000-ADJ#c2
+  Document: DOC-C-1000-ADJ | Type: adjuster_report | Section: Claim & Assignment
+  Snippet: ### Claim & Assignment  Claim number C-1000  Policy number COM-0000077  Line of business Commercial  Insured Graciano Solé  Adjuster Albano ...
+Rank #4 | Score: 4.1795 | Chunk ID: DOC-C-1000-FNOL#c4
+  Document: DOC-C-1000-FNOL | Type: fnol | Section: Description of Loss
+  Snippet: ### Description of Loss  The insured contacted us regarding slip-and-fall that occurred on 05/12/2023, associated with Commercial policy COM...
+Rank #5 | Score: 3.5639 | Chunk ID: DOC-C-1000-ADJ#c4
+  Document: DOC-C-1000-ADJ | Type: adjuster_report | Section: Recommendation
+  Snippet: ### Recommendation  Coverage applies. Claim resolved; payment of €22,950.00 issued to the insured, net of the €5,000.00 deductible.  This do...
+
+--------------------------------------------------------------------------------
+2. DENSE VECTOR RETRIEVAL (BGE-M3 1024-dim, Unfiltered)
+--------------------------------------------------------------------------------
+Rank #1 | Score: 0.7219 | Chunk ID: DOC-C-1000-FNOL#c2
+  Document: DOC-C-1000-FNOL | Type: fnol | Section: Claim Summary
+  Snippet: ### Claim Summary  Claim number C-1000  Policy number COM-0000077  Line of business Commercial  Date of loss 05/12/2023  Date reported 05/12...
+Rank #2 | Score: 0.6995 | Chunk ID: DOC-C-1000-ESTIMATE#c2
+  Document: DOC-C-1000-ESTIMATE | Type: estimate | Section: Estimate — Claim C-1000
+  Snippet: ### Estimate — Claim C-1000  Policy number COM-0000077  Line of business Commercial  Insured Graciano Solé  Date of loss 05/12/2023  Cause o...
+Rank #3 | Score: 0.6914 | Chunk ID: DOC-C-1000-ADJ#c2
+  Document: DOC-C-1000-ADJ | Type: adjuster_report | Section: Claim & Assignment
+  Snippet: ### Claim & Assignment  Claim number C-1000  Policy number COM-0000077  Line of business Commercial  Insured Graciano Solé  Adjuster Albano ...
+Rank #4 | Score: 0.6450 | Chunk ID: DOC-C-1000-FNOL#c4
+  Document: DOC-C-1000-FNOL | Type: fnol | Section: Description of Loss
+  Snippet: ### Description of Loss  The insured contacted us regarding slip-and-fall that occurred on 05/12/2023, associated with Commercial policy COM...
+Rank #5 | Score: 0.6164 | Chunk ID: DOC-C-1000-ESTIMATE#c3
+  Document: DOC-C-1000-ESTIMATE | Type: estimate | Section: Line Items
+  Snippet: ### Line Items  | Item | Amount | | --- | --- | | Property repair | €13,975.00 | | Equipment & fixtures | €9,782.50 | | Restoration labor | ...
+
+--------------------------------------------------------------------------------
+3. HYBRID RRF FUSION (Parallel BM25 + Vector, Unfiltered)
+--------------------------------------------------------------------------------
+Rank #1 | RRF Score: 0.032522 | Chunk ID: DOC-C-1000-ESTIMATE#c2
+  Stream Ranks: {'bm25': 1, 'vector': 2} | Component Scores: {'bm25': 6.1246037, 'vector': 0.69954026}
+  Document: DOC-C-1000-ESTIMATE | Type: estimate | Section: Estimate — Claim C-1000
+  Snippet: ### Estimate — Claim C-1000  Policy number COM-0000077  Line of business Commercial  Insured Graciano Solé  Date of loss 05/12/2023  Cause o...
+Rank #2 | RRF Score: 0.032522 | Chunk ID: DOC-C-1000-FNOL#c2
+  Stream Ranks: {'bm25': 2, 'vector': 1} | Component Scores: {'bm25': 5.8217807, 'vector': 0.7218933}
+  Document: DOC-C-1000-FNOL | Type: fnol | Section: Claim Summary
+  Snippet: ### Claim Summary  Claim number C-1000  Policy number COM-0000077  Line of business Commercial  Date of loss 05/12/2023  Date reported 05/12...
+Rank #3 | RRF Score: 0.031746 | Chunk ID: DOC-C-1000-ADJ#c2
+  Stream Ranks: {'bm25': 3, 'vector': 3} | Component Scores: {'bm25': 5.4214883, 'vector': 0.69140804}
+  Document: DOC-C-1000-ADJ | Type: adjuster_report | Section: Claim & Assignment
+  Snippet: ### Claim & Assignment  Claim number C-1000  Policy number COM-0000077  Line of business Commercial  Insured Graciano Solé  Adjuster Albano ...
+Rank #4 | RRF Score: 0.031250 | Chunk ID: DOC-C-1000-FNOL#c4
+  Stream Ranks: {'bm25': 4, 'vector': 4} | Component Scores: {'bm25': 4.17951, 'vector': 0.64499056}
+  Document: DOC-C-1000-FNOL | Type: fnol | Section: Description of Loss
+  Snippet: ### Description of Loss  The insured contacted us regarding slip-and-fall that occurred on 05/12/2023, associated with Commercial policy COM...
+Rank #5 | RRF Score: 0.030310 | Chunk ID: DOC-C-1000-ADJ#c4
+  Stream Ranks: {'bm25': 5, 'vector': 7} | Component Scores: {'bm25': 3.5639358, 'vector': 0.6024902}
+  Document: DOC-C-1000-ADJ | Type: adjuster_report | Section: Recommendation
+  Snippet: ### Recommendation  Coverage applies. Claim resolved; payment of €22,950.00 issued to the insured, net of the €5,000.00 deductible.  This do...
+
+--------------------------------------------------------------------------------
+4. FILTERED HYBRID RRF FUSION (Filter: claim_id="C-1000" AND document_type="adjuster_report")
+--------------------------------------------------------------------------------
+Applied OpenSearch Filter Clause:
+{
+  "bool": {
+    "filter": [
+      {
+        "term": {
+          "claim_id": "C-1000"
+        }
+      },
+      {
+        "term": {
+          "document_type": "adjuster_report"
+        }
+      }
+    ]
+  }
+}
+
+Rank #1 | RRF Score: 0.032787 | Chunk ID: DOC-C-1000-ADJ#c2
+  Stream Ranks: {'bm25': 1, 'vector': 1} | Component Scores: {'bm25': 5.4214883, 'vector': 0.69140804}
+  Document: DOC-C-1000-ADJ | Type: adjuster_report | Section: Claim & Assignment
+  Snippet: ### Claim & Assignment  Claim number C-1000  Policy number COM-0000077  Line of business Commercial  Insured Graciano Solé  Adjuster Albano ...
+Rank #2 | RRF Score: 0.032002 | Chunk ID: DOC-C-1000-ADJ#c4
+  Stream Ranks: {'bm25': 2, 'vector': 3} | Component Scores: {'bm25': 3.5639358, 'vector': 0.6024902}
+  Document: DOC-C-1000-ADJ | Type: adjuster_report | Section: Recommendation
+  Snippet: ### Recommendation  Coverage applies. Claim resolved; payment of €22,950.00 issued to the insured, net of the €5,000.00 deductible.  This do...
+Rank #3 | RRF Score: 0.032002 | Chunk ID: DOC-C-1000-ADJ#c3
+  Stream Ranks: {'bm25': 3, 'vector': 2} | Component Scores: {'bm25': 3.111605, 'vector': 0.6090377}
+  Document: DOC-C-1000-ADJ | Type: adjuster_report | Section: Findings
+  Snippet: ### Findings  Inspection of the business premises confirms a loss consistent with the reported slip-and-fall. The impact on operations has b...
+
+--------------------------------------------------------------------------------
+ANALYSIS & COMPARISON FOR QUERY 2:
+--------------------------------------------------------------------------------
+- BM25: Surfaced chunks mentioning "cause", "loss", and "claim C-1000" (such as the FNOL summary and Adjuster assignment header).
+- Vector (BGE-M3): Semantically identified the actual incident narrative in the Adjuster Report Findings (DOC-C-1000-ADJ#c3) and FNOL Description of Loss (DOC-C-1000-FNOL#c4) explaining the slip-and-fall.
+- RRF Fusion: Balanced the exact keyword presence and semantic narrative to ensure the most relevant report chunks dominate top ranks.
+- Metadata Filtering: OpenSearch native filtering on document_type="adjuster_report" guaranteed that only the verified adjuster findings were surfaced, excluding initial notice drafts.
+

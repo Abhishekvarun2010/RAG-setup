@@ -75,6 +75,15 @@ class VectorStore(Protocol):
         """Perform a k-NN approximate nearest neighbor vector search."""
         ...
 
+    def search_text(
+        self,
+        query_text: str,
+        size: int = 5,
+        filters: Optional[Dict[str, Any]] = None,
+    ) -> List[Dict[str, Any]]:
+        """Perform a full-text BM25 keyword search with optional filters."""
+        ...
+
 
 class BaseVectorStore(ABC):
     """

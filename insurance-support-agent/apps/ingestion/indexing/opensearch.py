@@ -158,6 +158,22 @@ class OpenSearchIndexer(BaseVectorStore):
         except httpx.ConnectError as e:
             raise OpenSearchConnectionError(f"Cannot connect to OpenSearch at {self.endpoint}: {e}") from e
 
+    def _extract_filter_clauses(self, filters: Optional[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """Extract a list of filter clauses from a filter dict or list."""
+        if not filters:
+            return []
+        if isinstance(filters, list):
+            return filters
+        if isinstance(filters, dict):
+            if "bool" in filters and "filter" in filters["bool"]:
+                inner = filters["bool"]["filter"]
+                return inner if isinstance(inner, list) else [inner]
+            if "filter" in filters:
+                inner = filters["filter"]
+                return inner if isinstance(inner, list) else [inner]
+            return [filters]
+        return []
+
     def search_knn(
         self,
         query_vector: List[float],
@@ -166,23 +182,33 @@ class OpenSearchIndexer(BaseVectorStore):
     ) -> List[Dict[str, Any]]:
         """
         Perform a k-NN approximate nearest neighbor search against the 'embedding' field.
+        Applies metadata filters via an enclosing bool query (compatible with nmslib engine).
 
         Returns list of hit dictionaries containing '_id', '_score', and '_source'.
         """
         knn_clause: Dict[str, Any] = {
-            "embedding": {
-                "vector": query_vector,
-                "k": k,
+            "knn": {
+                "embedding": {
+                    "vector": query_vector,
+                    "k": k,
+                }
             }
         }
-        if filters:
-            knn_clause["embedding"]["filter"] = filters
+
+        filter_clauses = self._extract_filter_clauses(filters)
+        if filter_clauses:
+            query_obj: Dict[str, Any] = {
+                "bool": {
+                    "must": [knn_clause],
+                    "filter": filter_clauses,
+                }
+            }
+        else:
+            query_obj = knn_clause
 
         body = {
             "size": k,
-            "query": {
-                "knn": knn_clause
-            },
+            "query": query_obj,
         }
 
         try:
@@ -200,17 +226,31 @@ class OpenSearchIndexer(BaseVectorStore):
         self,
         query_text: str,
         size: int = 5,
+        filters: Optional[Dict[str, Any]] = None,
     ) -> List[Dict[str, Any]]:
         """
-        Standard BM25 full-text keyword search over the 'content' field.
+        Standard BM25 full-text keyword search over the 'content' field with optional filters.
         """
+        match_clause: Dict[str, Any] = {
+            "match": {
+                "content": query_text
+            }
+        }
+
+        filter_clauses = self._extract_filter_clauses(filters)
+        if filter_clauses:
+            query_obj: Dict[str, Any] = {
+                "bool": {
+                    "must": [match_clause],
+                    "filter": filter_clauses,
+                }
+            }
+        else:
+            query_obj = match_clause
+
         body = {
             "size": size,
-            "query": {
-                "match": {
-                    "content": query_text
-                }
-            },
+            "query": query_obj,
         }
 
         try:

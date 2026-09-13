@@ -5,11 +5,13 @@ Unit and integration tests for the Retrieval Layer:
 - Reciprocal Rank Fusion (RRF) algorithm and mathematical scoring
 - RetrievalService (BM25, Vector, Hybrid)
 """
+from datetime import date
 from typing import Any, Dict, List, Optional
 import pytest
 
 from apps.retrieval import (
     HybridRetriever,
+    RetrievalFilters,
     RetrievalMethod,
     RetrievalResult,
     RetrievalService,
@@ -27,18 +29,22 @@ class MockVectorStore:
         self.text_hits = text_hits or []
         self.knn_hits = knn_hits or []
         self.last_text_query = None
+        self.last_text_filters = None
         self.last_knn_vector = None
+        self.last_knn_filters = None
 
     @property
     def index_name(self) -> str:
         return "mock_index"
 
-    def search_text(self, query_text: str, size: int = 5) -> List[Dict[str, Any]]:
+    def search_text(self, query_text: str, size: int = 5, filters: Optional[Dict[str, Any]] = None) -> List[Dict[str, Any]]:
         self.last_text_query = query_text
+        self.last_text_filters = filters
         return self.text_hits[:size]
 
     def search_knn(self, query_vector: List[float], k: int = 5, filters: Optional[Dict[str, Any]] = None) -> List[Dict[str, Any]]:
         self.last_knn_vector = query_vector
+        self.last_knn_filters = filters
         return self.knn_hits[:k]
 
 
@@ -266,7 +272,7 @@ def test_hybrid_retriever_executes_in_parallel():
     thread_ids = set()
 
     class ParallelCheckVectorStore(MockVectorStore):
-        def search_text(self, query_text: str, size: int = 5):
+        def search_text(self, query_text: str, size: int = 5, filters=None):
             thread_ids.add(threading.get_ident())
             time.sleep(0.02)
             return [make_raw_hit("c1", "BM25 hit", 2.0)]
@@ -287,4 +293,57 @@ def test_hybrid_retriever_executes_in_parallel():
     assert len(thread_ids) == 2
     # Verify main thread was not one of the worker threads
     assert threading.get_ident() not in thread_ids
+
+
+# =====================================================================
+# 4. Metadata Filtering Tests
+# =====================================================================
+
+def test_retrieval_filters_to_opensearch_filter_empty():
+    """Verify empty RetrievalFilters returns None."""
+    filters = RetrievalFilters()
+    assert filters.to_opensearch_filter() is None
+
+
+def test_retrieval_filters_to_opensearch_filter_terms_and_range():
+    """Verify keyword terms and date ranges are properly formatted into bool filter."""
+    filters = RetrievalFilters(
+        claim_id="C-1000",
+        document_type="estimate",
+        status="closed",
+        effective_from=date(2024, 1, 1),
+    )
+    os_filter = filters.to_opensearch_filter()
+    assert os_filter is not None
+    clauses = os_filter["bool"]["filter"]
+
+    term_map = {list(c["term"].keys())[0]: list(c["term"].values())[0] for c in clauses if "term" in c}
+    assert term_map["claim_id"] == "C-1000"
+    assert term_map["document_type"] == "estimate"
+    assert term_map["status"] == "closed"
+
+    range_clauses = [c for c in clauses if "range" in c]
+    assert len(range_clauses) == 1
+    assert range_clauses[0]["range"]["effective_from"]["gte"] == "2024-01-01"
+
+
+def test_hybrid_retriever_passes_filters_to_store():
+    """Verify HybridRetriever passes OpenSearch filters to both BM25 and Vector search."""
+    store = MockVectorStore(
+        text_hits=[make_raw_hit("c1", "BM25 with filter", 2.0)],
+        knn_hits=[make_raw_hit("c1", "Vector with filter", 0.9)],
+    )
+    provider = MockEmbeddingProvider()
+    retriever = HybridRetriever(vector_store=store, embedding_provider=provider)
+
+    filters = RetrievalFilters(claim_id="C-1000", document_type="estimate")
+    results = retriever.retrieve("repair estimate", top_k=1, filters=filters)
+
+    assert len(results) == 1
+    expected_os_filter = filters.to_opensearch_filter()
+
+    # Verify both branches received the exact OpenSearch filter dictionary
+    assert store.last_text_filters == expected_os_filter
+    assert store.last_knn_filters == expected_os_filter
+
 

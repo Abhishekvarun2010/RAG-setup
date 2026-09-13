@@ -8,28 +8,39 @@ from __future__ import annotations
 
 from concurrent.futures import ThreadPoolExecutor
 import logging
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Union
 
 from apps.ingestion.embeddings.base import EmbeddingProvider
 from apps.ingestion.indexing.base import VectorStore
 from apps.retrieval.fusion import reciprocal_rank_fusion
-from apps.retrieval.models import RetrievalMethod, RetrievalResult
+from apps.retrieval.models import RetrievalFilters, RetrievalMethod, RetrievalResult
 
 logger = logging.getLogger(__name__)
+
+
+def _normalize_filter(
+    filters: Optional[Union[RetrievalFilters, Dict[str, Any]]]
+) -> Optional[Dict[str, Any]]:
+    """Normalize RetrievalFilters model or dict into OpenSearch bool filter dict."""
+    if filters is None:
+        return None
+    if isinstance(filters, RetrievalFilters):
+        return filters.to_opensearch_filter()
+    return filters
 
 
 class HybridRetriever:
     """
     Hybrid retriever orchestrating parallel BM25 and dense vector search
-    with Reciprocal Rank Fusion (RRF).
+    with Reciprocal Rank Fusion (RRF) and native OpenSearch metadata filtering.
 
     Flow:
-        query
+        query + filters
          │
          ├───────────────────────┐
          ▼                       ▼
       [Thread 1]              [Thread 2]
-        BM25                 Embed Query
+     BM25 + Filter        Embed Query + Filter
          │                       │
          │                       ▼
          │                 Vector search (k-NN)
@@ -55,37 +66,40 @@ class HybridRetriever:
         self,
         query: str,
         top_k: int = 5,
+        filters: Optional[Union[RetrievalFilters, Dict[str, Any]]] = None,
         rrf_k: int = 60,
         vector_k: int = 10,
         bm25_k: int = 10,
-        vector_filters: Optional[Dict[str, Any]] = None,
     ) -> List[RetrievalResult]:
         """
-        Primary entrypoint: executes parallel hybrid retrieval.
+        Primary entrypoint: executes parallel hybrid retrieval with metadata filters.
         """
         return self.retrieve_hybrid(
             query=query,
             top_k=top_k,
+            filters=filters,
             rrf_k=rrf_k,
             vector_k=vector_k,
             bm25_k=bm25_k,
-            vector_filters=vector_filters,
         )
 
     def retrieve_bm25(
         self,
         query: str,
         top_k: int = 5,
+        filters: Optional[Union[RetrievalFilters, Dict[str, Any]]] = None,
     ) -> List[RetrievalResult]:
         """
-        Execute BM25 keyword search and return standardized candidates.
+        Execute BM25 keyword search with OpenSearch metadata filters.
         """
         if not query or not query.strip():
             return []
 
+        opensearch_filter = _normalize_filter(filters)
         hits: List[Dict[str, Any]] = self.vector_store.search_text(
             query_text=query.strip(),
             size=top_k,
+            filters=opensearch_filter,
         )
 
         return [
@@ -97,19 +111,20 @@ class HybridRetriever:
         self,
         query: str,
         top_k: int = 5,
-        filters: Optional[Dict[str, Any]] = None,
+        filters: Optional[Union[RetrievalFilters, Dict[str, Any]]] = None,
     ) -> List[RetrievalResult]:
         """
-        Execute dense vector search by embedding the query and querying k-NN.
+        Execute dense vector search with OpenSearch metadata filters.
         """
         if not query or not query.strip():
             return []
 
+        opensearch_filter = _normalize_filter(filters)
         query_vector = self.embedding_provider.embed(query.strip())
         hits: List[Dict[str, Any]] = self.vector_store.search_knn(
             query_vector=query_vector,
             k=top_k,
-            filters=filters,
+            filters=opensearch_filter,
         )
 
         return [
@@ -121,26 +136,29 @@ class HybridRetriever:
         self,
         query: str,
         top_k: int = 5,
+        filters: Optional[Union[RetrievalFilters, Dict[str, Any]]] = None,
         rrf_k: int = 60,
         vector_k: int = 10,
         bm25_k: int = 10,
-        vector_filters: Optional[Dict[str, Any]] = None,
     ) -> List[RetrievalResult]:
         """
         Execute Parallel Hybrid Search using Reciprocal Rank Fusion (RRF).
 
         Runs BM25 and (Embed Query -> Vector Search) concurrently in separate worker threads,
-        then fuses both candidate lists using RRF.
+        applying OpenSearch metadata filters to both branches, then fuses candidates via RRF.
         """
         if not query or not query.strip():
             return []
 
         cleaned_query = query.strip()
+        normalized_filters = _normalize_filter(filters)
 
         with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
-            future_bm25 = executor.submit(self.retrieve_bm25, cleaned_query, bm25_k)
+            future_bm25 = executor.submit(
+                self.retrieve_bm25, cleaned_query, bm25_k, normalized_filters
+            )
             future_vector = executor.submit(
-                self.retrieve_vector, cleaned_query, vector_k, vector_filters
+                self.retrieve_vector, cleaned_query, vector_k, normalized_filters
             )
             bm25_results = future_bm25.result()
             vector_results = future_vector.result()
@@ -154,3 +172,4 @@ class HybridRetriever:
 
 # Alias for backward compatibility
 RetrievalService = HybridRetriever
+
