@@ -42,12 +42,22 @@ if TYPE_CHECKING:
         EmbeddingProvider,
         OllamaEmbeddingProvider,
     )
+    from apps.ingestion.indexing import (
+        BaseVectorStore,
+        OpenSearchConnectionError,
+        OpenSearchError,
+        OpenSearchIndexer,
+        OpenSearchIndexingError,
+        OpenSearchQueryError,
+        VectorStore,
+    )
 
 __all__ = [
     "AccessLevel",
     "BaseChunker",
     "BaseEmbeddingProvider",
     "BaseParser",
+    "BaseVectorStore",
     "BlockType",
     "Chunk",
     "Chunker",
@@ -63,6 +73,11 @@ __all__ = [
     "FAQChunker",
     "LineOfBusiness",
     "OllamaEmbeddingProvider",
+    "OpenSearchConnectionError",
+    "OpenSearchError",
+    "OpenSearchIndexer",
+    "OpenSearchIndexingError",
+    "OpenSearchQueryError",
     "ParsedDocument",
     "ParsedPage",
     "PDFParser",
@@ -72,6 +87,7 @@ __all__ = [
     "StructuredBlock",
     "StructuredDocument",
     "StructureExtractor",
+    "VectorStore",
 ]
 
 
@@ -124,4 +140,16 @@ def __getattr__(name: str):
     }:
         import apps.ingestion.embeddings as embeddings
         return getattr(embeddings, name)
+    if name in {
+        "BaseVectorStore",
+        "OpenSearchConnectionError",
+        "OpenSearchError",
+        "OpenSearchIndexer",
+        "OpenSearchIndexingError",
+        "OpenSearchQueryError",
+        "VectorStore",
+    }:
+        import apps.ingestion.indexing as indexing
+        return getattr(indexing, name)
     raise AttributeError(f"module '{__name__}' has no attribute '{name}'")
+
