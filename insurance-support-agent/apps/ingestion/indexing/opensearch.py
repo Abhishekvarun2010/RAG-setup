@@ -59,6 +59,7 @@ class OpenSearchIndexer(BaseVectorStore):
         except httpx.ConnectError as e:
             raise OpenSearchConnectionError(f"Cannot connect to OpenSearch at {self.endpoint}: {e}") from e
 
+
     def index_chunk(
         self,
         chunk: Chunk,

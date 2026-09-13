@@ -221,3 +221,5 @@ def test_connection_error_surfaced():
 
     with pytest.raises(OpenSearchConnectionError, match="Cannot connect to OpenSearch"):
         indexer.get_by_id("c1")
+
+
