@@ -14,6 +14,7 @@ from apps.ingestion.embeddings.base import EmbeddingProvider
 from apps.ingestion.indexing.base import VectorStore
 from apps.retrieval.fusion import reciprocal_rank_fusion
 from apps.retrieval.models import RetrievalFilters, RetrievalMethod, RetrievalResult
+from apps.retrieval.rerank import Reranker
 
 logger = logging.getLogger(__name__)
 
@@ -32,7 +33,7 @@ def _normalize_filter(
 class HybridRetriever:
     """
     Hybrid retriever orchestrating parallel BM25 and dense vector search
-    with Reciprocal Rank Fusion (RRF) and native OpenSearch metadata filtering.
+    with Reciprocal Rank Fusion (RRF) and optional Cross-Encoder reranking.
 
     Flow:
         query + filters
@@ -47,7 +48,9 @@ class HybridRetriever:
          │                       │
          └───────────┬───────────┘
                      ▼
-                    RRF
+             RRF Candidate Pool (top fusion_k)
+                     ▼
+           Cross-Encoder Reranker
                      ▼
              RetrievalResult[]
     """
@@ -56,10 +59,12 @@ class HybridRetriever:
         self,
         vector_store: VectorStore,
         embedding_provider: EmbeddingProvider,
+        reranker: Optional[Reranker] = None,
         max_workers: int = 2,
     ) -> None:
         self.vector_store = vector_store
         self.embedding_provider = embedding_provider
+        self.reranker = reranker
         self.max_workers = max_workers
 
     def retrieve(
@@ -70,9 +75,12 @@ class HybridRetriever:
         rrf_k: int = 60,
         vector_k: int = 10,
         bm25_k: int = 10,
+        fusion_k: int = 10,
+        rerank: bool = True,
     ) -> List[RetrievalResult]:
         """
-        Primary entrypoint: executes parallel hybrid retrieval with metadata filters.
+        Primary entrypoint: executes parallel hybrid retrieval with metadata filters,
+        Reciprocal Rank Fusion, and optional Cross-Encoder reranking.
         """
         return self.retrieve_hybrid(
             query=query,
@@ -81,6 +89,8 @@ class HybridRetriever:
             rrf_k=rrf_k,
             vector_k=vector_k,
             bm25_k=bm25_k,
+            fusion_k=fusion_k,
+            rerank=rerank,
         )
 
     def retrieve_bm25(
@@ -140,12 +150,15 @@ class HybridRetriever:
         rrf_k: int = 60,
         vector_k: int = 10,
         bm25_k: int = 10,
+        fusion_k: int = 10,
+        rerank: bool = True,
     ) -> List[RetrievalResult]:
         """
-        Execute Parallel Hybrid Search using Reciprocal Rank Fusion (RRF).
+        Execute Parallel Hybrid Search using Reciprocal Rank Fusion (RRF) and Cross-Encoder Reranker.
 
         Runs BM25 and (Embed Query -> Vector Search) concurrently in separate worker threads,
-        applying OpenSearch metadata filters to both branches, then fuses candidates via RRF.
+        applying OpenSearch metadata filters to both branches, fuses candidates via RRF,
+        and optionally reranks top fusion candidates with a Cross-Encoder model.
         """
         if not query or not query.strip():
             return []
@@ -163,11 +176,23 @@ class HybridRetriever:
             bm25_results = future_bm25.result()
             vector_results = future_vector.result()
 
-        return reciprocal_rank_fusion(
+        # If reranking is enabled and a reranker is provided, pool top fusion_k candidates
+        fuse_top_k = fusion_k if (self.reranker is not None and rerank) else top_k
+
+        fused_candidates = reciprocal_rank_fusion(
             ranked_lists=[bm25_results, vector_results],
             rrf_k=rrf_k,
-            top_k=top_k,
+            top_k=fuse_top_k,
         )
+
+        if self.reranker is not None and rerank and fused_candidates:
+            return self.reranker.rerank(
+                query=cleaned_query,
+                candidates=fused_candidates,
+                top_k=top_k,
+            )
+
+        return fused_candidates[:top_k]
 
 
 # Alias for backward compatibility

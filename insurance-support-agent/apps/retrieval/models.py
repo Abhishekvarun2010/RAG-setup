@@ -17,6 +17,8 @@ class RetrievalMethod(str, Enum):
     BM25 = "bm25"
     VECTOR = "vector"
     HYBRID_RRF = "hybrid_rrf"
+    RERANKED = "reranked"
+
 
 
 class RetrievalFilters(BaseModel):
