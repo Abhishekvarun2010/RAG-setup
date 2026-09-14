@@ -1,0 +1,73 @@
+================================================================================
+VERSION-AWARE & EFFECTIVE-DATE-AWARE RETRIEVAL REPORT
+Corpus: Policy COM-0000077 (Versions 1, 2, and 3)
+Search Infrastructure: OpenSearch 2.11 (Native Bool Filtering + BM25 + k-NN)
+Embedding Model: Ollama BGE-M3 (1024 dimensions)
+Cross-Encoder Reranker: BAAI/bge-reranker-v2-m3
+================================================================================
+
+POLICY VERSION LIFECYCLE FOR COM-0000077:
+--------------------------------------------------------------------------------
+• Version 1 (DOC-COM-0000077-v1):
+  Validity: 2023-01-01 -> 2024-05-31
+  Status: expired
+  Terms: Premises slip-and-fall, bodily injury. Deductible: €5,000. Limit: €1,000,000.
+
+• Version 2 (DOC-COM-0000077-v2):
+  Validity: 2024-06-01 -> 2025-05-31
+  Status: expired
+  Terms: Cyber security endorsement added. Deductible: €7,500. Limit: €1,500,000.
+
+• Version 3 (DOC-COM-0000077-v3):
+  Validity: 2025-06-01 -> Present (effective_to is None / open-ended)
+  Status: active
+  Terms: Flood rider & business interruption. Deductible: €10,000. Limit: €2,000,000.
+
+================================================================================
+TEST 1: CURRENT POLICY INQUIRY
+Query: "What does my policy cover?"
+Filters: RetrievalFilters.current(policy_id="COM-0000077") -> as_of_date=2026-09-14
+================================================================================
+Rank #1 | Chunk ID: DOC-COM-0000077-v3#c1
+  Version: v3 | Status: active | Validity: 2025-06-01 -> Present
+  CrossEncoder Score: 0.2198
+  Content: Commercial General Liability Policy COM-0000077 (Version 3, in effect 2025-06-01 to Present Active). Coverage: Comprehensive commercial operations, business interruption, premises liability, and flood rider. Deductible: €10,000.00 per occurrence. Aggregate policy limit: €2,000,000.00.
+  -> Result: CORRECT. Successfully retrieved current in-force policy version (v3).
+
+================================================================================
+TEST 2: HISTORICAL CLAIM INQUIRY (ACCIDENT IN MARCH 2024)
+Query: "Was this covered when my accident happened in March 2024?"
+Filters: RetrievalFilters.for_date(as_of_date=date(2024, 3, 15), policy_id="COM-0000077")
+================================================================================
+Rank #1 | Chunk ID: DOC-COM-0000077-v1#c1
+  Version: v1 | Status: expired | Validity: 2023-01-01 -> 2024-05-31
+  CrossEncoder Score: 0.0234
+  Content: Commercial General Liability Policy COM-0000077 (Version 1, in effect 2023-01-01 to 2024-05-31). Coverage: Premises slip-and-fall, property damage, and basic operational liability. Deductible: €5,000.00 per occurrence. Aggregate policy limit: €1,000,000.00.
+  -> Result: CORRECT. Dynamically evaluated the incident date against validity windows and retrieved v1, ensuring the insured is assessed against their actual in-force €5,000 deductible and slip-and-fall terms.
+
+================================================================================
+TEST 3: INTERMEDIATE DATE INQUIRY (OCTOBER 2024)
+Query: "What was my deductible for damage in October 2024?"
+Filters: RetrievalFilters.for_date(as_of_date=date(2024, 10, 1), policy_id="COM-0000077")
+================================================================================
+Rank #1 | Chunk ID: DOC-COM-0000077-v2#c1
+  Version: v2 | Status: expired | Validity: 2024-06-01 -> 2025-05-31
+  CrossEncoder Score: 0.0659
+  Content: Commercial General Liability Policy COM-0000077 (Version 2, in effect 2024-06-01 to 2025-05-31). Coverage: Premises liability, product liability, and cybersecurity endorsement added. Deductible: €7,500.00 per occurrence. Aggregate policy limit: €1,500,000.00.
+  -> Result: CORRECT. Accurately resolved the intermediate renewal period (v2).
+
+================================================================================
+TEST 4: WHY NAIVE 'status=active' FILTERING FAILS
+Query: "Was this covered when my accident happened in March 2024?"
+Filters: RetrievalFilters(policy_id="COM-0000077", status="active")
+================================================================================
+Rank #1 | Chunk ID: DOC-COM-0000077-v3#c1
+  Version: v3 | Status: active | Validity: 2025-06-01 -> Present
+  CrossEncoder Score: 0.0009
+  Content: Commercial General Liability Policy COM-0000077 (Version 3, in effect 2025-06-01 to Present Active). Coverage: Comprehensive commercial operations, business interruption, premises liability, and flood rider. Deductible: €10,000.00 per occurrence. Aggregate policy limit: €2,000,000.00.
+
+CRITICAL FLAW DEMONSTRATED:
+When filtering naively by status='active', OpenSearch returned Version 3 because it is the only version marked 'active'.
+However, in March 2024, Version 3 DID NOT EXIST.
+An agent replying based on Version 3 would inform the policyholder that their deductible is €10,000.00 instead of their true contractual deductible of €5,000.00 under Version 1.
+Effective-date-aware filtering completely resolves this class of retrieval errors.

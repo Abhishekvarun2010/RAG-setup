@@ -24,6 +24,7 @@ class RetrievalMethod(str, Enum):
 class RetrievalFilters(BaseModel):
     """
     Structured metadata filters applied natively inside OpenSearch queries.
+    Supports version-aware and point-in-time temporal filtering.
     """
     model_config = ConfigDict(
         use_enum_values=True,
@@ -37,11 +38,27 @@ class RetrievalFilters(BaseModel):
     document_type: Optional[str] = Field(default=None, description="Filter by document type (e.g. 'estimate')")
     line_of_business: Optional[str] = Field(default=None, description="Filter by line of business (e.g. 'commercial')")
     product: Optional[str] = Field(default=None, description="Filter by product name")
+    version: Optional[str] = Field(default=None, description="Filter by document/policy version (e.g. 'v1', 'v2')")
     status: Optional[str] = Field(default=None, description="Filter by status (e.g. 'closed', 'active')")
     section: Optional[str] = Field(default=None, description="Filter by section title (e.g. 'Line Items')")
     access_control: Optional[List[str]] = Field(default=None, description="Filter by permitted access levels")
-    effective_from: Optional[date] = Field(default=None, description="Effective date range lower bound")
-    effective_to: Optional[date] = Field(default=None, description="Effective date range upper bound")
+    as_of_date: Optional[date] = Field(
+        default=None,
+        description="Point-in-time effective date for version-aware retrieval. "
+                    "Matches documents where effective_from <= as_of_date and (effective_to >= as_of_date or effective_to is null)."
+    )
+    effective_from: Optional[date] = Field(default=None, description="Effective date range lower bound (when as_of_date not set)")
+    effective_to: Optional[date] = Field(default=None, description="Effective date range upper bound (when as_of_date not set)")
+
+    @classmethod
+    def for_date(cls, as_of_date: date, **kwargs: Any) -> RetrievalFilters:
+        """Convenience constructor for point-in-time version-aware retrieval."""
+        return cls(as_of_date=as_of_date, **kwargs)
+
+    @classmethod
+    def current(cls, **kwargs: Any) -> RetrievalFilters:
+        """Convenience constructor for current in-force policy versions as of today."""
+        return cls(as_of_date=date.today(), **kwargs)
 
     def to_opensearch_filter(self) -> Optional[Dict[str, Any]]:
         """
@@ -57,6 +74,7 @@ class RetrievalFilters(BaseModel):
             ("document_type", self.document_type),
             ("line_of_business", self.line_of_business),
             ("product", self.product),
+            ("version", self.version),
             ("status", self.status),
             ("section", self.section),
         ]
@@ -68,7 +86,22 @@ class RetrievalFilters(BaseModel):
         if self.access_control:
             clauses.append({"terms": {"access_control": self.access_control}})
 
-        if self.effective_from or self.effective_to:
+        # Version-aware point-in-time filtering
+        if self.as_of_date is not None:
+            as_of_str = self.as_of_date.isoformat()
+            # 1. Document validity must have commenced on or before target date
+            clauses.append({"range": {"effective_from": {"lte": as_of_str}}})
+            # 2. Document validity must not have ended before target date (or remains open-ended)
+            clauses.append({
+                "bool": {
+                    "should": [
+                        {"range": {"effective_to": {"gte": as_of_str}}},
+                        {"bool": {"must_not": {"exists": {"field": "effective_to"}}}},
+                    ],
+                    "minimum_should_match": 1,
+                }
+            })
+        elif self.effective_from or self.effective_to:
             range_clause: Dict[str, Any] = {}
             if self.effective_from:
                 range_clause["gte"] = self.effective_from.isoformat()

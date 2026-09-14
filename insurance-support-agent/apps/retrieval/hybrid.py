@@ -7,6 +7,7 @@ and fuses the candidate lists via Reciprocal Rank Fusion (RRF).
 from __future__ import annotations
 
 from concurrent.futures import ThreadPoolExecutor
+from datetime import date
 import logging
 from typing import Any, Dict, List, Optional, Union
 
@@ -20,14 +21,43 @@ logger = logging.getLogger(__name__)
 
 
 def _normalize_filter(
-    filters: Optional[Union[RetrievalFilters, Dict[str, Any]]]
+    filters: Optional[Union[RetrievalFilters, Dict[str, Any]]],
+    as_of_date: Optional[date] = None,
+    version: Optional[str] = None,
 ) -> Optional[Dict[str, Any]]:
-    """Normalize RetrievalFilters model or dict into OpenSearch bool filter dict."""
-    if filters is None:
+    """
+    Normalize RetrievalFilters model or dict into OpenSearch bool filter dict,
+    applying optional point-in-time as_of_date and version overrides.
+    """
+    if filters is None and as_of_date is None and version is None:
         return None
+
     if isinstance(filters, RetrievalFilters):
+        if as_of_date is not None or version is not None:
+            updates: Dict[str, Any] = {}
+            if as_of_date is not None:
+                updates["as_of_date"] = as_of_date
+            if version is not None:
+                updates["version"] = version
+            filters = filters.model_copy(update=updates)
         return filters.to_opensearch_filter()
-    return filters
+
+    if isinstance(filters, dict):
+        rf_dict = dict(filters)
+        if as_of_date is not None:
+            rf_dict["as_of_date"] = as_of_date
+        if version is not None:
+            rf_dict["version"] = version
+        try:
+            return RetrievalFilters(**rf_dict).to_opensearch_filter()
+        except Exception:
+            # Fallback for raw OpenSearch DSL query dict
+            return filters
+
+    if as_of_date is not None or version is not None:
+        return RetrievalFilters(as_of_date=as_of_date, version=version).to_opensearch_filter()
+
+    return None
 
 
 class HybridRetriever:
@@ -72,6 +102,8 @@ class HybridRetriever:
         query: str,
         top_k: int = 5,
         filters: Optional[Union[RetrievalFilters, Dict[str, Any]]] = None,
+        as_of_date: Optional[date] = None,
+        version: Optional[str] = None,
         rrf_k: int = 60,
         vector_k: int = 10,
         bm25_k: int = 10,
@@ -80,12 +112,14 @@ class HybridRetriever:
     ) -> List[RetrievalResult]:
         """
         Primary entrypoint: executes parallel hybrid retrieval with metadata filters,
-        Reciprocal Rank Fusion, and optional Cross-Encoder reranking.
+        Reciprocal Rank Fusion, version/effective-date awareness, and optional Cross-Encoder reranking.
         """
         return self.retrieve_hybrid(
             query=query,
             top_k=top_k,
             filters=filters,
+            as_of_date=as_of_date,
+            version=version,
             rrf_k=rrf_k,
             vector_k=vector_k,
             bm25_k=bm25_k,
@@ -98,6 +132,8 @@ class HybridRetriever:
         query: str,
         top_k: int = 5,
         filters: Optional[Union[RetrievalFilters, Dict[str, Any]]] = None,
+        as_of_date: Optional[date] = None,
+        version: Optional[str] = None,
     ) -> List[RetrievalResult]:
         """
         Execute BM25 keyword search with OpenSearch metadata filters.
@@ -105,7 +141,7 @@ class HybridRetriever:
         if not query or not query.strip():
             return []
 
-        opensearch_filter = _normalize_filter(filters)
+        opensearch_filter = _normalize_filter(filters, as_of_date=as_of_date, version=version)
         hits: List[Dict[str, Any]] = self.vector_store.search_text(
             query_text=query.strip(),
             size=top_k,
@@ -122,6 +158,8 @@ class HybridRetriever:
         query: str,
         top_k: int = 5,
         filters: Optional[Union[RetrievalFilters, Dict[str, Any]]] = None,
+        as_of_date: Optional[date] = None,
+        version: Optional[str] = None,
     ) -> List[RetrievalResult]:
         """
         Execute dense vector search with OpenSearch metadata filters.
@@ -129,7 +167,7 @@ class HybridRetriever:
         if not query or not query.strip():
             return []
 
-        opensearch_filter = _normalize_filter(filters)
+        opensearch_filter = _normalize_filter(filters, as_of_date=as_of_date, version=version)
         query_vector = self.embedding_provider.embed(query.strip())
         hits: List[Dict[str, Any]] = self.vector_store.search_knn(
             query_vector=query_vector,
@@ -147,6 +185,8 @@ class HybridRetriever:
         query: str,
         top_k: int = 5,
         filters: Optional[Union[RetrievalFilters, Dict[str, Any]]] = None,
+        as_of_date: Optional[date] = None,
+        version: Optional[str] = None,
         rrf_k: int = 60,
         vector_k: int = 10,
         bm25_k: int = 10,
@@ -164,7 +204,7 @@ class HybridRetriever:
             return []
 
         cleaned_query = query.strip()
-        normalized_filters = _normalize_filter(filters)
+        normalized_filters = _normalize_filter(filters, as_of_date=as_of_date, version=version)
 
         with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
             future_bm25 = executor.submit(
