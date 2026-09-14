@@ -67,7 +67,14 @@ flowchart TD
         Reranker --> SecCheck["Post-Retrieval Verification\n(can_access_chunk defense-in-depth)"]
         SecCheck --> Redaction["FieldRedactor\n• Regex PII Scrub (IBAN, SSN, CC)\n• Metadata Stripping"]
         Redaction --> Audit["AuditLogger (AuditEvent)"]
-        Audit --> Agent["Agent Runtime / LLM Context"]
+        Audit --> SecureContext["Authorized & Redacted Passages"]
+    end
+
+    subgraph Generation ["5. Grounded LLM Generation & QA Flow"]
+        SecureContext --> PromptBuilder["PromptBuilder\n• Anti-Hallucination Guardrails\n• Context Blocks & Metadata\n• Citation Placeholders [chunk_id]"]
+        PromptBuilder --> Qwen["OllamaLLM (Qwen3 8B)\n• Role-Based /api/chat\n• Reasoning / Thinking Trace\n• Token & Latency Metrics"]
+        Qwen --> CitationExtractor["Citation Verification & Extraction\n(Cross-referenced against retrieved chunks)"]
+        CitationExtractor --> QAResp["QAResponse\n(Answer + Verified Citations + Thinking)"]
     end
 ```
 
@@ -163,6 +170,17 @@ flowchart TD
     4. **Audit Logging (`AuditEvent`, `FileAuditLogger`)**: Compliance-ready audit trails recording user, query, applied filters, returned chunks, and blocked items.
   - **Unrestricted Admin Access**: Users with `AccessLevel.ADMIN` have zero mandatory filters, complete chunk access across all files (including untagged/restricted files), and bypass all redaction.
 
+### Step 14: Qwen3 8B LLM Generation & Complete Grounded RAG Flow
+- Implemented `apps/agent/`:
+  - `LLMProvider` Protocol & `OllamaLLM`: Native connection to local `qwen3:8b` via Ollama `/api/chat`, supporting temperature controls, reasoning/thinking trace extraction (`LLMResponse.thinking`), and token/latency profiling.
+  - `PromptBuilder`: Strictly grounded prompt engineering with anti-hallucination guardrails, structured context passages, and mandatory inline citation format `[chunk_id]` (e.g. `[DOC-C-1000-ESTIMATE#c3]`).
+  - `RAGQuestionAnsweringFlow`: Complete end-to-end question-answering service:
+    1. Authenticates user identity via `SecurityContext` or JWT bearer token.
+    2. Executes secure hybrid retrieval, Cross-Encoder reranking, and PII redaction via `SecureRetriever`.
+    3. Handles empty or access-denied retrieval gracefully without hallucinating or wasting LLM tokens.
+    4. Passes sanitized context to Qwen3 8B for grounded synthesis.
+    5. Extracts and verifies citations from the generated answer against retrieved source chunks, outputting a strongly-typed `QAResponse`.
+
 ---
 
 ## Repository Structure
@@ -176,9 +194,15 @@ flowchart TD
 │
 └── insurance-support-agent/
     ├── docker-compose.yml                 # OpenSearch 2.11 & Dashboards services
+    ├── rag_qa_demonstration.txt           # Live Qwen3 8B end-to-end QA execution log
     │
     ├── apps/
     │   ├── agent/                         # Agent workflows and LLM orchestration
+    │   │   ├── llm.py                     # LLMProvider protocol & OllamaLLM (Qwen3 8B)
+    │   │   ├── models.py                  # ChatMessage, LLMResponse, Citation, QAResponse
+    │   │   ├── prompt.py                  # PromptBuilder (anti-hallucination & citations)
+    │   │   ├── qa_flow.py                 # RAGQuestionAnsweringFlow pipeline
+    │   │   └── tests/                     # 20 automated agent & generation tests
     │   │
     │   ├── api/                           # FastAPI REST endpoints
     │   │
@@ -310,11 +334,52 @@ for r in results:
     print(f"[{r.score:.4f}] {r.chunk_id}: {r.content[:100]}...")
 ```
 
+### 4. Code Example: Complete RAG Question-Answering Flow with Qwen3 8B
+
+```python
+from datetime import date
+from apps.agent import OllamaLLM, PromptBuilder, RAGQuestionAnsweringFlow
+from apps.auth import FieldRedactor, JWTValidator, SecureRetriever
+from apps.ingestion.embeddings import OllamaEmbeddingProvider
+from apps.ingestion.indexing import OpenSearchIndexer
+from apps.retrieval import CrossEncoderReranker, HybridRetriever
+
+# 1. Build infrastructure & retrieval pipeline
+indexer = OpenSearchIndexer(endpoint="http://localhost:9200", index_name="insurance_documents")
+embedder = OllamaEmbeddingProvider(model_name="bge-m3")
+reranker = CrossEncoderReranker(model_name="BAAI/bge-reranker-v2-m3")
+hybrid = HybridRetriever(vector_store=indexer, embedding_provider=embedder, reranker=reranker)
+secure_retriever = SecureRetriever(retriever=hybrid, redactor=FieldRedactor())
+
+# 2. Initialize Qwen3 8B LLM and RAG flow
+llm = OllamaLLM(model_name="qwen3:8b", base_url="http://localhost:11434")
+validator = JWTValidator(secret_key="production_secret_key_insurance_agent_32b")
+qa_flow = RAGQuestionAnsweringFlow(retriever=secure_retriever, llm=llm, jwt_validator=validator)
+
+# 3. Generate token for claims adjuster
+token = validator.create_token(
+    user_id="ADJ-104",
+    roles=["adjuster"],
+    claim_ids=["C-1000"],
+)
+
+# 4. Ask a grounded insurance question
+response = qa_flow.answer(
+    query="What is the net claim amount payable after the deductible for claim C-1000?",
+    jwt_token=token,
+    top_k=3,
+)
+
+print(f"Answer: {response.answer}")
+print(f"Citations: {[c.chunk_id for c in response.citations]}")
+print(f"Latency: {response.latency_seconds:.2f}s")
+```
+
 ---
 
 ## Testing & Quality Assurance
 
-The test suite contains **285 automated tests** covering models, parsers, extractors, chunkers, embeddings, indexing, retrieval, reranking, and the security layer:
+The test suite contains **305 automated tests** covering models, parsers, extractors, chunkers, embeddings, indexing, retrieval, reranking, security, and the LLM generation layer:
 
 ```bash
 poetry run pytest -v
@@ -324,6 +389,7 @@ poetry run pytest -v
 
 | Test Suite | Location | Tests | Scope |
 | :--- | :--- | :--- | :--- |
+| **Agent & Generation** | `apps/agent/tests/test_llm.py`, `test_prompt.py`, `test_qa_flow.py` | 20 | OllamaLLM client, thinking extraction, PromptBuilder, RAGQuestionAnsweringFlow, citation linking |
 | **Authentication & Context** | `apps/auth/tests/test_jwt.py`, `test_security_context.py` | 49 | JWT tokens, signature tampering, expiry, role permissions, mandatory filters |
 | **Redaction & Audit** | `apps/auth/tests/test_redaction.py` | 16 | PII regex patterns (IBAN, SSN, CC), role field stripping, admin bypass |
 | **Secure Retriever** | `apps/auth/tests/test_secure_retriever.py` | 22 | Filter merging, post-retrieval validation, cross-role data isolation, admin access |
@@ -335,4 +401,4 @@ poetry run pytest -v
 | **Structure Extractor** | `tests/test_structure_extractor.py` | 19 | Entity recognition (policies, claims, dates, currencies, coverages) |
 | **Chunk Data Model** | `tests/test_chunk_model.py`, `test_document_model.py` | 91 | Pydantic V2 validation, enum constraints, date logic, access control |
 | **Indexing & Embeddings** | `tests/test_indexing.py`, `test_embeddings.py` | 23 | Vector storage, k-NN queries, embedding provider contracts |
-| **Total** | | **285** | **100% passing** |
+| **Total** | | **305** | **100% passing** |

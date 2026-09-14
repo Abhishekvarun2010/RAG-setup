@@ -1,0 +1,166 @@
+
+================================================================================
+SCENARIO: Scenario 1 - Claim C-1000 Financial Settlement
+================================================================================
+User Query      : What is the net claim amount payable after the deductible for claim C-1000?
+Authorized User : ADJ-104
+Model           : qwen3:8b
+Total Latency   : 34.63s
+Token Usage     : {'prompt_tokens': 1059, 'completion_tokens': 448, 'duration_seconds': 24.8084}
+
+--- [Qwen3 8B Reasoning / Thinking Trace] ---
+Okay, let's tackle this question. The user is asking for the net claim amount payable after the deductible for claim C-1000. 
+
+First, I need to look through the provided context passages to find the relevant information. Let me check each chunk.
+
+Passage 1 is from the estimate document. It has a table with line items. The Gross repair estimate is €27,950.00, then subtracting the deductible of €5,0...
+
+--- [Synthesized Grounded Answer] ---
+The net claim payable amount after the deductible for claim C-1000 is €22,950.00. This is calculated by subtracting the €5,000 deductible from the gross repair estimate of €27,950.00 [DOC-C-1000-ESTIMATE#c3].
+
+--- [Answer with Clickable File Links] ---
+The net claim payable amount after the deductible for claim C-1000 is €22,950.00. This is calculated by subtracting the €5,000 deductible from the gross repair estimate of €27,950.00 [[DOC-C-1000-ESTIMATE#c3]](file:///Users/abhishm/Agentic_AI/RAG-setup/insurance-support-agent/data/raw/docs/claim/C-1000-estimate.pdf#page=1).
+
+--- [Authoritative Citations & Source Links] ---
+  [1] Chunk ID    : DOC-C-1000-ESTIMATE#c3
+      Document ID : DOC-C-1000-ESTIMATE | Type: estimate | Section: Line Items
+      Page Number : 1
+      File Path   : /Users/abhishm/Agentic_AI/RAG-setup/insurance-support-agent/data/raw/docs/claim/C-1000-estimate.pdf
+      Direct Link : file:///Users/abhishm/Agentic_AI/RAG-setup/insurance-support-agent/data/raw/docs/claim/C-1000-estimate.pdf#page=1
+      Markdown    : [DOC-C-1000-ESTIMATE (p. 1)](file:///Users/abhishm/Agentic_AI/RAG-setup/insurance-support-agent/data/raw/docs/claim/C-1000-estimate.pdf#page=1)
+      Snippet     : ### Line Items
+
+| Item | Amount |
+| --- | --- |
+| Property repair | €13,975.00 |
+| Equipment & fixtu...
+
+--- [Retrieved Context Passages] ---
+  [1] DOC-C-1000-ESTIMATE#c3 (Score: 0.1945, Method: reranked, Section: 'Line Items')
+  [2] DOC-C-1000-ADJ#c2 (Score: 0.1442, Method: reranked, Section: 'Claim & Assignment')
+  [3] DOC-C-1000-FNOL#c2 (Score: 0.1121, Method: reranked, Section: 'Claim Summary')
+
+================================================================================
+SCENARIO: Scenario 2 - Claim C-1000 Assignment & Incident Details
+================================================================================
+User Query      : What was the cause of loss, the insured party, and who was the assigned adjuster for claim C-1000?
+Authorized User : ADJ-104
+Model           : qwen3:8b
+Total Latency   : 23.80s
+Token Usage     : {'prompt_tokens': 981, 'completion_tokens': 498, 'duration_seconds': 22.5696}
+
+--- [Qwen3 8B Reasoning / Thinking Trace] ---
+Okay, let's tackle this question. The user wants to know the cause of loss, the insured party, and the assigned adjuster for claim C-1000. 
+
+First, I'll check each of the provided context passages. 
+
+Looking at Passage 1 (DOC-C-1000-ADJ#c2), it mentions the cause of loss as slip-and-fall, the insured is Graciano Solé, and the adjuster is Albano Llopis Hierro (liability). The claim status is CLOSED...
+
+--- [Synthesized Grounded Answer] ---
+The cause of loss for claim C-1000 was a slip-and-fall incident [DOC-C-1000-ADJ#c2][DOC-C-1000-ESTIMATE#c2][DOC-C-1000-FNOL#c2]. The insured party was Graciano Solé [DOC-C-1000-ADJ#c2][DOC-C-1000-ESTIMATE#c2][DOC-C-1000-FNOL#c2]. The assigned adjuster was Albano Llopis Hierro (liability) [DOC-C-1000-ADJ#c2].
+
+--- [Answer with Clickable File Links] ---
+The cause of loss for claim C-1000 was a slip-and-fall incident [[DOC-C-1000-ADJ#c2]](file:///Users/abhishm/Agentic_AI/RAG-setup/insurance-support-agent/data/raw/docs/claim/C-1000-adjuster-report.pdf#page=1)[[DOC-C-1000-ESTIMATE#c2]](file:///Users/abhishm/Agentic_AI/RAG-setup/insurance-support-agent/data/raw/docs/claim/C-1000-estimate.pdf#page=1)[[DOC-C-1000-FNOL#c2]](file:///Users/abhishm/Agentic_AI/RAG-setup/insurance-support-agent/data/raw/docs/claim/C-1000-fnol.pdf#page=1). The insured party was Graciano Solé [[DOC-C-1000-ADJ#c2]](file:///Users/abhishm/Agentic_AI/RAG-setup/insurance-support-agent/data/raw/docs/claim/C-1000-adjuster-report.pdf#page=1)[[DOC-C-1000-ESTIMATE#c2]](file:///Users/abhishm/Agentic_AI/RAG-setup/insurance-support-agent/data/raw/docs/claim/C-1000-estimate.pdf#page=1)[[DOC-C-1000-FNOL#c2]](file:///Users/abhishm/Agentic_AI/RAG-setup/insurance-support-agent/data/raw/docs/claim/C-1000-fnol.pdf#page=1). The assigned adjuster was Albano Llopis Hierro (liability) [[DOC-C-1000-ADJ#c2]](file:///Users/abhishm/Agentic_AI/RAG-setup/insurance-support-agent/data/raw/docs/claim/C-1000-adjuster-report.pdf#page=1).
+
+--- [Authoritative Citations & Source Links] ---
+  [1] Chunk ID    : DOC-C-1000-ADJ#c2
+      Document ID : DOC-C-1000-ADJ | Type: adjuster_report | Section: Claim & Assignment
+      Page Number : 1
+      File Path   : /Users/abhishm/Agentic_AI/RAG-setup/insurance-support-agent/data/raw/docs/claim/C-1000-adjuster-report.pdf
+      Direct Link : file:///Users/abhishm/Agentic_AI/RAG-setup/insurance-support-agent/data/raw/docs/claim/C-1000-adjuster-report.pdf#page=1
+      Markdown    : [DOC-C-1000-ADJ (p. 1)](file:///Users/abhishm/Agentic_AI/RAG-setup/insurance-support-agent/data/raw/docs/claim/C-1000-adjuster-report.pdf#page=1)
+      Snippet     : ### Claim & Assignment
+
+Claim number
+C-1000
+
+Policy number
+COM-0000077
+
+Line of business
+Commercial
+...
+  [2] Chunk ID    : DOC-C-1000-ESTIMATE#c2
+      Document ID : DOC-C-1000-ESTIMATE | Type: estimate | Section: Estimate — Claim C-1000
+      Page Number : 1
+      File Path   : /Users/abhishm/Agentic_AI/RAG-setup/insurance-support-agent/data/raw/docs/claim/C-1000-estimate.pdf
+      Direct Link : file:///Users/abhishm/Agentic_AI/RAG-setup/insurance-support-agent/data/raw/docs/claim/C-1000-estimate.pdf#page=1
+      Markdown    : [DOC-C-1000-ESTIMATE (p. 1)](file:///Users/abhishm/Agentic_AI/RAG-setup/insurance-support-agent/data/raw/docs/claim/C-1000-estimate.pdf#page=1)
+      Snippet     : ### Estimate — Claim C-1000
+
+Policy number
+COM-0000077
+
+Line of business
+Commercial
+
+Insured
+Gracian...
+  [3] Chunk ID    : DOC-C-1000-FNOL#c2
+      Document ID : DOC-C-1000-FNOL | Type: fnol | Section: Claim Summary
+      Page Number : 1
+      File Path   : /Users/abhishm/Agentic_AI/RAG-setup/insurance-support-agent/data/raw/docs/claim/C-1000-fnol.pdf
+      Direct Link : file:///Users/abhishm/Agentic_AI/RAG-setup/insurance-support-agent/data/raw/docs/claim/C-1000-fnol.pdf#page=1
+      Markdown    : [DOC-C-1000-FNOL (p. 1)](file:///Users/abhishm/Agentic_AI/RAG-setup/insurance-support-agent/data/raw/docs/claim/C-1000-fnol.pdf#page=1)
+      Snippet     : ### Claim Summary
+
+Claim number
+C-1000
+
+Policy number
+COM-0000077
+
+Line of business
+Commercial
+
+Date...
+
+--- [Retrieved Context Passages] ---
+  [1] DOC-C-1000-ADJ#c2 (Score: 0.8681, Method: reranked, Section: 'Claim & Assignment')
+  [2] DOC-C-1000-ESTIMATE#c2 (Score: 0.5751, Method: reranked, Section: 'Estimate — Claim C-1000')
+  [3] DOC-C-1000-FNOL#c2 (Score: 0.5131, Method: reranked, Section: 'Claim Summary')
+
+================================================================================
+SCENARIO: Scenario 3 - Version-Aware Historical Policy Inquiry (as_of_date=2024-03-15)
+================================================================================
+User Query      : What policy contract version, coverage, and deductible applied to commercial policy COM-0000077 when the accident occurred in March 2024?
+Authorized User : AGT-007
+Model           : qwen3:8b
+Total Latency   : 16.01s
+Token Usage     : {'prompt_tokens': 658, 'completion_tokens': 355, 'duration_seconds': 15.5959}
+
+--- [Qwen3 8B Reasoning / Thinking Trace] ---
+Okay, let's tackle this question. The user is asking about the policy contract version, coverage, and deductible for COM-0000077 as of March 15, 2024. 
+
+First, I need to check the provided context. The only passage given is Passage 1 with Chunk ID DOC-COM-0000077-v1#c1. The document mentions the policy is version 1, effective from 2023-01-01 to 2024-05-31. The coverage includes premises slip-and-f...
+
+--- [Synthesized Grounded Answer] ---
+The commercial policy COM-0000077 applied under **Version 1** of the policy contract, with coverage for **premises slip-and-fall, property damage, and basic operational liability**. The deductible in effect was **€5,000.00 per occurrence** [DOC-COM-0000077-v1#c1]. 
+
+This information is valid for the accident occurring in March 2024, as the policy was in effect through May 31, 2024.
+
+--- [Authoritative Citations & Source Links] ---
+  [1] Chunk ID    : DOC-COM-0000077-v1#c1
+      Document ID : DOC-COM-0000077-v1 | Type: policy_contract | Section: Policy Coverage & Deductibles
+      Page Number : 1
+      Snippet     : Commercial General Liability Policy COM-0000077 (Version 1, in effect 2023-01-01 to 2024-05-31). Cov...
+
+--- [Retrieved Context Passages] ---
+  [1] DOC-COM-0000077-v1#c1 (Score: 0.9939, Method: reranked, Section: 'Policy Coverage & Deductibles')
+
+================================================================================
+SCENARIO: Scenario 4 - Security Enforcement (Unauthorized User Inquiry on C-1000)
+================================================================================
+User Query      : What is the net payable settlement amount and adjuster name for claim C-1000?
+Authorized User : PH-UNAUTHORIZED-999
+Model           : qwen3:8b
+Total Latency   : 0.06s
+Token Usage     : {'prompt_tokens': 0, 'completion_tokens': 0}
+
+--- [Synthesized Grounded Answer] ---
+Based on the available records and your access permissions, I do not have enough information to answer this question.
+
+--- [Authoritative Citations & Source Links] ---
+  (No citations extracted)
+
+--- [Retrieved Context Passages] ---
