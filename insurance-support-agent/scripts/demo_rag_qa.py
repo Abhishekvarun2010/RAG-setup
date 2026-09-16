@@ -39,7 +39,7 @@ def build_pipeline() -> RAGQuestionAnsweringFlow:
     print("Initializing components...")
     
     # Storage & Embedding layer
-    indexer = OpenSearchIndexer(
+    indexer = OpenSearchIndexer( 
         endpoint="http://localhost:9200",
         index_name="insurance_documents",
     )
