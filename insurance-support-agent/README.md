@@ -179,7 +179,12 @@ flowchart TD
     2. Executes secure hybrid retrieval, Cross-Encoder reranking, and PII redaction via `SecureRetriever`.
     3. Handles empty or access-denied retrieval gracefully without hallucinating or wasting LLM tokens.
     4. Passes sanitized context to Qwen3 8B for grounded synthesis.
-    5. Extracts and verifies citations from the generated answer against retrieved source chunks, outputting a strongly-typed `QAResponse`.
+### Step 15: Agent Runtime Architecture & Customer Data Capability
+- Implemented **Agent Runtime** and **Customer Data Capability**:
+  - `AgentPlanner` (`apps/agent/planner.py`): Capability routing model classifying inquiries across 4 core competencies: `RAG`, `CUSTOMER_DATA`, `ACTIONS`, and `DIRECT_ANSWER`. The LLM only proposes the plan and never executes arbitrary database operations or code.
+  - `AgentRuntime` (`apps/agent/runtime.py`): Orchestrates plan validation, deterministic tool execution, and final grounded answer synthesis.
+  - `Insurance API` (`services/insurance_api/`): Standalone FastAPI microservice on port 8001 backed by local PostgreSQL (`insurance_db` on `localhost:5432`), automatically seeded from the Strata corpus (80 policyholders, 120 policies, 80 claims). Provides `GET /policies/{policy_id}`, `GET /policyholders/{id}`, `GET /claims/{id}`.
+  - `PolicyDataTool` (`apps/agent/tools/policy_tool.py`): HTTP tool connecting the Agent Runtime to the Insurance API (`http://localhost:8001`), ensuring strict decoupling—the agent never connects directly to PostgreSQL.
 
 ---
 
@@ -195,14 +200,20 @@ flowchart TD
 └── insurance-support-agent/
     ├── docker-compose.yml                 # OpenSearch 2.11 & Dashboards services
     ├── rag_qa_demonstration.txt           # Live Qwen3 8B end-to-end QA execution log
+    ├── customer_data_tool_demonstration.txt # Live Agent Runtime & PolicyDataTool log
     │
     ├── apps/
     │   ├── agent/                         # Agent workflows and LLM orchestration
     │   │   ├── llm.py                     # LLMProvider protocol & OllamaLLM (Qwen3 8B)
     │   │   ├── models.py                  # ChatMessage, LLMResponse, Citation, QAResponse
+    │   │   ├── planner.py                 # AgentPlanner (RAG, Customer Data, Actions, Direct Answer)
     │   │   ├── prompt.py                  # PromptBuilder (anti-hallucination & citations)
     │   │   ├── qa_flow.py                 # RAGQuestionAnsweringFlow pipeline
-    │   │   └── tests/                     # 20 automated agent & generation tests
+    │   │   ├── runtime.py                 # AgentRuntime orchestrator & tool execution
+    │   │   ├── tools/                     # Agent tool capabilities
+    │   │   │   ├── base.py                # BaseTool and ToolResult abstractions
+    │   │   │   └── policy_tool.py         # PolicyDataTool (calls Insurance API over HTTP)
+    │   │   └── tests/                     # 30 automated agent, planner & tool tests
     │   │
     │   ├── api/                           # FastAPI REST endpoints
     │   │
@@ -225,9 +236,15 @@ flowchart TD
     │   └── retrieval/                     # Hybrid Search & Reranking Layer
     │       ├── fusion.py                  # Reciprocal Rank Fusion (RRF)
     │       ├── hybrid.py                  # HybridRetriever (parallel BM25 + k-NN)
-    │       ├── models.py                  # RetrievalFilters & RetrievalResult models
-    │       ├── rerank.py                  # CrossEncoderReranker
-    │       └── tests/                     # 31 automated retrieval tests
+    │       ├── models.py                  # RetrievalResult, RetrievalFilters
+    │       ├── rerank.py                  # CrossEncoderReranker (bge-reranker-v2-m3)
+    │       └── tests/                     # 31 automated retrieval & reranking tests
+    │
+    └── services/
+        └── insurance_api/                 # Core Insurance API Microservice (port 8001)
+            ├── database.py                # SQLAlchemy models & Strata seeder (PostgreSQL)
+            ├── main.py                    # FastAPI application (GET /policies/{id})
+            └── models.py                  # Pydantic models (PolicyResponse, ClaimResponse)
     │
     ├── data/
     │   ├── raw/                           # Raw Strata corpus (1,311 documents)
@@ -375,11 +392,36 @@ print(f"Citations: {[c.chunk_id for c in response.citations]}")
 print(f"Latency: {response.latency_seconds:.2f}s")
 ```
 
+### 5. Code Example: Customer Data Lookup via PolicyDataTool & Insurance API
+
+```python
+from apps.agent import AgentPlanner, AgentRuntime, OllamaLLM, PolicyDataTool
+
+# 1. Initialize tool calling Insurance API over HTTP (port 8001 -> PostgreSQL)
+policy_tool = PolicyDataTool(base_url="http://localhost:8001")
+llm = OllamaLLM(model_name="qwen3:8b")
+planner = AgentPlanner(llm=llm)
+
+# 2. Instantiate Agent Runtime
+runtime = AgentRuntime(
+    planner=planner,
+    tools={"get_policy_details": policy_tool},
+    llm=llm,
+)
+
+# 3. Ask a structured policy question
+response = runtime.run("What is my deductible and who is the insured party on policy COM-0000077?")
+
+print(f"Plan Capabilities: {[c.value for c in response.plan.capabilities]}")
+print(f"Tool Executed: {response.plan.steps[0].tool_name}")
+print(f"Answer: {response.answer}")
+```
+
 ---
 
 ## Testing & Quality Assurance
 
-The test suite contains **305 automated tests** covering models, parsers, extractors, chunkers, embeddings, indexing, retrieval, reranking, security, and the LLM generation layer:
+The test suite contains **320 automated tests** covering models, parsers, extractors, chunkers, embeddings, indexing, retrieval, reranking, security, the Insurance API, and the Agent Runtime:
 
 ```bash
 poetry run pytest -v
@@ -389,7 +431,8 @@ poetry run pytest -v
 
 | Test Suite | Location | Tests | Scope |
 | :--- | :--- | :--- | :--- |
-| **Agent & Generation** | `apps/agent/tests/test_llm.py`, `test_prompt.py`, `test_qa_flow.py` | 20 | OllamaLLM client, thinking extraction, PromptBuilder, RAGQuestionAnsweringFlow, citation linking |
+| **Agent & Runtime** | `apps/agent/tests/test_llm.py`, `test_prompt.py`, `test_qa_flow.py`, `test_policy_tool.py`, `test_runtime.py` | 30 | OllamaLLM, PromptBuilder, RAGQuestionAnsweringFlow, AgentPlanner, AgentRuntime, PolicyDataTool |
+| **Insurance API** | `tests/test_insurance_api.py` | 5 | PostgreSQL endpoints: `GET /policies/{id}`, `/policyholders/{id}`, `/claims/{id}`, `/health` |
 | **Authentication & Context** | `apps/auth/tests/test_jwt.py`, `test_security_context.py` | 49 | JWT tokens, signature tampering, expiry, role permissions, mandatory filters |
 | **Redaction & Audit** | `apps/auth/tests/test_redaction.py` | 16 | PII regex patterns (IBAN, SSN, CC), role field stripping, admin bypass |
 | **Secure Retriever** | `apps/auth/tests/test_secure_retriever.py` | 22 | Filter merging, post-retrieval validation, cross-role data isolation, admin access |
@@ -401,4 +444,4 @@ poetry run pytest -v
 | **Structure Extractor** | `tests/test_structure_extractor.py` | 19 | Entity recognition (policies, claims, dates, currencies, coverages) |
 | **Chunk Data Model** | `tests/test_chunk_model.py`, `test_document_model.py` | 91 | Pydantic V2 validation, enum constraints, date logic, access control |
 | **Indexing & Embeddings** | `tests/test_indexing.py`, `test_embeddings.py` | 23 | Vector storage, k-NN queries, embedding provider contracts |
-| **Total** | | **305** | **100% passing** |
+| **Total** | | **320** | **100% passing** |
